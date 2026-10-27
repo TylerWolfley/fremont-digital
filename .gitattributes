@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.zip binary
+*.ttf binary
+"logos/Fremont Digital Logo 1" binary
+"logos/fremont digital logo 2" binary

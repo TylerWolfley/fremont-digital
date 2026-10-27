@@ -1,0 +1,25 @@
+# Local deployment state; publishing is a separate step.
+site/.openai/
+
+# Rejected and unused explorations must stay out of the repository.
+reference/rejected-artwork/
+reference/explorations/
+site/scripts/font-source.css
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.codex/
+.agents/
+
+# Dependencies, caches, and operating-system files
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.log
