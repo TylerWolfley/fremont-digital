@@ -14,12 +14,25 @@ Work top down, one component at a time. The owner has now authorized coding the 
 
 - Aim to make the website a leading example of quality in Fremont County, Colorado. Do not claim a verified ranking.
 - Fremont Digital covers websites, digital marketing, professional photography, YouTube/video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable technology jobs.
-- Organize current services into Web & Digital, Repairs & Tech, and Photo & Media. Use one shared service registry for desktop/mobile navigation and future service pages.
+- Organize current services into Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Use one shared service registry for desktop/mobile navigation and future service pages.
 - Phone resale is a future expansion after a physical location is established. Do not advertise inventory, purchases, trade-ins, or resale as available now.
 - The site itself demonstrates capability. No featured websites, portfolio, fictional client projects, or case-study gallery.
 - Personal, clear writing. No invented reviews, credentials, team, results, pricing, or turnaround guarantees.
 - Business email: digitalfremont@gmail.com.
 - Final domain has not been supplied.
+
+## Service scope refinement
+
+The owner supplied a proposed five-category service list and asked us to use the helpful parts. The header draft now has four current categories, with security installation retained as a candidate below.
+
+- **Web & Digital:** website builds, redesigns, maintenance, SEO, Google Business Profile setup and management, social media, and digital marketing. Do not promise rankings or marketing results.
+- **Business Tech:** business email and domains; online booking, payments, and POS setup; workstations, Wi-Fi, printers, and scanners; inventory and business software; file transfers and backups; digital signage and QR menus. Keep these grouped into six clear inquiry choices rather than a separate navigation item for every task.
+- **Repairs & Tech:** phone screens and charging ports; computer troubleshooting, component replacements and upgrades; virus and malware cleanup; device and software setup; personal file transfers.
+- **Photo & Media:** business, product, and real estate photography; video production and YouTube content; editing and promotional content for websites and social media. Do not imply drone services or a portfolio of completed client work.
+- **Security & Installation — candidate, not advertised yet:** camera and video doorbell setup, security-equipment troubleshooting, connected equipment, and remote-viewing apps. Confirm the owner's intended installation scope and ability to deliver it before adding a public service category. The supplied licensing caveat is not a verified determination of local requirements.
+- **Not actively advertised:** TV mounting, VHS conversion, smartwatch setup, smart appliances, car electronics, and general handyman work. Keep the general inquiry invitation for unusual technology requests.
+
+Website projects and business technology often connect: email, booking, payments, and office setup belong together in future service-page planning. Do not invent bundles or prices. Phone resale remains a separate future expansion, not part of the current service menu.
 
 ## Rejected artwork
 

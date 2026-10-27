@@ -20,11 +20,13 @@ The asset files in `dist/assets/` are preserved by the build. The scripts do not
 
 Add a current service to the appropriate group in `src/data/services.mjs`, with a stable ID, short name, and plain-language description. The desktop and mobile menus share that data. Keep future offerings in `futureServices` until the owner explicitly makes them available.
 
-Three top-level groups keep the navigation understandable as the business grows. Phone resale can become a separate shop section when there is a location, inventory, and actual operating terms. There is no speculative commerce system in this draft.
+Four top-level groups organize the current offering: Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Specific tasks are combined into short inquiry choices within each group. Security installations remain a candidate in `../PROJECT-DECISIONS.md` until the owner confirms the scope. Phone resale can become a separate shop section when there is a location, inventory, and actual operating terms. There is no speculative commerce system in this draft.
 
 ## Navigation behavior
 
 Native `details` and `summary` elements keep the disclosures usable without JavaScript. The enhancement closes sibling menus, handles Escape and outside clicks, restores focus after Escape, and resets menus across the desktop breakpoint. The mobile menu is an expandable navigation region, not a modal dialog.
+
+The four-category desktop header starts at 1200px; keep the CSS and JavaScript breakpoint aligned. Expanded desktop panels and the mobile menu can scroll within the available viewport height as the service list grows.
 
 Until service pages are designed, the individual service links explicitly open email inquiries. No form sends messages, and no success state claims receipt.
 

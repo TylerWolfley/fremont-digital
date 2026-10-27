@@ -2,7 +2,7 @@
 
 Website and brand assets for Fremont Digital, an independent technology business in Fremont County, Colorado.
 
-The business covers websites, digital marketing, professional photography, video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable tech projects. Business inquiries: **digitalfremont@gmail.com**.
+The business covers websites, digital marketing, small-business technology setup, professional photography, video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable tech projects. The service menu is organized into Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Business inquiries: **digitalfremont@gmail.com**.
 
 ## Current stage
 
