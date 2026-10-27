@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Fremont Digital — Header review</title>
+  <link rel="icon" href="/assets/favicons/favicon.ico">
+  <style>
+    @font-face{font-family:Manrope;src:url('/assets/manrope-regular.ttf') format('truetype');font-display:swap}
+    *{box-sizing:border-box}body{margin:0;background:#e9e9e2;color:#202b34;font:14px/1.6 Manrope,Arial,sans-serif}
+    .review-bar{padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#202b34;color:#f5f3ed}
+    .review-title{display:flex;align-items:center;gap:16px}.review-title small{color:#e3ae87;letter-spacing:.08em}.review-title strong{font-size:15px;font-weight:400}
+    .controls{display:flex;gap:12px;align-items:center}.controls label{font-size:12px;color:#d2d9d9}select{font:inherit;font-size:12px;border:1px solid #6e7a7e;color:white;background:#202b34;padding:8px 10px;border-radius:3px}
+    .review-note{max-width:1440px;margin:26px auto 20px;padding:0 32px;display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+    .review-note p{margin:0;max-width:680px;color:#526167}.review-note span{font-size:12px;white-space:nowrap;color:#526167}
+    .stage{overflow:auto;padding:0 32px 30px}.device{width:100%;max-width:1440px;margin:auto;background:white;border:1px solid #ccd1cb;box-shadow:0 10px 30px #202b3412}iframe{width:100%;height:690px;display:block;border:0;background:#f5f3ed}
+    .caption{padding:11px 18px;border-top:1px solid #dde0da;font-size:11px;background:white;color:#68767c}
+    @media(max-width:650px){.review-bar{padding:18px;align-items:flex-start;flex-direction:column;gap:12px}.review-title{gap:12px}.stage{padding:0 12px 20px}.review-note{padding:0 18px;font-size:12px;display:block}.review-note span{display:block;margin-top:10px}}
+  </style>
+</head>
+<body>
+  <div class="review-bar"><div class="review-title"><small>02 / HEADER</small><strong>Fremont Digital</strong></div><div class="controls"><label for="viewport">Preview width</label><select id="viewport"><option value="auto">Fit to window</option><option value="1440">Desktop · 1440px</option><option value="1024">Tablet landscape · 1024px</option><option value="768">Tablet · 768px</option><option value="390">Phone · 390px</option><option value="320">Small phone · 320px</option></select></div></div>
+  <div class="review-note"><p>Try the service menus and the mobile navigation. This review covers the header only; the space beneath it is reserved for the next section.</p><span>Draft · no website deployment</span></div>
+  <div class="stage"><div class="device" id="device"><iframe id="preview" src="/" title="Fremont Digital header preview"></iframe><div class="caption" id="caption">Actual website header · fit to window</div></div></div>
+  <script>
+    document.getElementById('viewport').addEventListener('change',event=>{
+      const width=event.target.value; const device=document.getElementById('device');
+      device.style.width=width==='auto'?'100%':width+'px';
+      document.getElementById('caption').textContent='Actual website header · '+(width==='auto'?'fit to window':width+'px');
+    });
+  </script>
+</body>
+</html>

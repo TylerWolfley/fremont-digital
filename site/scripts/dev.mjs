@@ -1,0 +1,40 @@
+import http from 'node:http';
+import { readFile } from 'node:fs/promises';
+import { watch } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { resolve, dirname, extname, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const dist = resolve(root, 'dist');
+const port = Number(process.env.PORT || 4173);
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.ttf':'font/ttf' };
+function build() {
+  const result = spawnSync(process.execPath, [resolve(root,'scripts/build.mjs')], { stdio:'inherit' });
+  if (result.status !== 0) throw new Error('Site build failed.');
+}
+build();
+const server = http.createServer(async (request, response) => {
+  try {
+    if (!['GET','HEAD'].includes(request.method)) { response.writeHead(405); response.end(); return; }
+    const pathname = decodeURIComponent(new URL(request.url, `http://127.0.0.1:${port}`).pathname);
+    let file;
+    if (pathname === '/review/header') file = resolve(root, '../reviews/02-header/review.html');
+    else {
+      file = resolve(dist, '.' + (pathname === '/' ? '/index.html' : pathname));
+      if (!file.startsWith(dist+sep)) { response.writeHead(403); response.end(); return; }
+    }
+    const data = await readFile(file);
+    response.writeHead(200, { 'Content-Type':types[extname(file)]||'application/octet-stream', 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' });
+    response.end(request.method === 'HEAD' ? undefined : data);
+  } catch {
+    response.writeHead(404, { 'Content-Type':'text/plain; charset=utf-8' });
+    response.end('Not found');
+  }
+});
+server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/review/header`));
+let pending;
+watch(resolve(root,'src'),{recursive:true},()=>{
+  clearTimeout(pending);
+  pending=setTimeout(()=>{try{build()}catch(error){console.error(error.message)}},120);
+});

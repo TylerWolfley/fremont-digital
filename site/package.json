@@ -1,0 +1,13 @@
+{
+  "name": "fremont-digital",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fremont Digital website, developed one component at a time.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "review": "node scripts/build.mjs && node scripts/build-review.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

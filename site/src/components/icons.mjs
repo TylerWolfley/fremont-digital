@@ -1,0 +1,3 @@
+export const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+export const chevron = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+export const pin = '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M15.5 8c0 4-5.5 8-5.5 8S4.5 12 4.5 8a5.5 5.5 0 1 1 11 0Z" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="8" r="1.7" stroke="currentColor" stroke-width="1.3"/></svg>';
