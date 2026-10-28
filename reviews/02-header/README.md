@@ -1,6 +1,6 @@
 # Header review
 
-Current scope: the site foundation, header, and service navigation. The hero and the remainder of the page have not been designed. The existing favicon is carried forward as a draft, not marked finally approved.
+This retains the header-only review stage. The owner reviewed the header favorably and then authorized the full homepage skeleton, now available in `../03-layout/`. The existing favicon is carried forward as a draft, not marked finally approved.
 
 ## Open the review
 
@@ -29,4 +29,4 @@ Security installations are saved as a candidate in the project decisions, pendin
 - Logo dimensions and favicon references are checked.
 - Browser interaction and responsive visual QA remain unverified: the browser tool denied access to the local preview. No alternate browser automation was used.
 
-The next review should cover the logo size, spacing, category wording, desktop dropdowns, and mobile menu. This draft has not been deployed.
+This review can still be used to inspect the logo size, spacing, category wording, desktop dropdowns, and mobile menu independently of the full page. This draft has not been deployed.

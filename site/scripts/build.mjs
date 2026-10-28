@@ -21,9 +21,14 @@ for (const folder of ['styles', 'scripts']) {
   }
 }
 const html = homePage();
+const sectionIds = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+if (new Set(sectionIds).size !== sectionIds.length) throw new Error('Duplicate HTML IDs.');
+for (const match of html.matchAll(/href="#([^"]+)"/g)) {
+  if (!sectionIds.includes(match[1])) throw new Error(`Missing section target: ${match[1]}`);
+}
 // Catch broken local asset references before any preview is served.
 for (const match of html.matchAll(/(?:href|src)="(\/[^"#]+)"/g)) {
   await access(resolve(out, '.' + match[1]));
 }
 await writeFile(resolve(out, 'index.html'), html);
-console.log(`Built header and navigation: ${serviceGroups.length} service groups, ${ids.size-serviceGroups.length} current services.`);
+console.log(`Built full page layout: ${serviceGroups.length} service groups, ${ids.size-serviceGroups.length} current services.`);

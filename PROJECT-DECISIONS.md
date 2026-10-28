@@ -2,7 +2,9 @@
 
 ## Working method
 
-Work top down, one component at a time. The owner has now authorized coding the website while emphasizing service organization. Current scope: the foundation, header, and service navigation. Carry the existing favicon forward as a draft; this authorization is not a claim of final favicon approval. Review the header before beginning the hero or the rest of the page. Keep the work local during this component-by-component review.
+Work in orderly stages. After reviewing the header favorably, the owner authorized a complete site skeleton with minimal working copy, prioritizing layout quality. Current scope: the full homepage layout, responsive structure, and working navigation. Carry the existing favicon forward as a draft; this authorization is not a claim of final favicon approval. Keep the work local for review and synchronize source to the existing GitHub repository. Copy and individual sections can be refined after the complete layout is reviewed.
+
+The homepage order is: existing header, brand-led hero and category shortcuts, service directory, connected business-services section, short process section, contact, and footer. Use the owner's actual FD monogram for the hero. No generated artwork or fictional portfolio is needed. Keep working copy in `site/src/data/homepage.mjs` and service content in the shared registry. Each page section has its own component.
 
 ## Brand sources
 

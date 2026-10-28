@@ -1,7 +1,13 @@
 import { business } from '../data/business.mjs';
 import { header } from '../components/header.mjs';
+import { hero } from '../components/hero.mjs';
+import { services } from '../components/services.mjs';
+import { businessFeature } from '../components/business-feature.mjs';
+import { processSection } from '../components/process.mjs';
+import { contact } from '../components/contact.mjs';
+import { footer } from '../components/footer.mjs';
 
-export function homePage() {
+export function homePage({ headerOnly = false } = {}) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -17,12 +23,14 @@ export function homePage() {
   <link rel="preload" href="/assets/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/header.css">
+  ${headerOnly ? '' : '<link rel="stylesheet" href="/styles/home.css">'}
   <script src="/scripts/header.js" defer></script>
+  ${headerOnly ? '' : '<script src="/scripts/home.js" defer></script>'}
 </head>
-<body>
+<body id="top">
   ${header()}
-  <!-- The hero and remaining content will be designed after the header review. -->
-  <main id="main" class="page-main" tabindex="-1"></main>
+  <main id="main" class="page-main" tabindex="-1">${headerOnly ? '' : [hero(), services(), businessFeature(), processSection(), contact()].join('\n')}</main>
+  ${headerOnly ? '' : footer()}
 </body>
 </html>`;
 }

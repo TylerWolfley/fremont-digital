@@ -10,8 +10,10 @@ const dist = resolve(root, 'dist');
 const port = Number(process.env.PORT || 4173);
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.ttf':'font/ttf' };
 function build() {
-  const result = spawnSync(process.execPath, [resolve(root,'scripts/build.mjs')], { stdio:'inherit' });
-  if (result.status !== 0) throw new Error('Site build failed.');
+  for (const script of ['build.mjs', 'build-review.mjs']) {
+    const result = spawnSync(process.execPath, [resolve(root, 'scripts', script)], { stdio: 'inherit' });
+    if (result.status !== 0) throw new Error(`Build failed: ${script}`);
+  }
 }
 build();
 const server = http.createServer(async (request, response) => {
@@ -19,7 +21,8 @@ const server = http.createServer(async (request, response) => {
     if (!['GET','HEAD'].includes(request.method)) { response.writeHead(405); response.end(); return; }
     const pathname = decodeURIComponent(new URL(request.url, `http://127.0.0.1:${port}`).pathname);
     let file;
-    if (pathname === '/review/header') file = resolve(root, '../reviews/02-header/review.html');
+    if (pathname === '/review/header') file = resolve(root, '../reviews/02-header/offline-review.html');
+    else if (pathname === '/review/layout') file = resolve(root, '../reviews/03-layout/review.html');
     else {
       file = resolve(dist, '.' + (pathname === '/' ? '/index.html' : pathname));
       if (!file.startsWith(dist+sep)) { response.writeHead(403); response.end(); return; }
@@ -32,7 +35,7 @@ const server = http.createServer(async (request, response) => {
     response.end('Not found');
   }
 });
-server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/review/header`));
+server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/review/layout`));
 let pending;
 watch(resolve(root,'src'),{recursive:true},()=>{
   clearTimeout(pending);

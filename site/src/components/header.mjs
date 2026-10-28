@@ -1,8 +1,7 @@
 import { business, inquiryLink } from '../data/business.mjs';
 import { serviceGroups } from '../data/services.mjs';
 import { arrow, chevron, pin } from './icons.mjs';
-
-const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+import { escape } from './html.mjs';
 
 function serviceDisclosure(group, prefix) {
   const labelId = `${prefix}-${group.id}`;
