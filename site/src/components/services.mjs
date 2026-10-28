@@ -14,7 +14,7 @@ export function services() {
           <summary><span class="index-number">0${index + 1}</span><span class="category-icon">${groupIcons[group.id]}</span><h3>${escape(group.navLabel)}</h3><span class="category-hint">${escape(copy.hints[group.id])}</span><span class="category-toggle">${plus}</span></summary>
           <div class="service-category__body">
             <div class="service-category__intro"><p>${escape(group.description)}</p><span>Choose a service to start an email inquiry.</span></div>
-            <ul class="directory-links">${group.services.map(service => `<li><a href="${escape(inquiryLink(`Fremont Digital inquiry: ${service.name}`))}" aria-label="Email about ${escape(service.name)}">${escape(service.name)}${arrow}</a></li>`).join('\n')}</ul>
+            <ul class="directory-links">${group.services.map(service => `<li><a href="${escape(inquiryLink(`Fremont Digital inquiry: ${service.name}`))}" aria-label="Email about ${escape(service.name)}"><span><strong>${escape(service.name)}</strong><span>${escape(service.description)}</span></span>${arrow}</a></li>`).join('\n')}</ul>
           </div>
         </details>`).join('\n')}
       </div>

@@ -25,3 +25,18 @@ function syncHash() {
 }
 window.addEventListener('hashchange', syncHash);
 syncHash();
+
+// Offer webmail users a second way to start; never claim an email was sent.
+const copyEmail = document.querySelector('[data-copy-email]');
+const copyStatus = document.querySelector('[data-copy-status]');
+if (copyEmail && copyStatus && navigator.clipboard?.writeText) {
+  copyEmail.hidden = false;
+  copyEmail.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(copyEmail.dataset.copyEmail);
+      copyStatus.textContent = 'Email address copied.';
+    } catch {
+      copyStatus.textContent = 'Copy isn’t available here. Select the email address above to copy it manually.';
+    }
+  });
+}

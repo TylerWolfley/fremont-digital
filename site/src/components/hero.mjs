@@ -14,7 +14,7 @@ export function hero() {
       <p class="hero__note"><span aria-hidden="true"></span>${escape(copy.note)}</p>
     </div>
     <div class="brand-board">
-      <div class="brand-board__top"><span>Fremont Digital</span><span>Local by design</span></div>
+      <div class="brand-board__top"><span>Fremont Digital</span><span>Your local digital connection.</span></div>
       <div class="brand-board__mark"><img src="/assets/brand/fremont-digital-monogram.webp" width="680" height="505" alt="" fetchpriority="high"></div>
       <nav class="brand-board__index" aria-label="Explore service categories">
         ${serviceGroups.map((group, index) => `<a href="#${group.id}"><span class="index-number">0${index + 1}</span><span>${escape(group.navLabel)}</span>${arrow}</a>`).join('\n')}

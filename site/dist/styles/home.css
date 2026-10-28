@@ -30,15 +30,15 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 /* 01 — Opening */
 .hero { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr); gap: clamp(36px, 5.5vw, 84px); align-items: center; padding-block: 74px 88px; }
 .hero__copy { padding-block: 20px; }
-.hero__copy > .eyebrow { margin-bottom: 30px; }
+.hero__copy > .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+.hero__copy > .eyebrow::before { content: ''; width: 27px; height: 3px; background: var(--color-copper); flex-shrink: 0; }
 .hero h1 { margin-bottom: 28px; font-size: clamp(62px, 6.6vw, 100px); line-height: 1.04; font-weight: 600; letter-spacing: -.065em; }
 .hero h1 em { margin-top: 4px; font-size: 1.12em; color: var(--color-copper); }
 .hero__description { max-width: 375px; color: var(--color-muted); font-size: 16px; line-height: 1.8; margin-bottom: 29px; }
 .hero__actions { display: flex; align-items: center; gap: 27px; flex-wrap: wrap; }
 .hero__note { display: flex; align-items: center; gap: 10px; margin: 37px 0 0; font-size: 11px; color: var(--color-muted); }
 .hero__note > span { width: 18px; height: 1px; background: var(--color-copper); }
-.brand-board { background: white; border: 1px solid #d9dcd5; position: relative; }
-.brand-board::after { content: ''; position: absolute; pointer-events: none; top: 14px; left: 14px; right: -14px; bottom: -14px; border: 1px solid #d9dcd5; z-index: -1; }
+.brand-board { background: white; border: 1px solid #d9dcd5; border-top: 3px solid var(--color-copper); position: relative; }
 .brand-board__top { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 24px; border-bottom: 1px solid var(--color-line); font-size: 10px; letter-spacing: .04em; }
 .brand-board__top > span:last-child { color: var(--color-muted); }
 .brand-board__mark { padding: clamp(30px, 4vw, 62px) clamp(40px, 5vw, 78px); }
@@ -48,6 +48,8 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 .brand-board__index a:nth-child(odd) { border-right: 1px solid var(--color-line); }
 .brand-board__index a:nth-child(-n+2) { border-bottom: 1px solid var(--color-line); }
 .brand-board__index svg { width: 16px; height: 16px; }
+.brand-board__index svg, .button svg { transition: transform .18s; }
+.brand-board__index a:hover svg, .button:hover svg { transform: translateX(3px); }
 .brand-board__index a:hover { background: var(--color-paper); }
 
 /* 02 — Service directory */
@@ -61,7 +63,8 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 .category-hint { font-size: 12px; color: var(--color-muted); }
 .category-toggle { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--color-line); border-radius: 50%; transition: background .2s, transform .2s; }
 .category-toggle svg { width: 20px; height: 20px; }
-.service-category[open] .category-toggle { background: var(--color-paper); transform: rotate(45deg); }
+.service-category[open] .category-toggle { background: var(--color-ink); color: white; border-color: var(--color-ink); transform: rotate(45deg); }
+.service-category[open] .category-icon { color: var(--color-copper); }
 .service-category > summary:hover h3 { color: var(--color-copper); }
 .service-category__body { display: grid; grid-template-columns: minmax(220px, .85fr) minmax(0, 1.5fr); gap: clamp(36px, 6vw, 90px); padding: 2px 0 36px 52px; }
 .service-category__intro > p { max-width: 340px; margin-bottom: 20px; font-size: 14px; color: var(--color-muted); line-height: 1.9; }
@@ -69,6 +72,9 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 .directory-links { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; margin: 0; padding: 0; align-content: start; }
 .directory-links li { border-top: 1px solid var(--color-line); }
 .directory-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 100%; min-height: 63px; padding: 15px 0; font-size: 12px; line-height: 1.6; text-decoration: none; }
+.directory-links a > span { min-width: 0; }
+.directory-links strong { display: block; font-size: 14px; font-weight: 600; line-height: 1.5; }
+.directory-links a > span > span { display: block; margin-top: 7px; font-size: 12px; color: var(--color-muted); line-height: 1.8; }
 .directory-links svg { width: 17px; height: 17px; color: var(--color-copper); }
 .directory-links a:hover { color: var(--color-copper); text-decoration: underline; text-underline-offset: 4px; }
 .services-footnote { margin: 30px 0 0; font-size: 12px; color: var(--color-muted); line-height: 1.9; }
@@ -96,14 +102,28 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 
 /* 04 — Process */
 .process-section { background: #fff; }
+.section-heading > .process-intro { max-width: 390px; line-height: 1.9; margin-bottom: 0; }
 .process-steps { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; margin: 0; padding: 0; }
 .process-steps li { border-top: 1px solid #cdd2cc; padding-top: 23px; }
-.step-number { display: block; font-size: 12px; color: var(--color-copper); margin-bottom: 40px; }
+.step-number { display: block; font-size: 12px; color: var(--color-copper); margin-bottom: 27px; }
 .process-steps h3 { font-size: 20px; font-weight: 600; letter-spacing: -.035em; margin-bottom: 12px; line-height: 1.5; }
 .process-steps p { font-size: 13px; color: var(--color-muted); line-height: 1.8; margin: 0; }
 
+/* Practical answers */
+.faq-section { border-top: 1px solid var(--color-line); }
+.faq-layout { display: grid; grid-template-columns: .85fr 1.4fr; gap: 80px; }
+.faq-layout h2 { max-width: 350px; }
+.faq-layout .eyebrow { margin-bottom: 20px; }
+.faq-list { border-top: 1px solid #cdd2cc; }
+.faq-list details { border-bottom: 1px solid #cdd2cc; }
+.faq-list summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 73px; padding-block: 20px; font-size: 15px; font-weight: 600; line-height: 1.6; }
+.faq-list summary svg { width: 20px; height: 20px; color: var(--color-copper); transition: transform .18s; }
+.faq-list details[open] summary svg { transform: rotate(45deg); }
+.faq-list p { margin: 0; padding: 0 44px 24px 0; font-size: 14px; line-height: 1.9; color: var(--color-muted); }
+.faq-list summary:hover { color: var(--color-copper); }
+
 /* 05 — Contact */
-.contact-section { border-top: 1px solid var(--color-line); }
+.contact-section { background: #fff; border-top: 1px solid var(--color-line); padding-block: 80px; }
 .contact-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 80px; align-items: center; }
 .contact-location { display: flex; align-items: center; gap: 8px; margin-bottom: 26px; font-size: 10px; letter-spacing: .09em; }
 .contact-location svg { width: 17px; height: 17px; }
@@ -114,6 +134,13 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 .contact-details .button { min-width: 245px; }
 .contact-address { display: block; width: fit-content; margin-top: 28px; color: var(--color-ink); font-size: clamp(14px, 1.45vw, 20px); text-decoration-thickness: 1px; text-underline-offset: 6px; overflow-wrap: anywhere; }
 .contact-details small { display: block; margin-top: 13px; font-size: 10px; color: var(--color-muted); }
+.contact-email { margin-top: 25px; }
+.contact-email .contact-address { margin-top: 0; }
+.copy-email { display: inline-block; border: 0; border-bottom: 1px solid var(--color-line); color: var(--color-muted); padding: 9px 0; margin-top: 7px; background: none; font: inherit; font-size: 11px; cursor: pointer; }
+.copy-email[hidden] { display: none; }
+.copy-email:hover { color: var(--color-copper); border-color: var(--color-copper); }
+.contact-details .copy-status { margin: 10px 0 0; font-size: 12px; line-height: 1.7; }
+.copy-status:empty { display: none; }
 
 /* 06 — Footer */
 .site-footer { background: white; border-top: 1px solid var(--color-line); }
@@ -125,6 +152,12 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 8px; border-top: 1px solid var(--color-line); font-size: 10px; color: var(--color-muted); }
 .footer-bottom a { display: inline-flex; align-items: center; gap: 12px; padding-block: 4px; text-decoration: none; }
 .footer-bottom svg { width: 15px; height: 15px; transform: rotate(-90deg); }
+
+.not-found { display: grid; align-items: center; min-height: 100svh; }
+.not-found main { max-width: 880px; padding-block: 60px; }
+.not-found .footer-brand { margin-bottom: 65px; }
+.not-found h1 { font-size: clamp(38px, 6vw, 70px); line-height: 1.1; letter-spacing: -.055em; }
+.not-found main > p:not(.eyebrow) { max-width: 500px; color: var(--color-muted); line-height: 1.9; margin-bottom: 30px; }
 
 @media (max-width: 1199px) {
   html { scroll-padding-top: 160px; }
@@ -163,6 +196,7 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
   .process-steps { gap: 26px; }
   .process-steps h3 { font-size: 18px; }
   .contact-layout { gap: 40px; }
+  .faq-layout { gap: 40px; }
   .footer-main { align-items: flex-start; gap: 30px; }
   .footer-main nav { gap: 6px 22px; max-width: 320px; }
 }
@@ -197,6 +231,8 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
   .service-category__intro > p { max-width: none; font-size: 13px; }
   .service-category__intro > span { max-width: none; margin-top: 12px; }
   .directory-links { column-gap: 22px; }
+  .directory-links strong { font-size: 12px; }
+  .directory-links a > span > span { font-size: 11px; }
   .directory-links a { font-size: 11px; gap: 10px; }
   .services-footnote { font-size: 11px; }
   .services-footnote a { margin-left: 0; }
@@ -213,6 +249,10 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
   .step-number { margin: 5px 0 0; grid-row: 1 / 3; }
   .process-steps h3 { font-size: 19px; margin-bottom: 8px; }
   .process-steps p { grid-column: 2; font-size: 12px; }
+  .section-heading > .process-intro { max-width: none; }
+  .faq-layout { grid-template-columns: 1fr; gap: 30px; }
+  .faq-list summary { font-size: 14px; min-height: 66px; }
+  .faq-list p { font-size: 13px; padding-right: 0; }
   .contact-layout { grid-template-columns: 1fr; gap: 25px; }
   .contact-location { font-size: 9px; letter-spacing: .05em; }
   .contact-section h2 { font-size: clamp(54px, 11vw, 72px); }
@@ -226,7 +266,12 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
   .footer-bottom > span:nth-child(2) { grid-column: 1; grid-row: 2; }
   .footer-bottom > a { grid-column: 2; grid-row: 1 / 3; min-height: 32px; }
 }
-@media (max-width: 540px) { html { scroll-padding-top: 143px; } }
+@media (max-width: 540px) {
+  html { scroll-padding-top: 143px; }
+  .directory-links { grid-template-columns: 1fr; }
+  .directory-links strong { font-size: 14px; }
+  .directory-links a > span > span { font-size: 12px; }
+}
 @media (max-width: 359px) {
   .hero h1 { font-size: 42px; }
   .hero__actions { gap: 15px; }

@@ -6,17 +6,18 @@ The business covers websites, digital marketing, small-business technology setup
 
 ## Current stage
 
-The owner has reviewed the header favorably and authorized the **full homepage layout**, with short working copy to refine later.
+The homepage now has **finished service copy and restrained visual refinements**, with publication setup prepared.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
-| Favicon | Draft prepared; awaiting owner review |
+| Favicon | Prepared from the supplied FD symbol |
 | Header and service navigation | Reviewed favorably; browser QA still pending |
-| Full homepage layout | Coded with working copy; awaiting visual review |
+| Full homepage and copy | Implemented; final visual/browser review pending |
+| Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |
 
-The current `site/dist/` contains the full homepage: hero, service directory, business-services section, process, contact, and footer. No portfolio, featured websites, or fictional client gallery will be included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
+The current `site/dist/` contains the full homepage: hero, service directory, business-services section, process, practical questions, contact, and footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
 
 Read [PROJECT-DECISIONS.md](PROJECT-DECISIONS.md) before making changes. Its current decisions take precedence over historical V1/V2 handoff material.
 
@@ -44,10 +45,13 @@ With Node.js 20 or newer, run from `site/`:
 
 ```sh
 npm run build
+npm run check
 npm run dev
 ```
 
-No dependency installation is needed. The local layout review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` to regenerate both offline reviews after changes. Homepage copy lives in `site/src/data/homepage.mjs`; the service registry remains in `site/src/data/services.mjs`.
+No dependency installation is needed. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` to regenerate both offline reviews after changes. Homepage copy lives in `site/src/data/homepage.mjs`; the service registry remains in `site/src/data/services.mjs`.
+
+See [publication preparation](site/LAUNCH.md) for the separate release command. Review builds stay out of search; a release requires the actual web address. The checks cover core navigation, location, assets, publication settings, and contact behavior, but do not replace browser testing.
 
 ## Favicon draft
 

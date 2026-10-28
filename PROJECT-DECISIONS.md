@@ -2,11 +2,13 @@
 
 ## Working method
 
-Work in orderly stages. After reviewing the header favorably, the owner authorized a complete site skeleton with minimal working copy, prioritizing layout quality. Current scope: the full homepage layout, responsive structure, and working navigation. Carry the existing favicon forward as a draft; this authorization is not a claim of final favicon approval. Keep the work local for review and synchronize source to the existing GitHub repository. Copy and individual sections can be refined after the complete layout is reviewed.
+Work in orderly stages. After reviewing the layout, the owner requested restrained character improvements, finished text, and preparation for publication. Current scope: the completed homepage copy, services, practical questions, contact behavior, search metadata, and release preparation. The existing supplied-logo favicon is retained. Keep the result available locally and synchronize source to the existing GitHub repository. Preparing for publication is not a request to deploy yet.
 
-The homepage order is: existing header, brand-led hero and category shortcuts, service directory, connected business-services section, short process section, contact, and footer. Use the owner's actual FD monogram for the hero. No generated artwork or fictional portfolio is needed. Keep working copy in `site/src/data/homepage.mjs` and service content in the shared registry. Each page section has its own component.
+The homepage order is: existing header, brand-led hero and category shortcuts, service directory, connected business-services section, process, practical questions, contact, and footer. Use the owner's actual FD monogram for the hero. Character comes from the concise “Build. Fix. Create.” lead, confident typography, small copper accents, and restrained interaction feedback. Keep copy in `site/src/data/homepage.mjs` and service content in the shared registry. Each page section has its own component.
 
 Keep the footer compact, with spacing proportional to its limited content. The owner rejected the oversized footer in the first full-layout draft.
+
+The owner declined using a personal photograph. Do not add the supplied Central Park photo or an owner portrait.
 
 ## Brand sources
 
@@ -24,7 +26,7 @@ Keep the footer compact, with spacing proportional to its limited content. The o
 - The site itself demonstrates capability. No featured websites, portfolio, fictional client projects, or case-study gallery.
 - Personal, clear writing. No invented reviews, credentials, team, results, pricing, or turnaround guarantees.
 - Business email: digitalfremont@gmail.com.
-- Final domain has not been supplied.
+- The owner confirmed they do not yet own a domain. Do not invent a public URL. `SITE_URL` must be supplied with the actual HTTPS origin for a release build; it can be a chosen domain or the confirmed hosting address.
 
 ## Service scope refinement
 
@@ -47,3 +49,9 @@ Website projects and business technology often connect: email, booking, payments
 ## Existing material
 
 `reference/` preserves the recovered handoff and original website archives. A private, unpublished Sites project has been registered in the local `site/.openai/hosting.json`; this deployment configuration is excluded from Git. Reuse that identity if publication is requested later. No website version has been deployed in this chat.
+
+## Publication preparation
+
+The site remains static, with no contact-form backend, analytics, or third-party scripts. Email actions open the visitor's email app; a clipboard option supports webmail users. Do not claim an inquiry was sent or received. The public copy gives project-based pricing guidance without inventing amounts or response-time promises.
+
+Review builds in `site/dist/` remain noindex. A separate release command validates the actual HTTPS origin and builds `site/release/` with indexable metadata, canonical and social URLs, structured business information, robots.txt, sitemap.xml, and a 404 page. Never publish the whole repository or the `reviews/` and `reference/` directories as the website. See `site/LAUNCH.md` for the remaining address and browser-verification work.

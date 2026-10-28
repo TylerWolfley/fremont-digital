@@ -31,8 +31,8 @@ const server = http.createServer(async (request, response) => {
     response.writeHead(200, { 'Content-Type':types[extname(file)]||'application/octet-stream', 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' });
     response.end(request.method === 'HEAD' ? undefined : data);
   } catch {
-    response.writeHead(404, { 'Content-Type':'text/plain; charset=utf-8' });
-    response.end('Not found');
+    response.writeHead(404, { 'Content-Type':'text/html; charset=utf-8', 'Cache-Control':'no-store' });
+    response.end(request.method === 'HEAD' ? undefined : await readFile(resolve(dist, '404.html')));
   }
 });
 server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/review/layout`));

@@ -1,5 +1,6 @@
 # Local deployment state; publishing is a separate step.
 site/.openai/
+site/release/
 
 # Rejected and unused explorations must stay out of the repository.
 reference/rejected-artwork/

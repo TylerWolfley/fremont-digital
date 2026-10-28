@@ -6,6 +6,8 @@
   "description": "Fremont Digital website, developed one component at a time.",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:release": "node scripts/build.mjs --release",
+    "check": "node scripts/verify.mjs",
     "dev": "node scripts/dev.mjs",
     "review": "node scripts/build.mjs && node scripts/build-review.mjs"
   },
