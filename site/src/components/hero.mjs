@@ -2,23 +2,25 @@ import { homepage } from '../data/homepage.mjs';
 import { serviceGroups } from '../data/services.mjs';
 import { arrow } from './icons.mjs';
 import { escape } from './html.mjs';
+import { landscape } from './landscape.mjs';
 
 export function hero() {
   const copy = homepage.hero;
-  return `<section class="hero section-container" aria-labelledby="hero-heading">
-    <div class="hero__copy">
-      <p class="eyebrow">${escape(copy.eyebrow)}</p>
-      <h1 id="hero-heading">${escape(copy.title)}<em>${escape(copy.accent)}</em></h1>
-      <p class="hero__description">${escape(copy.description)}</p>
-      <div class="hero__actions"><a class="button button--dark" href="#services">${escape(copy.primary)}${arrow}</a><a class="text-link" href="#contact">${escape(copy.secondary)}${arrow}</a></div>
-      <p class="hero__note"><span aria-hidden="true"></span>${escape(copy.note)}</p>
+  return `<section class="hero" aria-labelledby="hero-heading">
+    <div class="section-container hero-layout">
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow"><span aria-hidden="true">✦</span>${escape(copy.eyebrow)}</p>
+        <h1 id="hero-heading">${escape(copy.title)}<span>${escape(copy.accent)}</span></h1>
+        <p class="hero__description">${escape(copy.description)}</p>
+        <div class="hero__actions"><a class="button button--dark" href="#services">${escape(copy.primary)}${arrow}</a><a class="text-link" href="#contact">${escape(copy.secondary)}${arrow}</a></div>
+      </div>
+      <div class="service-board">
+        <div class="service-board__heading"><div><p class="eyebrow">Fremont Digital</p><h2>What brings you by?</h2></div><div class="service-board__brand"><img src="/assets/brand/fremont-digital-monogram.webp" width="680" height="505" alt=""></div></div>
+        <nav aria-label="Find the help you need">${serviceGroups.map((group, index) => `<a href="#${group.id}"><span class="index-number">0${index + 1}</span><span><strong>${escape(group.prompt)}</strong><small>${escape(group.hint)}</small></span>${arrow}</a>`).join('\n')}</nav>
+        <p class="service-board__note">Something else? <a href="#contact">I’m all ears.${arrow}</a></p>
+      </div>
+      <div class="hero__signature"><p>${escape(copy.note)}</p><span>Independent by nature.<br>Local by choice.</span></div>
     </div>
-    <div class="brand-board">
-      <div class="brand-board__top"><span>Fremont Digital</span><span>Your local digital connection.</span></div>
-      <div class="brand-board__mark"><img src="/assets/brand/fremont-digital-monogram.webp" width="680" height="505" alt="" fetchpriority="high"></div>
-      <nav class="brand-board__index" aria-label="Explore service categories">
-        ${serviceGroups.map((group, index) => `<a href="#${group.id}"><span class="index-number">0${index + 1}</span><span>${escape(group.navLabel)}</span>${arrow}</a>`).join('\n')}
-      </nav>
-    </div>
+    <div class="hero__landscape">${landscape()}</div>
   </section>`;
 }

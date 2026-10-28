@@ -7,7 +7,7 @@ Source checks and an isolated release-build smoke test passed on October 27, 202
 ## Remaining before launch
 
 1. Select the final HTTPS address. It may be a domain the owner acquires or a confirmed address from the selected host. Do not assume domain availability or use a made-up address.
-2. Complete browser review at 320, 390, 768, 1024, 1200, and 1440px. Check the full page, header menus, service disclosures, FAQ, keyboard navigation, reduced motion, and email/clipboard behavior. The browser tool previously blocked the local preview, so source checks do not establish these results.
+2. Complete browser review at 320, 390, 768, 1024, 1200, and 1440px. Check the full page, header menus, service chapter shortcuts, FAQ, keyboard navigation, reduced motion, and email/clipboard behavior. The browser tool previously blocked the local preview, so source checks do not establish these results.
 
 The contact method is intentionally email. There is no server form or delivery confirmation. Verify the recipient and subject in an email client without sending an unsolicited test message. Clipboard copying requires browser support and permission; denial shows a manual-copy instruction.
 

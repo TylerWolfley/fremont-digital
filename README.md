@@ -6,14 +6,14 @@ The business covers websites, digital marketing, small-business technology setup
 
 ## Current stage
 
-The homepage now has **finished service copy and restrained visual refinements**, with publication setup prepared.
+The homepage has been **rebuilt around the services with a restrained western character**: slab-serif headings, warm paper and rust colors, an engraved horizon, and direct, personal copy. Publication setup is prepared; final visual review is pending.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
 | Favicon | Prepared from the supplied FD symbol |
 | Header and service navigation | Reviewed favorably; browser QA still pending |
-| Full homepage and copy | Implemented; final visual/browser review pending |
+| Full homepage and copy | Rebuilt with western direction; final visual/browser review pending |
 | Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |
 

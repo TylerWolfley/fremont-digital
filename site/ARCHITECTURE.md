@@ -14,7 +14,7 @@ This is a static website with a small Node build step and no runtime framework o
 - `src/styles/header.css`: styles for the header and navigation.
 - `src/styles/home.css`: page layout, ordered by section, with shared desktop/tablet/phone rules.
 - `src/scripts/header.js`: progressive enhancement for native disclosure menus.
-- `src/scripts/home.js`: opens the correct service category for section links, handles direct URLs and browser history changes, and provides clipboard copying with honest success/failure states.
+- `src/scripts/home.js`: moves keyboard focus into a service chapter for section links, handles direct URLs and browser history changes, and provides clipboard copying with honest success/failure states.
 - `src/reviews/`: source templates for the header and layout review controls. The builder embeds the website into these templates.
 - `scripts/`: build, local preview, offline review, and brand-asset utilities.
 - `dist/`: generated pages, copied styles/scripts, and prepared assets. Edit `src/`, then build; do not separately edit generated HTML/CSS/JS.
@@ -35,7 +35,11 @@ The four-category desktop header starts at 1200px; keep the CSS and JavaScript b
 
 Until service pages are designed, the individual service links explicitly open email inquiries. No form sends messages, and no success state claims receipt.
 
-The homepage directory uses native `details` elements with one shared `name`, so opening a category closes the previous one in supporting browsers. All categories remain usable without JavaScript. With JavaScript, category shortcuts open their destination before scrolling; keyboard focus follows a clicked shortcut. The contact area uses an explicit mailto action, with a visible email address.
+The homepage directory is four visible `article` sections. All eighteen service choices remain visible without JavaScript; nothing is hidden in a service accordion. Category shortcuts move keyboard focus to the destination heading. The header menus and FAQ retain native `details` elements. The contact area uses an explicit mailto action, with a visible email address.
+
+## Visual direction
+
+The current design follows the owner's request for a content-led rebuild with a little western character. Bitter provides slab-serif headings; Manrope keeps navigation and service descriptions clear. Both are bundled locally with their licenses. The Bitter font comes from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/bitter). Original logo bytes are preserved; CSS blending lets their white background sit on warm paper. `src/components/landscape.mjs` contains decorative, code-native line art, not a map or a depiction of a named range. Avoid substituting unrelated artwork or adding invented business history.
 
 ## Review workflow
 

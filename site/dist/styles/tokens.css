@@ -1,16 +1,18 @@
 @font-face{font-family:Manrope;src:url('/assets/manrope-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:Manrope;src:url('/assets/manrope-semibold.ttf') format('truetype');font-style:normal;font-weight:600;font-display:swap}
 @font-face{font-family:Manrope;src:url('/assets/manrope-extrabold.ttf') format('truetype');font-style:normal;font-weight:800;font-display:swap}
+@font-face{font-family:Bitter;src:url('/assets/bitter-variable.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
 :root{
-  --color-ink:#202b34;
-  --color-muted:#58676d;
-  --color-copper:#9d5d36;
-  --color-copper-light:#b77848;
-  --color-paper:#f5f3ed;
-  --color-white:#fff;
-  --color-line:#e3e5df;
+  --color-ink:#202e32;
+  --color-muted:#5e625b;
+  --color-copper:#965136;
+  --color-copper-light:#d9a479;
+  --color-paper:#f2eadb;
+  --color-white:#faf7f0;
+  --color-line:#d4ccbd;
   --font-body:Manrope,Arial,sans-serif;
-  --max-width:1360px;
+  --font-display:Bitter,Georgia,serif;
+  --max-width:1280px;
   --gutter:clamp(20px,4.4vw,72px);
 }
 *{box-sizing:border-box}
@@ -21,10 +23,11 @@ button,input,select,textarea{font:inherit}
 button,a,summary{-webkit-tap-highlight-color:transparent}
 svg{display:block;flex-shrink:0}
 img{display:block;max-width:100%;height:auto}
-:focus-visible{outline:3px solid var(--color-copper);outline-offset:5px;border-radius:2px}
+:focus-visible{outline:3px solid var(--color-copper);outline-offset:5px;border-radius:1px}
+::selection{background:#d9a479;color:#202e32}
 .skip-link{position:fixed;top:10px;left:16px;z-index:100;background:var(--color-white);padding:12px 18px;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
-.page-main{min-height:calc(100svh - 150px)}
+.page-main{min-height:calc(100svh - 130px)}
 .page-main:focus{outline:none}
-.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--color-copper)}
+.eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em;line-height:1.6;color:var(--color-copper)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

@@ -4,7 +4,9 @@
 
 Work in orderly stages. After reviewing the layout, the owner requested restrained character improvements, finished text, and preparation for publication. Current scope: the completed homepage copy, services, practical questions, contact behavior, search metadata, and release preparation. The existing supplied-logo favicon is retained. Keep the result available locally and synchronize source to the existing GitHub repository. Preparing for publication is not a request to deploy yet.
 
-The homepage order is: existing header, brand-led hero and category shortcuts, service directory, connected business-services section, process, practical questions, contact, and footer. Use the owner's actual FD monogram for the hero. Character comes from the concise “Build. Fix. Create.” lead, confident typography, small copper accents, and restrained interaction feedback. Keep copy in `site/src/data/homepage.mjs` and service content in the shared registry. Each page section has its own component.
+The owner rejected the first full site as generic and placeholder-like, and requested a rebuild around the content with a little western character. This supersedes the earlier “Build. Fix. Create.” layout. The new direction uses Bitter slab-serif headings, warm paper, dark ink, rust accents, thin double rules, and a decorative engraved landscape. Keep the western influence restrained and preserve the original logo artwork. No fake heritage dates, cowboy stock photos, or fabricated local claims.
+
+The homepage order is: compact header, “Big ideas. Everyday fixes.” opening with four customer-need shortcuts, four fully visible service chapters, a connected business-services journey, process, practical questions, correspondence-style contact panel, and compact footer. Use the actual FD monogram as a small mark in the service signboard. Homepage copy lives in `site/src/data/homepage.mjs`; service content and shortcut wording live in the shared registry. Each section has its own component.
 
 Keep the footer compact, with spacing proportional to its limited content. The owner rejected the oversized footer in the first full-layout draft.
 
