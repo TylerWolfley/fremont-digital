@@ -1,8 +1,10 @@
+const location = 'Fremont County, Wyoming';
+
 export const business = Object.freeze({
   name: 'Fremont Digital',
-  location: 'Fremont County, Colorado',
+  location,
   email: 'digitalfremont@gmail.com',
-  description: 'Websites, computer and phone repairs, professional photography, and media services in Fremont County, Colorado.',
+  description: `Websites, computer and phone repairs, professional photography, and media services in ${location}.`,
 });
 
 export function inquiryLink(subject = 'How can Fremont Digital help?') {

@@ -2,6 +2,8 @@
 
 These files preserve work recovered from the earlier Fremont Digital conversation. They are reference material, not the current site or an approved design.
 
+The owner has confirmed the business location as **Fremont County, Wyoming**. Location references in the editable handoff documents have been corrected. Original ZIP archives are historical snapshots and must not be treated as a source of current business facts.
+
 - `fremont-digital-website.zip`: original V1 website.
 - `fremont-digital-website-v2.zip`: original V2 website.
 - `PROJECT-HANDOFF.md` and `CODEX-IMPLEMENTATION-BRIEF.md`: the earlier handoff.

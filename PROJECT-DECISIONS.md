@@ -6,6 +6,8 @@ Work in orderly stages. After reviewing the header favorably, the owner authoriz
 
 The homepage order is: existing header, brand-led hero and category shortcuts, service directory, connected business-services section, short process section, contact, and footer. Use the owner's actual FD monogram for the hero. No generated artwork or fictional portfolio is needed. Keep working copy in `site/src/data/homepage.mjs` and service content in the shared registry. Each page section has its own component.
 
+Keep the footer compact, with spacing proportional to its limited content. The owner rejected the oversized footer in the first full-layout draft.
+
 ## Brand sources
 
 - Full wordmark: `logos/Fremont Digital Logo 1` (PNG file without an extension).
@@ -14,7 +16,8 @@ The homepage order is: existing header, brand-led hero and category shortcuts, s
 
 ## Direction
 
-- Aim to make the website a leading example of quality in Fremont County, Colorado. Do not claim a verified ranking.
+- The owner confirmed that the business is in **Fremont County, Wyoming**. This location supersedes all earlier assumptions and historical material. Keep site location text sourced from `site/src/data/business.mjs`.
+- Aim to make the website a leading example of quality in Fremont County, Wyoming. Do not claim a verified ranking.
 - Fremont Digital covers websites, digital marketing, professional photography, YouTube/video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable technology jobs.
 - Organize current services into Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Use one shared service registry for desktop/mobile navigation and future service pages.
 - Phone resale is a future expansion after a physical location is established. Do not advertise inventory, purchases, trade-ins, or resale as available now.

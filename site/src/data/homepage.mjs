@@ -1,4 +1,6 @@
 // Short working copy for the layout pass. Edit wording here, independently of layout.
+import { business } from './business.mjs';
+
 export const homepage = {
   hero: {
     eyebrow: 'Technology. Creativity. Community.',
@@ -42,7 +44,7 @@ export const homepage = {
     ],
   },
   contact: {
-    eyebrow: 'Based in Fremont County, Colorado',
+    eyebrow: `Based in ${business.location}`,
     title: 'What can we',
     accent: 'do for you?',
     description: 'Big project or quick question. Start here.',

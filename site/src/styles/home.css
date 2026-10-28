@@ -117,12 +117,12 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
 
 /* 06 — Footer */
 .site-footer { background: white; border-top: 1px solid var(--color-line); }
-.footer-main { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-block: 49px; }
-.footer-brand { display: block; width: 195px; flex-shrink: 0; }
-.footer-main nav { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.footer-main { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-block: 18px; }
+.footer-brand { display: block; width: 165px; flex-shrink: 0; }
+.footer-main nav { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 .footer-main nav a { padding-block: 10px; color: var(--color-muted); font-size: 12px; text-decoration: none; }
 .footer-main nav a:hover { color: var(--color-copper); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 23px; border-top: 1px solid var(--color-line); font-size: 10px; color: var(--color-muted); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 8px; border-top: 1px solid var(--color-line); font-size: 10px; color: var(--color-muted); }
 .footer-bottom a { display: inline-flex; align-items: center; gap: 12px; padding-block: 4px; text-decoration: none; }
 .footer-bottom svg { width: 15px; height: 15px; transform: rotate(-90deg); }
 
@@ -218,12 +218,13 @@ h1 em, h2 em { display: block; font-family: 'Instrument Serif', Georgia, serif; 
   .contact-section h2 { font-size: clamp(54px, 11vw, 72px); }
   .contact-details { padding-top: 0; }
   .contact-address { font-size: 17px; }
-  .footer-main { display: block; padding-block: 36px 28px; }
-  .footer-brand { width: 190px; }
-  .footer-main nav { margin-top: 29px; display: grid; grid-template-columns: 1fr 1fr; max-width: none; gap: 4px 24px; }
-  .footer-main nav a { font-size: 11px; }
-  .footer-bottom { flex-wrap: wrap; gap: 18px; font-size: 9px; }
-  .footer-bottom > span:nth-child(2) { order: 3; flex-basis: 100%; }
+  .footer-main { display: block; padding-block: 18px 12px; }
+  .footer-brand { width: 150px; }
+  .footer-main nav { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; max-width: none; gap: 0 24px; }
+  .footer-main nav a { display: flex; align-items: center; min-height: 32px; padding-block: 6px; font-size: 11px; }
+  .footer-bottom { display: grid; grid-template-columns: 1fr auto; gap: 5px 16px; padding-block: 12px; font-size: 10px; }
+  .footer-bottom > span:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .footer-bottom > a { grid-column: 2; grid-row: 1 / 3; min-height: 32px; }
 }
 @media (max-width: 540px) { html { scroll-padding-top: 143px; } }
 @media (max-width: 359px) {

@@ -53,7 +53,7 @@ Both source archives contain matching `assets/fd-mark.png` and `assets/favicon.p
 
 The current site presents an independent one-person business with direct contact with the person doing the work. This fits the user's personal introduction and V2 copy; do not invent a team, office, staff credentials, years of experience, or service-level commitments.
 
-V1 and V2 position the business in Fremont County, Colorado. The earlier logo research also discusses that location. Keep it as the current project positioning, but confirm exact service coverage, in-person availability, and any public address before launch. V2 says remote website and marketing projects can be discussed; this is prototype wording rather than a separately confirmed operating policy.
+The owner has confirmed the business is in Fremont County, Wyoming. This corrects the location assumed in V1, V2, and the earlier logo research. Confirm exact service coverage, in-person availability, and any public address before launch. V2 says remote website and marketing projects can be discussed; this is prototype wording rather than a separately confirmed operating policy.
 
 No prices, packages, turnaround times, warranty terms, certifications, rankings, client metrics, or testimonials are established. Pricing is currently by project discussion and quote. Hosting and SEO mentioned during name evaluation were examples of what the name could accommodate, not confirmed service packages.
 
