@@ -2,7 +2,7 @@
 const header = document.querySelector('[data-site-header]');
 const mobileMenu = header.querySelector('[data-mobile-menu]');
 const disclosures = [...header.querySelectorAll('[data-service-disclosure]')];
-const desktopQuery = window.matchMedia('(min-width: 1200px)');
+const desktopQuery = window.matchMedia('(min-width: 900px)');
 
 function closeDisclosure(details, restoreFocus = false) {
   details.open = false;

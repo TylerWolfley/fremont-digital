@@ -16,7 +16,8 @@ for (const folder of ['02-header', '03-layout']) {
   assert(!/\ssrc=/.test(frameAttributes), `${folder}: iframe must not navigate to a file or server.`);
   const page = frame[1].replaceAll('&quot;', '"').replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll('&amp;', '&');
   assert.match(page, /<base href="about:srcdoc">/);
-  assert.match(page, /Fremont County, Wyoming/);
+  assert.match(page, /Fremont Digital/);
+  if (folder === '03-layout') assert.match(page, /Fremont County, Wyoming/);
   for (const document of [html.replace(frame[0], ''), page]) {
     assert(!/(?:src|href)="\//.test(document), `${folder}: root-relative resources or links break under file://.`);
     assert(!/url\(['"]?\//.test(document), `${folder}: CSS assets must be embedded.`);

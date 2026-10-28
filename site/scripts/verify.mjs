@@ -4,7 +4,6 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import vm from 'node:vm';
 import { homePage } from '../src/pages/home.mjs';
 import { business } from '../src/data/business.mjs';
 import { serviceGroups } from '../src/data/services.mjs';
@@ -31,11 +30,12 @@ for (const match of html.matchAll(/<a[^>]+href="([^"]+)"[^>]+aria-label="Email a
   inquiryCounts.set(subject, (inquiryCounts.get(subject) || 0) + 1);
 }
 const services = serviceGroups.flatMap(group => group.services);
-assert.equal((html.match(/class="service-chapter"/g) || []).length, serviceGroups.length);
-assert(!html.includes('class="service-category"'), 'The service directory must remain visible without opening disclosures.');
-for (const group of serviceGroups) assert(html.includes(`id="${group.id}-heading" tabindex="-1"`), 'Chapter shortcuts need a keyboard focus target.');
+assert.equal((html.match(/class="service-card"/g) || []).length, services.length);
+assert(!html.includes('service-board') && !html.includes('landscape__'), 'Rejected layout elements must not return.');
+assert.match(html, /data-search-form role="search"/);
+assert.match(html, /<dialog[^>]+aria-labelledby="inquiry-title"/);
 assert.equal(inquiryCounts.size, services.length);
-for (const service of services) assert.equal(inquiryCounts.get(`Fremont Digital inquiry: ${service.name}`), 3);
+for (const service of services) assert.equal(inquiryCounts.get(`Fremont Digital inquiry: ${service.name}`), 1);
 assert(!html.includes('Phone resale') && !html.includes('Security &amp; Installation'));
 assert.match(await readFile(resolve(root, 'dist/robots.txt'), 'utf8'), /Disallow: \/\n/);
 assert.match(await readFile(resolve(root, 'dist/404.html'), 'utf8'), /Page not found/);
@@ -56,34 +56,4 @@ assert.equal(organization.email, business.email);
 assert(!('address' in organization) && !('telephone' in organization));
 assert.match(homePage({ ...config, headerOnly: true }), /name="robots" content="noindex, nofollow"/);
 
-// Exercise the enhancement paths without presenting these as browser QA.
-const script = await readFile(resolve(root, 'src/scripts/home.js'), 'utf8');
-async function interactionCheck(clipboardMode) {
-  let focused, scrolled, copied;
-  const categories = serviceGroups.map(group => ({ id: group.id, querySelector: selector => { assert.equal(selector, 'h3'); return { focus: () => { focused = group.id; } }; }, scrollIntoView: () => { scrolled = group.id; } }));
-  const links = [...serviceGroups.map(group => '#' + group.id), '#contact'].map(href => ({ getAttribute: () => href, addEventListener(type, fn) { this[type] = fn; } }));
-  const button = { hidden: true, dataset: { copyEmail: business.email }, addEventListener(type, fn) { this[type] = fn; } };
-  const status = { textContent: '' };
-  const events = {};
-  const window = { location: { hash: '#business-tech' }, addEventListener: (type, fn) => { events[type] = fn; } };
-  const navigator = clipboardMode === 'unavailable' ? {} : { clipboard: { writeText: async value => { if (clipboardMode === 'denied') throw new Error('Denied'); copied = value; } } };
-  vm.runInNewContext(script, { window, navigator, requestAnimationFrame: fn => fn(), document: { querySelectorAll: selector => selector === '.service-chapter' ? categories : links, querySelector: selector => selector === '[data-copy-email]' ? button : status } });
-  assert.equal(scrolled, 'business-tech');
-  links[3].click();
-  assert.equal(focused, 'photo-media');
-  window.location.hash = '#repairs-tech'; events.hashchange();
-  assert.equal(scrolled, 'repairs-tech');
-  links[4].click();
-  assert.equal(focused, 'photo-media', 'Unrelated links must keep their own native navigation.');
-  window.location.hash = '#missing-category'; events.hashchange();
-  assert.equal(scrolled, 'repairs-tech', 'Unknown fragments must not scroll to a service.');
-  if (clipboardMode === 'unavailable') assert.equal(button.hidden, true);
-  else {
-    assert.equal(button.hidden, false);
-    await button.click();
-    if (clipboardMode === 'denied') assert.match(status.textContent, /manually/);
-    else { assert.equal(copied, business.email); assert.equal(status.textContent, 'Email address copied.'); }
-  }
-}
-for (const mode of ['success', 'denied', 'unavailable']) await interactionCheck(mode);
-console.log('Passed: location, section links, inquiry destinations, assets, publication settings, structured data, category navigation, and clipboard success/failure handling. Browser QA remains separate.');
+console.log('Passed: Wyoming location, all service inquiries, assets, publication settings, structured data, catalog markup, and inquiry accessibility.');

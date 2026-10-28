@@ -1,14 +1,8 @@
-import { homepage } from '../data/homepage.mjs';
 import { business, inquiryLink } from '../data/business.mjs';
-import { arrow } from './icons.mjs';
+import { arrow, plus } from './icons.mjs';
 import { escape } from './html.mjs';
 
 export function contact() {
-  const copy = homepage.contact;
-  return `<section id="contact" class="contact-section section-space" aria-labelledby="contact-heading">
-    <div class="section-container"><div class="contact-card">
-      <div class="contact-card__heading"><p class="eyebrow">A good place to start</p><span class="contact-stamp" aria-label="Based in Wyoming">WY<span>LOCAL</span></span><h2 id="contact-heading">${escape(copy.title)}<span>${escape(copy.accent)}</span></h2><p>${escape(copy.eyebrow)}</p></div>
-      <div class="contact-details"><p>${escape(copy.description)}</p><a class="button button--dark" href="${escape(inquiryLink())}">${escape(copy.action)}${arrow}</a><div class="contact-email"><a class="contact-address" href="mailto:${escape(business.email)}">${escape(business.email)}</a><button class="copy-email" type="button" data-copy-email="${escape(business.email)}" hidden>Copy email address</button></div><small>Opens your email app.</small><p class="copy-status" role="status" aria-live="polite" data-copy-status></p></div>
-    </div></div>
-  </section>`;
+  return `<section id="contact" class="contact-section" aria-labelledby="contact-heading"><div class="section-container"><div class="contact-panel"><div><p class="eyebrow">${escape(business.location)}</p><h2 id="contact-heading">A person to talk to.<br>A place to start.</h2><p>Have a question or a project that doesn’t fit a category? Tell me what you have in mind.</p></div><div class="contact-actions"><a class="button button--primary" href="${escape(inquiryLink())}">Start a conversation ${arrow}</a><a class="contact-address" href="mailto:${business.email}">${business.email}</a><button class="copy-email" type="button" data-copy-email="${business.email}" hidden>Copy email address</button><p class="copy-status" role="status" aria-live="polite" data-copy-status></p></div></div></div></section>
+  <dialog class="inquiry-dialog" data-inquiry-dialog data-inquiry-email="${escape(business.email)}" aria-labelledby="inquiry-title" aria-describedby="inquiry-description"><form data-inquiry-form><div class="dialog-top"><span data-inquiry-category>Service inquiry</span><button type="button" class="dialog-close" data-dialog-close aria-label="Close inquiry">${plus}</button></div><h2 id="inquiry-title" data-inquiry-title>Tell me what you need</h2><p id="inquiry-description" data-inquiry-description></p><label for="inquiry-details">A few details <span>(optional)</span></label><textarea id="inquiry-details" name="details" rows="5" maxlength="2500" placeholder="What do you need help with?"></textarea><p class="inquiry-hint" data-inquiry-hint></p><a class="button button--primary inquiry-continue" href="${escape(inquiryLink())}" data-inquiry-continue>Continue in email ${arrow}</a><p class="inquiry-notice">Review and send from your email app. You can also write directly to <a href="mailto:${business.email}">${business.email}</a>.</p></form></dialog>`;
 }

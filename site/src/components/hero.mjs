@@ -1,26 +1,15 @@
-import { homepage } from '../data/homepage.mjs';
 import { serviceGroups } from '../data/services.mjs';
-import { arrow } from './icons.mjs';
+import { business } from '../data/business.mjs';
+import { arrow, groupIcons, pin } from './icons.mjs';
 import { escape } from './html.mjs';
-import { landscape } from './landscape.mjs';
 
 export function hero() {
-  const copy = homepage.hero;
-  return `<section class="hero" aria-labelledby="hero-heading">
-    <div class="section-container hero-layout">
-      <div class="hero__copy">
-        <p class="eyebrow hero__eyebrow"><span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M6 2H2v4m12-4h4v4M2 14v4h4m12-4v4h-4M6 10h8m-4-4v8" stroke="currentColor" stroke-width="1.3"/></svg></span>${escape(copy.eyebrow)}</p>
-        <h1 id="hero-heading">${escape(copy.title)}<span>${escape(copy.accent)}</span></h1>
-        <p class="hero__description">${escape(copy.description)}</p>
-        <div class="hero__actions"><a class="button button--dark" href="#services">${escape(copy.primary)}${arrow}</a><a class="text-link" href="#contact">${escape(copy.secondary)}${arrow}</a></div>
-      </div>
-      <div class="service-board">
-        <div class="service-board__heading"><div><p class="eyebrow">Fremont Digital</p><h2>What brings you by?</h2></div><div class="service-board__brand"><img src="/assets/brand/fremont-digital-monogram.webp" width="680" height="505" alt=""></div></div>
-        <nav aria-label="Find the help you need">${serviceGroups.map((group, index) => `<a href="#${group.id}"><span class="index-number">0${index + 1}</span><span><strong>${escape(group.prompt)}</strong><small>${escape(group.hint)}</small></span>${arrow}</a>`).join('\n')}</nav>
-        <p class="service-board__note">Something else? <a href="#contact">I’m all ears.${arrow}</a></p>
-      </div>
-      <div class="hero__signature"><p>${escape(copy.note)}</p><span>Independent by nature.<br>Local by choice.</span></div>
-    </div>
-    <div class="hero__landscape">${landscape()}</div>
-  </section>`;
+  return `<section class="hero" aria-labelledby="hero-heading"><div class="section-container">
+    <p class="hero-location">${pin}${escape(business.location)}</p>
+    <h1 id="hero-heading">What can we help you with?</h1>
+    <p class="hero-description">Websites, phone and computer repairs, business technology, and creative services.<br class="desktop-break"> Find what you need. Work with someone local.</p>
+    <form class="service-search" data-search-form role="search" hidden><label class="sr-only" for="service-search">Search Fremont Digital services</label><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="service-search" type="search" placeholder="Try phone repair, a new website, or video editing" autocomplete="off" maxlength="120" aria-controls="service-results"><button type="submit">Search</button></form>
+    <noscript><a class="button button--primary" href="#services">Browse services ${arrow}</a></noscript>
+    <nav class="category-shortcuts" aria-label="Browse by service category">${serviceGroups.map(group => `<a href="#services" data-category-link="${group.id}"><span class="shortcut-icon" data-icon="${group.id}">${groupIcons[group.id]}</span><span><strong>${escape(group.navLabel)}</strong><small>${group.services.length} services</small></span>${arrow}</a>`).join('\n')}</nav>
+  </div></section>`;
 }

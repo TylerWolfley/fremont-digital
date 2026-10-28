@@ -6,18 +6,18 @@ The business covers websites, digital marketing, small-business technology setup
 
 ## Current stage
 
-The homepage combines **a strong technology identity with restrained western character**: midnight blue-green, turquoise, cool off-white, crisp interface typography, selected slab-serif accents, and a decorative terrain mesh. The content-led layout and all eighteen services remain intact. Publication setup is prepared; final visual review is pending.
+The homepage has been rebuilt as a **searchable local service hub**, following the owner's Amazon, Facebook, and Google references. It uses familiar navigation, category filters, readable service cards, and a guided inquiry that opens an email draft. Publication setup is prepared; final browser visual review is pending.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
 | Favicon | Prepared from the supplied FD symbol |
-| Header and service navigation | Reviewed favorably; browser QA still pending |
-| Full homepage and copy | Technology styling with western accents; final visual/browser review pending |
+| Header and service navigation | Rebuilt for the service hub; owner review and browser QA pending |
+| Full homepage and copy | Service hub with search and inquiry flow; final browser review pending |
 | Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |
 
-The current `site/dist/` contains the full homepage: hero, service directory, business-services section, process, practical questions, contact, and footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
+The current `site/dist/` contains the full homepage: service finder, filterable catalog, process, practical questions, contact, and footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
 
 Read [PROJECT-DECISIONS.md](PROJECT-DECISIONS.md) before making changes. Its current decisions take precedence over historical V1/V2 handoff material.
 
@@ -49,7 +49,7 @@ npm run check
 npm run dev
 ```
 
-No dependency installation is needed. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` to regenerate both offline reviews after changes. Homepage copy lives in `site/src/data/homepage.mjs`; the service registry remains in `site/src/data/services.mjs`.
+No dependency installation is needed. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` to regenerate both offline reviews after changes. Process and FAQ copy lives in `site/src/data/homepage.mjs`; the service registry is `site/src/data/services.mjs`. Search aliases and starting services live in `site/src/data/catalog.mjs`.
 
 See [publication preparation](site/LAUNCH.md) for the separate release command. Review builds stay out of search; a release requires the actual web address. The checks cover core navigation, location, assets, publication settings, and contact behavior, but do not replace browser testing.
 
