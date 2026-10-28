@@ -6,14 +6,14 @@ The business covers websites, digital marketing, small-business technology setup
 
 ## Current stage
 
-The homepage has been **rebuilt around the services with a restrained western character**: slab-serif headings, warm paper and rust colors, an engraved horizon, and direct, personal copy. Publication setup is prepared; final visual review is pending.
+The homepage combines **a strong technology identity with restrained western character**: midnight blue-green, turquoise, cool off-white, crisp interface typography, selected slab-serif accents, and a decorative terrain mesh. The content-led layout and all eighteen services remain intact. Publication setup is prepared; final visual review is pending.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
 | Favicon | Prepared from the supplied FD symbol |
 | Header and service navigation | Reviewed favorably; browser QA still pending |
-| Full homepage and copy | Rebuilt with western direction; final visual/browser review pending |
+| Full homepage and copy | Technology styling with western accents; final visual/browser review pending |
 | Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |
 

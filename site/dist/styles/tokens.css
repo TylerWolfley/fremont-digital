@@ -3,13 +3,19 @@
 @font-face{font-family:Manrope;src:url('/assets/manrope-extrabold.ttf') format('truetype');font-style:normal;font-weight:800;font-display:swap}
 @font-face{font-family:Bitter;src:url('/assets/bitter-variable.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
 :root{
-  --color-ink:#202e32;
-  --color-muted:#5e625b;
-  --color-copper:#965136;
-  --color-copper-light:#d9a479;
-  --color-paper:#f2eadb;
-  --color-white:#faf7f0;
-  --color-line:#d4ccbd;
+  --color-ink:#0b202b;
+  --color-muted:#4b616b;
+  --color-accent:#087765;
+  --color-accent-light:#68edc6;
+  --color-paper:#eaf1ef;
+  --color-white:#f8fbfa;
+  --color-line:#cbdad5;
+  --color-night:#061923;
+  --color-panel:#102c38;
+  --color-on-dark:#f2f9f7;
+  --color-muted-on-dark:#a6bec8;
+  --color-line-on-dark:#34535f;
+  --font-mono:ui-monospace,SFMono-Regular,Consolas,monospace;
   --font-body:Manrope,Arial,sans-serif;
   --font-display:Bitter,Georgia,serif;
   --max-width:1280px;
@@ -23,11 +29,11 @@ button,input,select,textarea{font:inherit}
 button,a,summary{-webkit-tap-highlight-color:transparent}
 svg{display:block;flex-shrink:0}
 img{display:block;max-width:100%;height:auto}
-:focus-visible{outline:3px solid var(--color-copper);outline-offset:5px;border-radius:1px}
-::selection{background:#d9a479;color:#202e32}
+:focus-visible{outline:3px solid var(--color-accent);outline-offset:5px;border-radius:1px}
+::selection{background:#68edc6;color:#0b202b}
 .skip-link{position:fixed;top:10px;left:16px;z-index:100;background:var(--color-white);padding:12px 18px;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
 .page-main{min-height:calc(100svh - 130px)}
 .page-main:focus{outline:none}
-.eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em;line-height:1.6;color:var(--color-copper)}
+.eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em;line-height:1.6;color:var(--color-accent)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

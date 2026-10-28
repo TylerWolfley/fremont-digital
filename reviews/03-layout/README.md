@@ -1,18 +1,18 @@
 # Full website review
 
-The owner requested a rebuild around the content with a little western character after finding the original layout generic. This preview contains that rebuild. The existing review path is retained so the open preview stays useful.
+The owner liked the rebuilt content layout and requested stronger colors and a more convincing technology identity. This preview retains that layout with a midnight/turquoise palette, crisp interface typography, selected western serif accents, and a terrain mesh horizon. The existing review path is retained so the open preview stays useful.
 
 Open either `review.html` or `offline-review.html` in a browser. Both are identical, self-contained previews: fonts, logos, styles, and interactions are embedded, so no server or internet connection is required. The width selector offers fit-to-window, 1440, 1200, 1024, 768, 390, and 320px. Scroll inside the page to review every section. The review toolbar is not part of the website.
 
 ## Page order
 
 1. Compact header and four service menus.
-2. “Big ideas. Everyday fixes.” hero, an engraved horizon, and a dark service signboard using the supplied FD monogram.
+2. “Big ideas. Everyday fixes.” dark hero, a decorative terrain mesh, and an interactive service selector using the supplied FD monogram.
 3. Four visible service chapters using the same eighteen services as the header.
 4. A business-services journey connecting online presence, booking, and everyday support.
 5. Three-step process explaining how to start, agree on the work, and use the result.
 6. Practical answers about cost, repair scope, location, and unlisted projects.
-7. A correspondence-style contact section with the real email address, an explicit email-app action, and a clipboard option where supported.
+7. A direct contact panel with the real email address, an explicit email-app action, and a clipboard option where supported.
 8. Compact footer with category shortcuts and a back-to-top link.
 
 ## Editing and behavior

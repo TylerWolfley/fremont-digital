@@ -14,7 +14,7 @@ export function homePage({ headerOnly = false, indexable = false, siteUrl = '' }
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#202e32">
+  <meta name="theme-color" content="#061923">
   ${metadata({ indexable: headerOnly ? false : indexable, siteUrl: headerOnly ? '' : siteUrl })}
   <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/assets/favicons/favicon-32.png" sizes="32x32">

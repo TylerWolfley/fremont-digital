@@ -39,7 +39,9 @@ The homepage directory is four visible `article` sections. All eighteen service 
 
 ## Visual direction
 
-The current design follows the owner's request for a content-led rebuild with a little western character. Bitter provides slab-serif headings; Manrope keeps navigation and service descriptions clear. Both are bundled locally with their licenses. The Bitter font comes from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/bitter). Original logo bytes are preserved; CSS blending lets their white background sit on warm paper. `src/components/landscape.mjs` contains decorative, code-native line art, not a map or a depiction of a named range. Avoid substituting unrelated artwork or adding invented business history.
+The owner liked the rebuilt layout and requested a stronger technology identity. The current palette uses midnight `#061923`, panel blue-green `#102c38`, turquoise `#68edc6`, cool off-white `#f8fbfa`, and a darker teal `#087765` for readable accents on light surfaces. Shared semantic color tokens live in `src/styles/tokens.css`; do not reuse the former paper/rust palette.
+
+Manrope leads the headings and interface; Bitter appears in selected headline accents to preserve a western influence. Both are bundled locally with their licenses. The Bitter font comes from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/bitter). Original logo bytes are preserved. `src/components/landscape.mjs` is a decorative terrain mesh with survey-like traces, not a map or a depiction of a named range. Fine grids and responsive hover/focus states support the digital identity without fake terminal output, metrics, or availability claims. Keep reduced-motion support and clear keyboard focus states.
 
 ## Review workflow
 

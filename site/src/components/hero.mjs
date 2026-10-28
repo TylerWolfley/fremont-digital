@@ -9,7 +9,7 @@ export function hero() {
   return `<section class="hero" aria-labelledby="hero-heading">
     <div class="section-container hero-layout">
       <div class="hero__copy">
-        <p class="eyebrow hero__eyebrow"><span aria-hidden="true">✦</span>${escape(copy.eyebrow)}</p>
+        <p class="eyebrow hero__eyebrow"><span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M6 2H2v4m12-4h4v4M2 14v4h4m12-4v4h-4M6 10h8m-4-4v8" stroke="currentColor" stroke-width="1.3"/></svg></span>${escape(copy.eyebrow)}</p>
         <h1 id="hero-heading">${escape(copy.title)}<span>${escape(copy.accent)}</span></h1>
         <p class="hero__description">${escape(copy.description)}</p>
         <div class="hero__actions"><a class="button button--dark" href="#services">${escape(copy.primary)}${arrow}</a><a class="text-link" href="#contact">${escape(copy.secondary)}${arrow}</a></div>
