@@ -4,7 +4,7 @@ This retains the header-only review stage. The owner reviewed the header favorab
 
 ## Open the review
 
-Open `offline-review.html` in a browser. It contains the actual generated header, fonts, supplied wordmark, and interactions, so no local server or internet connection is needed. Use the width selector for desktop, tablet, and phone layouts. The review controls are outside the website and are not included in its production files.
+Open either `review.html` or `offline-review.html` in a browser. Both are identical, self-contained previews containing the actual generated header, fonts, supplied wordmark, and interactions, so no local server or internet connection is needed. Use the width selector for desktop, tablet, and phone layouts. The review controls are outside the website and are not included in its production files.
 
 For local development, run `npm run dev` in `site/`, then open `http://127.0.0.1:4173/review/header`.
 

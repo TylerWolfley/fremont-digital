@@ -2,7 +2,7 @@
 
 The owner has progressed from the site skeleton to finished copy, restrained character improvements, and preparation for publication. The existing review path is retained so the open preview stays useful.
 
-Open `offline-review.html` in a browser. Fonts, logos, styles, and interactions are embedded, so no server or internet connection is required. The width selector offers fit-to-window, 1440, 1200, 1024, 768, 390, and 320px. Scroll inside the page to review every section. The review toolbar is not part of the website.
+Open either `review.html` or `offline-review.html` in a browser. Both are identical, self-contained previews: fonts, logos, styles, and interactions are embedded, so no server or internet connection is required. The width selector offers fit-to-window, 1440, 1200, 1024, 768, 390, and 320px. Scroll inside the page to review every section. The review toolbar is not part of the website.
 
 ## Page order
 

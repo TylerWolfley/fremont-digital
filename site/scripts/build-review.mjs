@@ -30,17 +30,23 @@ async function inlinePage(page) {
 }
 
 const reviews = [
-  { folder: '02-header', page: homePage({ headerOnly: true }) },
-  { folder: '03-layout', page: await readFile(resolve(dist, 'index.html'), 'utf8') },
+  { folder: '02-header', template: 'header.html', page: homePage({ headerOnly: true }) },
+  { folder: '03-layout', template: 'layout.html', page: await readFile(resolve(dist, 'index.html'), 'utf8') },
 ];
 for (const review of reviews) {
   const page = await inlinePage(review.page);
   const escaped = page.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  let shell = await readFile(resolve(root, `../reviews/${review.folder}/review.html`), 'utf8');
-  shell = shell.replace('src="/"', `srcdoc="${escaped}"`);
+  let shell = await readFile(resolve(root, 'src/reviews', review.template), 'utf8');
+  const placeholder = 'data-preview-content';
+  if (shell.split(placeholder).length !== 2) throw new Error(`Expected one preview placeholder in ${review.template}`);
+  shell = shell.replace(placeholder, () => `srcdoc="${escaped}"`);
   shell = shell.replace('/assets/manrope-regular.ttf',await dataURL('/assets/manrope-regular.ttf'));
   shell = shell.replace('/assets/favicons/favicon.ico',await dataURL('/assets/favicons/favicon.ico'));
-  const destination = resolve(root, `../reviews/${review.folder}/offline-review.html`);
-  await writeFile(destination,shell.replace(/[\t ]+$/gm,''));
-  console.log(`Created self-contained review: reviews/${review.folder}/offline-review.html`);
+  // Both existing entry points must also work when opened directly with file://.
+  // Keep templates in src so a preview can never load the filesystem root.
+  for (const filename of ['review.html', 'offline-review.html']) {
+    const destination = resolve(root, `../reviews/${review.folder}/${filename}`);
+    await writeFile(destination, shell.replace(/[\t ]+$/gm, ''));
+    console.log(`Created self-contained review: reviews/${review.folder}/${filename}`);
+  }
 }

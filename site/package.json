@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:release": "node scripts/build.mjs --release",
-    "check": "node scripts/verify.mjs",
+    "check": "node scripts/verify.mjs && node scripts/verify-review.mjs",
     "dev": "node scripts/dev.mjs",
     "review": "node scripts/build.mjs && node scripts/build-review.mjs"
   },

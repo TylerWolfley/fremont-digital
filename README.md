@@ -39,12 +39,12 @@ The two original logo files are PNG images without filename extensions. Their su
 
 ## Layout development
 
-See [the layout review notes](reviews/03-layout/README.md) and [site architecture](site/ARCHITECTURE.md). Open `reviews/03-layout/offline-review.html` in a browser for an interactive full-page review without a server. The earlier header-only review is retained in `reviews/02-header/`. GitHub shows HTML source; download the review file to view it locally.
+See [the layout review notes](reviews/03-layout/README.md) and [site architecture](site/ARCHITECTURE.md). Open `reviews/03-layout/review.html` or `reviews/03-layout/offline-review.html` in a browser for an interactive full-page review without a server. Both filenames contain the same standalone preview. The earlier header-only review is retained in `reviews/02-header/`. GitHub shows HTML source; download either review file to view it locally.
 
 With Node.js 20 or newer, run from `site/`:
 
 ```sh
-npm run build
+npm run review
 npm run check
 npm run dev
 ```
