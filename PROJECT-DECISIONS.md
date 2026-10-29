@@ -2,6 +2,8 @@
 
 ## Working method
 
+On October 29, 2026, the owner approved the current website as **V1** and explicitly requested saving it to GitHub. Preserve this accepted baseline with version `1.0.0` and tag `v1.0.0`. Approval establishes the design/content milestone; live form delivery, final hosting address, and browser QA remain launch work. GitHub publication does not deploy the website.
+
 Work in orderly stages. After reviewing the layout, the owner requested restrained character improvements, finished text, and preparation for publication. Current scope: the completed homepage copy, services, practical questions, contact behavior, search metadata, and release preparation. The existing supplied-logo favicon is retained. Keep the result available locally and synchronize source to the existing GitHub repository. Preparing for publication is not a request to deploy yet.
 
 The owner rejected the western/turquoise design and requested a complete rebuild. When asked for references, they said “think amazon.com, facebook, and google.” Those references guide clarity, familiar navigation, and useful interactions. The cleaner white, light gray, accessible blue, and Manrope foundation was received favorably. Do not restore the signboard, wireframe scenery, paper/rust theme, or turquoise interface. Original logos and the Wyoming identity remain.

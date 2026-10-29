@@ -6,14 +6,16 @@ The business covers websites, digital marketing, small-business technology setup
 
 ## Current stage
 
+**V1 approved by the owner on October 29, 2026.** The `v1.0.0` Git tag preserves this website milestone. Further improvements should build from this accepted version. See [version history](CHANGELOG.md).
+
 The homepage now uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The owner approved removing search and the catalog sidebar. Direct form submission and backend handling are implemented; live delivery configuration and browser visual review remain pending.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
 | Favicon | Prepared from the supplied FD symbol |
-| Header and service navigation | Rebuilt for the service hub; owner review and browser QA pending |
-| Full homepage and copy | Category browsing, deeper service content, phone contact, and contextual form |
+| Header and service navigation | Approved for V1; browser QA remains pending |
+| Full homepage and copy | Approved V1 with category browsing, service details, phone contact, and contextual form |
 | Online inquiries | Form and backend implemented; delivery connection pending |
 | Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |

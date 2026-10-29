@@ -1,0 +1,15 @@
+# Version history
+
+## 1.0.0 — October 29, 2026
+
+Owner-approved V1 of the Fremont Digital website, saved as Git tag `v1.0.0`.
+
+- Original supplied branding and prepared favicon.
+- Four service categories with detailed scope, outcomes, and inquiry guidance.
+- Phone contact at (307) 349-4694 and email at digitalfremont@gmail.com.
+- Coverage of all Fremont County, Wyoming, through remote help, customer visits, and arranged device drop-off.
+- Larger text, a compact footer, native service/FAQ disclosures, and keyboard-accessible category navigation.
+- Contextual inquiry form with validation, preview mode, retry handling, and a separate delivery backend.
+- Self-contained local previews, automated source/interaction checks, and release preparation.
+
+The website is not deployed. Live form delivery still requires configuration, the final hosting address is undecided, and browser visual QA remains pending. Earlier V1/V2 materials under `reference/` are historical sources, not this approved website milestone.
