@@ -1,60 +1,55 @@
 # Website organization
 
-This is a static website with a small Node build step and no runtime framework or third-party JavaScript dependencies.
+The website is static HTML/CSS/JavaScript built with Node. The optional inquiry delivery endpoint is a separate Cloudflare Worker. No frontend framework or third-party browser script is required.
 
-## Source and output
+## Source map
 
-- `src/data/business.mjs`: business name, Wyoming location, email, and inquiry links.
-- `src/data/services.mjs`: four current service groups, eighteen services, and separately declared future offerings.
-- `src/data/catalog.mjs`: search aliases and the order of the eight starting services.
-- `src/data/homepage.mjs`: process and FAQ copy.
-- `src/config/publication.mjs`: validates the final HTTPS origin and separates review from release settings.
-- `src/components/`: reusable HTML components and code-native icons.
-- `src/pages/`: homepage and 404 templates. The homepage composes the header, service search, catalog, process, FAQ, contact, and footer. A header-only mode preserves the earlier review stage.
-- `src/styles/tokens.css`: shared colors, typography, spacing, and controls.
-- `src/styles/header.css`: header and navigation styles.
-- `src/styles/home.css`: catalog, page sections, inquiry dialog, and responsive rules.
-- `src/scripts/header.js`: progressive enhancement for native disclosure menus.
-- `src/scripts/service-tools.js`: pure search, filtering, and email-draft helpers.
-- `src/scripts/home.js`: search/filter state, category navigation, inquiry dialog, temporary drafts, and clipboard feedback.
-- `src/reviews/`: source templates for the review controls.
-- `scripts/`: build, local preview, offline review, verification, and brand-asset utilities.
-- `dist/`: generated pages, copied styles/scripts, and prepared assets. Edit source files and rebuild instead of editing generated files separately.
+- `src/data/business.mjs`: name, countywide Wyoming location, email, display phone, and dialable phone.
+- `src/data/services.mjs`: four categories and eighteen service IDs. Future phone resale is kept separate.
+- `src/data/service-guides.mjs`: category explanations, outcomes, scope notes, service detail, and contextual form prompts.
+- `src/data/homepage.mjs`: process and FAQs.
+- `src/components/`: header, hero, category panels, process, FAQ, contact form, footer, metadata, and icons.
+- `src/pages/`: homepage and 404 composition.
+- `src/config/publication.mjs`: final site-origin validation and review/release metadata.
+- `src/config/contact.mjs`: public inquiry endpoint validation. Credentials never enter the frontend.
+- `src/styles/`: shared tokens, header styles, and responsive page styles.
+- `src/scripts/header.js`: native disclosure enhancements.
+- `src/scripts/home.js`: category tabs, contextual inquiry form, validation feedback, preview, and submission states.
+- `src/scripts/inquiry-tools.js`: dependency-free validation and submission helpers, also used by server verification.
+- `server/inquiry.mjs`: validates and rate-limits requests, then sends to the fixed business email through Resend.
+- `server/README.md`: delivery configuration and deployment prerequisites.
+- `src/reviews/`: editable source for the review wrapper.
+- `scripts/`: build, review, local development, and meaningful verification scripts.
+- `dist/`: generated review website. Edit source and rebuild; do not edit generated pages separately.
 
-The build preserves `dist/assets/` and does not delete the output directory. Original logos in the repository's `logos/` folder are never overwritten.
+The build preserves prepared assets. Original logo files in `../logos/` remain unchanged. Historical archives are not public website assets.
 
-## Growing the service list
+## Visitor experience
 
-Add a current service to its group in `src/data/services.mjs`, with a stable ID, short name, and plain-language description. Add useful search aliases to `catalog.mjs`; update `startingServices` when the initial selection should change. Category counts and service cards derive from the registry.
+The opening states the business purpose, phone number, countywide coverage, remote help, on-site visits, and arranged drop-off. Four category tiles lead to detailed service panels. Each panel combines relevant service explanations with outcomes, scope expectations, and advice for a first inquiry. There is no search bar, filtering sidebar, or repeated product-card catalog.
 
-The four groups are Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Security installations remain a candidate in `../PROJECT-DECISIONS.md` until the owner confirms the scope. Phone resale stays in `futureServices` until the owner makes it available. Neither is advertised in the current site.
+All four panels exist in HTML and remain available without JavaScript. JavaScript turns the category links into an accessible tab interface, with selected state, roving focus, arrow keys, Home/End, and deep-link handling. Native service and FAQ disclosures work independently of JavaScript. Category header links open and focus the corresponding content. The desktop header breakpoint is 900px in both CSS and JavaScript.
 
-## Navigation and catalog
+Selecting a category or individual service for an inquiry carries the context into the form. Prompts vary for websites, business tools, repairs, and media. Name and reply contact stay shared while message/context/timing drafts are retained per category in page memory. Drafts are never saved in browser storage.
 
-The desktop header has one Services disclosure with four category links and an all-services link. It starts at 900px; keep the CSS and JavaScript breakpoint aligned. Native `details` elements keep navigation usable without JavaScript. Enhancement closes sibling menus, handles Escape/outside clicks, restores focus after Escape, and resets menus when crossing the breakpoint. The expandable mobile menu is not a modal.
+The phone number is available through `tel:` links in the header, hero, contact section, and footer. Email is visible in the contact section and mobile menu. Without JavaScript the form stays hidden and a direct phone/email fallback remains.
 
-All eighteen service cards and their email links exist in the HTML. With JavaScript enabled, the initial view shows eight services and offers a button to reveal all eighteen. Search matches every query word against normalized names, descriptions, and aliases. Category filters, live result counts, clear/reset controls, and a no-results state support browsing. Search stays entirely on the page.
+## Form and delivery
 
-Category links clear the query, select the group, and move keyboard focus to the results heading. Known category hashes also work on arrival or history changes. Without JavaScript, category links reach the complete catalog and the search/filter controls stay hidden. FAQ disclosures remain native.
+Review builds always use a local preview form. It validates and displays the prepared request, clearly states that nothing was sent, and makes no network request. It must never display a sending success message.
 
-## Inquiry behavior
+Release builds require `SITE_URL` and `CONTACT_ENDPOINT`. The latter must point to the configured HTTPS `/api/inquiry` handler. The form then submits directly, disables controls while pending, preserves details on errors, and confirms success only after an accepted server response. Retry keys stay stable for an unchanged request, including an uncertain network result.
 
-Each service has a real `mailto:` link. Where native dialog support exists, selecting a service opens a labelled inquiry dialog with optional details and a contextual prompt. The Continue in email link carries the selected service and details into the visitor's email app for review and sending. It does not submit a message or claim receipt.
-
-Drafts are held in memory per service while the page remains open. There is no account, server submission, local storage, or analytics. Unsupported dialog environments retain the original email link. The contact panel also displays the real email address and provides clipboard copying where supported, with honest success/failure feedback.
+The separate server validates the origin, content type, request identifier, body size, fields, category/service pairing, and honeypot; a required runtime rate-limiter binding limits requests. The recipient is fixed in business data. User text is sent as plain text, and an email reply-to is used only for a validated email contact. Provider credentials remain in runtime secrets. Provider failures do not disclose private error details or claim success. See `server/README.md` before activation.
 
 ## Visual direction
 
-The owner's references are Amazon, Facebook, and Google. The current design interprets that direction as a clear, useful service hub with familiar controls and readable content. It uses white, pale gray `#f5f7fb`, blue `#155dc7`, dark text `#172536`, and muted text `#536274`. Category icons add restrained color. Manrope is bundled locally, and original logos remain unchanged.
+Keep the cleaner white/gray/blue foundation, original branding, and locally bundled Manrope font. Main descriptions are 15–17px, controls are legible, and the footer remains compact. The Amazon/Facebook/Google references guide familiarity and clarity; the owner explicitly agreed to removing search and catalog styling. Do not restore rejected artwork, dark/turquoise terrain designs, fabricated proof, a portrait, or a portfolio.
 
-The former western signboard, dark hero, turquoise palette, and terrain mesh were rejected. They are not part of this design. Wyoming identity comes through the supplied brand and location. Preserve keyboard focus visibility, reduced-motion support, and the compact footer.
+## Build, review, and verification
 
-## Review and release workflow
+From `site/`, run `npm run review` and `npm run check`. `npm run dev` serves the local review and regenerates it after source changes. Both `review.html` and `offline-review.html` in each review folder are identical self-contained files. The builder embeds assets and scripts; never replace the iframe with a root-relative URL that opens the drive root under `file://`.
 
-Use `npm run build` to generate the static site, `npm run dev` for a local preview, or `npm run review` to regenerate the self-contained header and full-site reviews. The dev server regenerates both reviews when source changes. No dependency installation is required for these Node scripts.
+Checks cover business details, phone links, service coverage, anchors, assets, release settings, contextual forms, validation, tab keyboard behavior, drafts, submission retries, backend failures, and offline review integrity. Provider calls are mocked; no test emails are sent. These checks do not establish browser layout, accessibility, inbox delivery, or performance scores.
 
-Each review folder has identical `review.html` and `offline-review.html` files. Either can be opened directly; all resources are embedded. Never use a root-relative iframe source in these files: under `file://` it opens the drive root. Edit templates in `src/reviews/` and regenerate both filenames together.
-
-Run `npm run check` after `npm run review`. Checks cover location, service links, anchors, assets, publication settings, search/filter helpers, simulated UI behavior, email encoding, draft handling, dialog fallback, clipboard states, and standalone preview entry points. These source and simulated interaction checks do not replace browser rendering or responsive visual review.
-
-GitHub synchronization and deployment are separate. `dist/` is a review build with `noindex, nofollow`. `npm run build:release` requires the actual HTTPS origin in `SITE_URL` and writes an ignored `release/` directory with canonical/social URLs, structured business data, indexable homepage metadata, robots.txt, sitemap.xml, and a noindex 404 page. It does not deploy. Offline reviews always use the review build.
+GitHub synchronization does not deploy. Normal builds stay noindex; `build:release` writes ignored `release/` output only after configuration validation. Serve that directory as the public static website and deploy the inquiry endpoint separately. Keep the existing unpublished Sites identity if that host is selected later.

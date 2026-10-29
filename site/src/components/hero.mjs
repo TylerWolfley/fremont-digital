@@ -1,15 +1,6 @@
-import { serviceGroups } from '../data/services.mjs';
 import { business } from '../data/business.mjs';
-import { arrow, groupIcons, pin } from './icons.mjs';
+import { arrow, pin } from './icons.mjs';
 import { escape } from './html.mjs';
-
 export function hero() {
-  return `<section class="hero" aria-labelledby="hero-heading"><div class="section-container">
-    <p class="hero-location">${pin}${escape(business.location)}</p>
-    <h1 id="hero-heading">What can we help you with?</h1>
-    <p class="hero-description">Websites, phone and computer repairs, business technology, and creative services.<br class="desktop-break"> Find what you need. Work with someone local.</p>
-    <form class="service-search" data-search-form role="search" hidden><label class="sr-only" for="service-search">Search Fremont Digital services</label><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="service-search" type="search" placeholder="Try phone repair, a new website, or video editing" autocomplete="off" maxlength="120" aria-controls="service-results"><button type="submit">Search</button></form>
-    <noscript><a class="button button--primary" href="#services">Browse services ${arrow}</a></noscript>
-    <nav class="category-shortcuts" aria-label="Browse by service category">${serviceGroups.map(group => `<a href="#services" data-category-link="${group.id}"><span class="shortcut-icon" data-icon="${group.id}">${groupIcons[group.id]}</span><span><strong>${escape(group.navLabel)}</strong><small>${group.services.length} services</small></span>${arrow}</a>`).join('\n')}</nav>
-  </div></section>`;
+  return `<section class="hero" aria-labelledby="hero-heading"><div class="section-container hero-layout"><div class="hero-copy"><p class="hero-location">${pin}All of ${escape(business.location)}</p><h1 id="hero-heading">Your local connection<br>for <span>all things tech.</span></h1><p class="hero-description">A website for your business. A fix for your phone. A fresh way to tell your story. Get technology and creative help from someone right here in Fremont County.</p><div class="hero-actions"><a class="button button--primary" href="#contact">Tell me what you need ${arrow}</a><a class="text-link" href="#services">Explore services ${arrow}</a></div></div><aside class="hero-contact" aria-label="Contact Fremont Digital"><span class="contact-kicker">Let’s get it working.</span><a class="hero-phone" href="${business.phoneLink}">${business.phone}</a><p>One local contact for your next project or everyday tech problem.</p><div class="availability"><span>Remote help</span><span>On-site visits</span><span>Arranged drop-off</span></div></aside></div></section>`;
 }

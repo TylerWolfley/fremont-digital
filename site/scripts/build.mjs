@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { homePage } from '../src/pages/home.mjs';
 import { serviceGroups } from '../src/data/services.mjs';
 import { publicationConfig } from '../src/config/publication.mjs';
+import { contactConfig } from '../src/config/contact.mjs';
 import { notFoundPage } from '../src/pages/not-found.mjs';
 import { escape } from '../src/components/html.mjs';
 
@@ -11,6 +12,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const release = process.argv.includes('--release');
 // Validate before writing any output, so a missing address cannot change a review.
 const publication = publicationConfig({ release, siteUrl: process.env.SITE_URL });
+const contact = contactConfig({ endpoint: release ? process.env.CONTACT_ENDPOINT : '' });
+if (release && !contact.contactEndpoint) throw new Error('Set CONTACT_ENDPOINT to the connected inquiry handler before building a release.');
 const out = resolve(root, release ? 'release' : 'dist');
 if (release) await cp(resolve(root, 'dist/assets'), resolve(out, 'assets'), { recursive: true });
 const ids = new Set();
@@ -27,7 +30,7 @@ for (const folder of ['styles', 'scripts']) {
     await copyFile(resolve(root, 'src', folder, name), resolve(out, folder, name));
   }
 }
-const html = homePage(publication);
+const html = homePage({ ...publication, ...contact });
 const sectionIds = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 if (new Set(sectionIds).size !== sectionIds.length) throw new Error('Duplicate HTML IDs.');
 for (const match of html.matchAll(/href="#([^"]+)"/g)) {

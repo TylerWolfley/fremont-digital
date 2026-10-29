@@ -10,9 +10,9 @@ For local development, run `npm run dev` in `site/`, then open `http://127.0.0.1
 
 ## Navigation
 
-At 900px and wider, one Services dropdown contains Web & Digital, Business Tech, Repairs & Tech, Photo & Media, and Browse all services. How it works, FAQs, and Get in touch complete the header. Below 900px, a native expandable Menu contains the category links, section links, and business email.
+At 900px and wider, one Services dropdown contains Web & Digital, Business Tech, Repairs & Tech, Photo & Media, and Explore services. How it works, FAQs, and a direct (307) 349-4694 call link complete the header. Below 900px, a compact Call button remains visible alongside the expandable Menu containing category links, section links, and email.
 
-Category links filter the catalog on the full homepage. The header-only preview shows the navigation in isolation; use the full-site preview to test its destinations and service inquiries. The eighteen service choices appear in the full-page catalog rather than being duplicated in header menus.
+Category links open the corresponding detailed panel on the full homepage. The header-only preview shows navigation in isolation; use the full-site preview to test destinations and inquiries. The eighteen services appear in their category panels rather than being duplicated in header menus.
 
 The supplied logo remains unchanged. Phone resale and security installation are not advertised.
 

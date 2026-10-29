@@ -9,6 +9,7 @@ export function metadata({ indexable = false, siteUrl = '' } = {}) {
     name: business.name,
     description: business.description,
     email: business.email,
+    telephone: business.phoneE164,
     areaServed: { '@type': 'AdministrativeArea', name: business.location },
     ...(siteUrl ? { url: siteUrl, logo: new URL(imagePath, siteUrl).href } : {}),
   };

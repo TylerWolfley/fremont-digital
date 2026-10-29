@@ -1,15 +1,17 @@
 # Publication preparation
 
-The site content and release workflow are prepared. It has not been deployed. The owner has confirmed the business is in Fremont County, Wyoming, and does not yet own a domain.
+The website is prepared for local review and has not been deployed. The business serves all of Fremont County, Wyoming, with remote help, customer visits, and arranged device drop-off. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**. The owner does not yet own a domain.
 
-Source checks and an isolated release-build smoke test passed on October 27, 2026. The smoke test verified output assets, canonical metadata, robots.txt, sitemap.xml, and the 404 page using a reserved test origin in a temporary copy; that output was removed. Offline preview assets and the main text-color contrast pairs were also checked. These results do not constitute a browser or full accessibility audit.
+On October 29, 2026, the static build, simulated category/form interactions, mocked server delivery cases, standalone previews, source syntax, HTML labels/nesting, and eight key contrast pairs passed. An isolated release smoke test verified the missing-endpoint guard and connected-form output, metadata, robots, sitemap, and 404 using reserved test addresses. The temporary output was removed. These are not browser or inbox-delivery results.
 
 ## Remaining before launch
 
-1. Select the final HTTPS address. It may be a domain the owner acquires or a confirmed address from the selected host. Do not assume domain availability or use a made-up address.
-2. Complete browser review at 320, 390, 768, 1024, 1200, and 1440px. Check the full page, header menus, search, category filters, view-all control, inquiry dialog, FAQ, keyboard navigation, reduced motion, and email/clipboard behavior. The browser tool previously blocked the local preview, so source checks do not establish these results.
+1. Select the actual HTTPS website address, using a chosen domain or confirmed hosting address.
+2. Connect and deploy the inquiry delivery endpoint. The form and backend code are ready for configuration; see `server/README.md` for the email provider, verified sender, runtime secret, allowed origin, and rate limiter. No live delivery is currently configured.
+3. Complete browser review at 320, 390, 768, 1024, 1200, and 1440px: header, category tabs and disclosures, form prompts, validation, failure/retry behavior, success, keyboard navigation, focus, reduced motion, call links, and email links. Browser access to the local preview was blocked; source checks do not establish these results.
+4. With authorization, verify a real inquiry reaches the owner's inbox from the hosted site. Test messages have not been sent during development.
 
-The contact method is intentionally email. The inquiry dialog adds service-specific details to a draft through “Continue in email.” There is no server form or delivery confirmation. Verify the recipient and subject in an email client without sending an unsolicited test message. Clipboard copying requires browser support and permission; denial shows a manual-copy instruction.
+Review builds show an explicit preview form. It can validate and summarize a request but cannot send one. Release builds enable direct submission only with `CONTACT_ENDPOINT` configured. Phone and email links remain available as direct alternatives.
 
 ## Build and publish
 
@@ -19,13 +21,14 @@ With Node.js 20 or later, run from `site/`:
 npm run review
 npm run check
 $env:SITE_URL = Read-Host 'Final HTTPS website address'
+$env:CONTACT_ENDPOINT = Read-Host 'Connected HTTPS inquiry endpoint ending in /api/inquiry'
 npm run build:release
 ```
 
-The release command validates the address before writing anything. It creates `release/` containing the homepage, local assets, 404 page, canonical/social metadata, structured business data, robots.txt, and sitemap.xml. The normal `dist/` and offline reviews remain noindex. The release directory is Git-ignored because its URLs depend on the chosen host.
+Both URLs are validated before output is written. Provider credentials are runtime secrets on the separate inquiry server, never frontend build variables. The release output contains the homepage, local assets, canonical/social metadata, business structured data including the phone, robots.txt, sitemap.xml, and 404 page. Normal `dist/` and offline previews stay noindex. The host-specific `release/` directory is ignored by Git.
 
-Publish only the contents of `release/` to a static host that serves `404.html` with a 404 status for missing pages. Never upload the whole repository, project notes, original logos folder, historical archives, or review tools as the public web root. No application server, database, dependency installation, or API key is required.
+Publish only `release/` to the static website host. Deploy the inquiry server separately. Never publish repository notes, historical archives, original logo folders, review tools, server source, or credentials as the public web root. Serve missing pages with the 404 status.
 
-If using the existing Sites project, retain `appgprj_6ae12daafb7c8191bb15d06f958c03a3`. Confirm its final address, build the release with that address, and set its local hosting manifest's `static.directory` to `release` before the supported packaging/publication workflow. Preserve the project ID and audience; do not create another project. The source helper and native Sites tools must be used for that hosting path.
+If using the existing Sites project, retain `appgprj_6ae12daafb7c8191bb15d06f958c03a3`. Preserve its identity and audience, use the supported source and publication workflow, and set the local static directory to `release` after building with the actual address. Do not create a duplicate Site.
 
-After deployment, verify the real homepage and 404 response, metadata/canonical address, email links, and phone layout. Do not report browser, accessibility, or performance scores that have not been measured.
+After deployment, verify the live homepage, 404 response, canonical address, category and phone layouts, and inquiry delivery. Do not report browser, accessibility, inbox-delivery, or performance results that have not been measured.

@@ -2,22 +2,23 @@
 
 Website and brand assets for Fremont Digital, an independent technology business in Fremont County, Wyoming.
 
-The business covers websites, digital marketing, small-business technology setup, professional photography, video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable tech projects. The service menu is organized into Web & Digital, Business Tech, Repairs & Tech, and Photo & Media. Business inquiries: **digitalfremont@gmail.com**.
+The business covers websites, digital marketing, small-business technology setup, professional photography, video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable tech projects. It serves all of Fremont County through remote help, customer visits, and arranged device drop-off. Business inquiries: **(307) 349-4694** or **digitalfremont@gmail.com**.
 
 ## Current stage
 
-The homepage has been rebuilt as a **searchable local service hub**, following the owner's Amazon, Facebook, and Google references. It uses familiar navigation, category filters, readable service cards, and a guided inquiry that opens an email draft. Publication setup is prepared; final browser visual review is pending.
+The homepage now uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The owner approved removing search and the catalog sidebar. Direct form submission and backend handling are implemented; live delivery configuration and browser visual review remain pending.
 
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |
 | Favicon | Prepared from the supplied FD symbol |
 | Header and service navigation | Rebuilt for the service hub; owner review and browser QA pending |
-| Full homepage and copy | Service hub with search and inquiry flow; final browser review pending |
+| Full homepage and copy | Category browsing, deeper service content, phone contact, and contextual form |
+| Online inquiries | Form and backend implemented; delivery connection pending |
 | Public web address | Owner does not yet have a domain |
 | Website deployment | Not published |
 
-The current `site/dist/` contains the full homepage: service finder, filterable catalog, process, practical questions, contact, and footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
+The current `site/dist/` contains the full homepage: opening, four service categories and detail panels, process, practical questions, contact, and compact footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
 
 Read [PROJECT-DECISIONS.md](PROJECT-DECISIONS.md) before making changes. Its current decisions take precedence over historical V1/V2 handoff material.
 
@@ -32,6 +33,7 @@ site/src/                 Shared content, components, page templates, styles, sc
 site/dist/assets/favicons/ Browser icons and Apple touch icon
 site/dist/assets/          Prepared wordmark, bundled fonts, and licenses
 site/scripts/              Build, preview, and asset utilities
+site/server/               Inquiry delivery handler and connection instructions
 reference/                Historical V1/V2 archives and handoff documents
 ```
 
@@ -49,9 +51,9 @@ npm run check
 npm run dev
 ```
 
-No dependency installation is needed. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` to regenerate both offline reviews after changes. Process and FAQ copy lives in `site/src/data/homepage.mjs`; the service registry is `site/src/data/services.mjs`. Search aliases and starting services live in `site/src/data/catalog.mjs`.
+No dependency installation is needed for the static build or tests. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` after changes. Process and FAQ copy lives in `site/src/data/homepage.mjs`; service IDs are in `site/src/data/services.mjs`. Category explanations, service detail, and form prompts live in `site/src/data/service-guides.mjs`.
 
-See [publication preparation](site/LAUNCH.md) for the separate release command. Review builds stay out of search; a release requires the actual web address. The checks cover core navigation, location, assets, publication settings, and contact behavior, but do not replace browser testing.
+See [publication preparation](site/LAUNCH.md) and [inquiry connection instructions](site/server/README.md). Review builds stay out of search and never send forms. A release requires the actual web address and connected inquiry endpoint. Checks cover navigation, phone links, content, form validation, backend failures, and publication settings; they do not replace browser or real delivery verification.
 
 ## Favicon draft
 

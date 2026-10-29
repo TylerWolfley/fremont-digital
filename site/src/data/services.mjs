@@ -4,10 +4,6 @@ export const serviceGroups = [
   {
     id: 'web-digital',
     navLabel: 'Web & Digital',
-    prompt: 'Build my website.',
-    hint: 'Websites, search & marketing',
-    title: 'Give your business a proper home online.',
-    description: 'You put real work into your business. Your website should show it. Let’s make it easy for people to see what you do, find what they need, and get in touch.',
     services: [
       { id: 'website-builds', name: 'Website builds', description: 'Mobile-friendly websites with clear navigation and a straightforward way to get in touch.' },
       { id: 'website-updates', name: 'Website updates & care', description: 'Redesigns, content updates, and ongoing maintenance.' },
@@ -19,10 +15,6 @@ export const serviceGroups = [
   {
     id: 'business-tech',
     navLabel: 'Business Tech',
-    prompt: 'Set up my business.',
-    hint: 'Email, payments & everyday tools',
-    title: 'Less fiddling. More getting on with it.',
-    description: 'The printer, the Wi-Fi, the booking system: the little things can eat up a workday. Get help setting up the tools behind your business so they fit the way you work.',
     services: [
       { id: 'email-domains', name: 'Business email & domains', description: 'Domain configuration, professional email accounts, and setup on your devices.' },
       { id: 'booking-payments', name: 'Booking & payment systems', description: 'Online scheduling, payments, and point-of-sale setup.' },
@@ -35,10 +27,6 @@ export const serviceGroups = [
   {
     id: 'repairs-tech',
     navLabel: 'Repairs & Tech',
-    prompt: 'Get my tech working.',
-    hint: 'Phone repairs, computers & support',
-    title: 'Cracked. Slow. Just plain stuck.',
-    description: 'A phone that won’t charge. A computer taking forever. A pop-up that doesn’t look right. Tell me what’s happening and which device you’re using. We’ll start there.',
     services: [
       { id: 'phone-repair', name: 'Phone & device repairs', description: 'Screen, charging-port, and other repairs, depending on the device and parts needed.' },
       { id: 'computer-help', name: 'Computer repairs & upgrades', description: 'Troubleshooting, component replacements, and upgrades.' },
@@ -49,10 +37,6 @@ export const serviceGroups = [
   {
     id: 'photo-media',
     navLabel: 'Photo & Media',
-    prompt: 'Make something worth seeing.',
-    hint: 'Photography, video & YouTube',
-    title: 'Show people what you’re all about.',
-    description: 'The product you make. The place you’re selling. The story you want to tell. Bring it into focus with photography, video, and editing for your business or your next project.',
     services: [
       { id: 'photography', name: 'Professional photography', description: 'Photos for businesses, products, and real estate.' },
       { id: 'video-production', name: 'Video & YouTube content', description: 'Planning, filming, and content for your business or channel.' },

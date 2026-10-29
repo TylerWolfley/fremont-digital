@@ -1,37 +1,34 @@
 # Full website review
 
-The owner rejected the previous design and named Amazon, Facebook, and Google as references. This ground-up rebuild uses a clean service-hub structure: prominent search, category filters, service cards, and a guided email inquiry. The existing review path remains the entry point.
+The owner approved simplifying the service hub: remove search and the sidebar, add deeper service explanations, increase text size, and improve inquiries. The confirmed phone is **(307) 349-4694**. Service covers **all of Fremont County, Wyoming**, with remote help, on-site visits, and arranged device drop-off.
 
-Open either `review.html` or `offline-review.html` in a browser. Both are identical, self-contained previews with embedded fonts, logos, styles, and scripts. No server or internet connection is required. The width selector offers fit-to-window, 1440, 1200, 1024, 768, 390, and 320px. Scroll inside the page to inspect each section. The review toolbar is not part of the website.
+Open either `review.html` or `offline-review.html`. Both are identical self-contained previews containing all fonts, images, styles, and scripts. No server or internet connection is needed. The width selector includes 1440, 1200, 1024, 768, 390, and 320px. The review toolbar is not part of the website.
 
 ## Page order
 
-1. Compact header with Services, How it works, FAQs, and Get in touch.
-2. “What can we help you with?” search and four category shortcuts.
-3. Filterable service catalog, initially showing eight services with a button to reveal all eighteen.
+1. Compact navigation with a call link.
+2. “Your local connection for all things tech” opening and direct phone contact.
+3. Four service categories with detailed explanations, scope, outcomes, and inquiry prompts.
 4. Three-step process.
-5. Practical FAQs about costs, repairs, location, and other projects.
-6. Contact panel with the actual email address and clipboard option where supported.
-7. Compact footer.
+5. FAQs including countywide coverage and arranged drop-off.
+6. Phone/email contact, service arrangements, and contextual inquiry form.
+7. Compact footer with phone contact.
 
-Selecting a service opens a native inquiry dialog where supported. Optional details are added to an email draft; Continue in email opens the visitor's email app for review and sending. Nothing is submitted by the website. Temporary drafts stay in memory while the page is open.
+Category tiles act as keyboard-accessible tabs when JavaScript is available. Without JavaScript all category panels remain visible. Individual service and FAQ disclosures are native HTML.
 
-## Editing and behavior
+Selecting a service carries it into the form. The form asks for relevant context for websites, business technology, device repair, or photography/media. Category drafts stay in memory only while the page is open.
 
-- Business details: `site/src/data/business.mjs`.
-- Services: `site/src/data/services.mjs`.
-- Search aliases and initial selection: `site/src/data/catalog.mjs`.
-- Process and FAQ copy: `site/src/data/homepage.mjs`.
+## Preview form
+
+The offline preview validates and displays a request summary but does not send anything. Its preview notice and result state explain this explicitly. Phone and email links are direct contact options. The real submission controller and backend are implemented, but live delivery requires the setup in `site/server/README.md` before release.
+
+## Editing
+
+- Phone, email, and location: `site/src/data/business.mjs`.
+- Service names and IDs: `site/src/data/services.mjs`.
+- Category/detail content and prompts: `site/src/data/service-guides.mjs`.
+- Process and FAQs: `site/src/data/homepage.mjs`.
 - Layout: `site/src/components/` and `site/src/styles/`.
-- Search/filter/email helpers: `site/src/scripts/service-tools.js`.
-- Page interactions: `site/src/scripts/home.js`.
+- Browser behavior: `site/src/scripts/`.
 
-Search works locally against names, descriptions, and aliases. Category selection clears the search and narrows the catalog; clear/reset restores the starting selection. Category shortcuts move keyboard focus to the result heading. Known category hashes work on entry and history changes. Without JavaScript, all eighteen services and email links remain available, and search/filter controls stay hidden. Header and FAQ disclosures use native HTML.
-
-Run `npm run review` from `site/` to rebuild both review stages, then `npm run check`. No personal portrait, portfolio, invented reviews, resale inventory, security installation offering, or rejected artwork is included.
-
-## Verification limits
-
-Build, syntax, assets, anchors, email destinations, publication settings, search/filter behavior, inquiry drafts, dialog fallback, and clipboard feedback receive source or simulated interaction checks. Browser interaction and responsive visual QA remain unverified because browser access to the local preview was blocked. No alternate browser automation was used.
-
-No website deployment has occurred. The owner does not yet own a domain; see `site/LAUNCH.md` for remaining launch work.
+Run `npm run review` and `npm run check` from `site/` after edits. Browser layout and interaction QA remain unverified because local browser access was blocked; no alternate browser automation was used. Source and simulated interaction checks passed, including backend success/failure handling with mocked delivery. No real test message or website deployment has occurred.
