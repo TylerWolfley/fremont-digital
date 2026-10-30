@@ -38,7 +38,7 @@ The phone number is available through `tel:` links in the header, hero, contact 
 
 Review builds always use a local preview form. It validates and displays the prepared request, clearly states that nothing was sent, and makes no network request. It must never display a sending success message.
 
-Release builds require `SITE_URL` and `CONTACT_ENDPOINT`. The latter must point to the configured HTTPS `/api/inquiry` handler. The form then submits directly, disables controls while pending, preserves details on errors, and confirms success only after an accepted server response. Retry keys stay stable for an unchanged request, including an uncertain network result.
+Release builds require `SITE_URL`. The owner approved launching with the existing form unchanged before connecting delivery, so an absent `CONTACT_ENDPOINT` retains its preview behavior. When supplied, `CONTACT_ENDPOINT` must point to the configured HTTPS `/api/inquiry` handler. The form then submits directly, disables controls while pending, preserves details on errors, and confirms success only after an accepted server response. Retry keys stay stable for an unchanged request, including an uncertain network result.
 
 The separate server validates the origin, content type, request identifier, body size, fields, category/service pairing, and honeypot; a required runtime rate-limiter binding limits requests. The recipient is fixed in business data. User text is sent as plain text, and an email reply-to is used only for a validated email contact. Provider credentials remain in runtime secrets. Provider failures do not disclose private error details or claim success. See `server/README.md` before activation.
 
@@ -52,4 +52,4 @@ From `site/`, run `npm run review` and `npm run check`. `npm run dev` serves the
 
 Checks cover business details, phone links, service coverage, anchors, assets, release settings, contextual forms, validation, tab keyboard behavior, drafts, submission retries, backend failures, and offline review integrity. Provider calls are mocked; no test emails are sent. These checks do not establish browser layout, accessibility, inbox delivery, or performance scores.
 
-GitHub synchronization does not deploy. Normal builds stay noindex; `build:release` writes ignored `release/` output only after configuration validation. Serve that directory as the public static website and deploy the inquiry endpoint separately. Keep the existing unpublished Sites identity if that host is selected later.
+GitHub synchronization does not deploy. Normal builds stay noindex; `build:release` writes ignored `release/` output after configuration validation. The existing Sites project was reused for the October 30, 2026 public launch. Its separate publishing checkout places the release files in `dist/`, the static directory declared by its hosting manifest. The inquiry endpoint is deployed separately when connected.

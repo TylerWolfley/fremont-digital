@@ -13,7 +13,8 @@ const release = process.argv.includes('--release');
 // Validate before writing any output, so a missing address cannot change a review.
 const publication = publicationConfig({ release, siteUrl: process.env.SITE_URL });
 const contact = contactConfig({ endpoint: release ? process.env.CONTACT_ENDPOINT : '' });
-if (release && !contact.contactEndpoint) throw new Error('Set CONTACT_ENDPOINT to the connected inquiry handler before building a release.');
+// The owner approved launching the existing form before connecting delivery.
+// Without an endpoint, retain its current preview behavior and direct contact links.
 const out = resolve(root, release ? 'release' : 'dist');
 if (release) await cp(resolve(root, 'dist/assets'), resolve(out, 'assets'), { recursive: true });
 const ids = new Set();

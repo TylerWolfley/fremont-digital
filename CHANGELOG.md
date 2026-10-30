@@ -1,5 +1,13 @@
 # Version history
 
+## Public launch — October 30, 2026
+
+- Published the approved V1 website at `https://digitalfremont.com` using the existing Sites project.
+- Connected the root and www addresses through Namecheap with active HTTPS.
+- Set canonical, social, sitemap, and indexing metadata to the purchased domain.
+- Left the form's presentation and preview behavior unchanged as requested. Phone and email are the working contact methods; form delivery will be connected later.
+- Preserved the `v1.0.0` approval tag.
+
 ## 1.0.0 — October 29, 2026
 
 Owner-approved V1 of the Fremont Digital website, saved as Git tag `v1.0.0`.

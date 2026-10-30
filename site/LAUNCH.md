@@ -1,17 +1,26 @@
-# Publication preparation
+# Public launch
 
-The owner requested public launch on October 30, 2026, after purchasing **digitalfremont.com** through **Namecheap**. The website has not yet been deployed. The business serves all of Fremont County, Wyoming, with remote help, customer visits, and arranged device drop-off. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
+The approved V1 website launched on October 30, 2026 at **https://digitalfremont.com** after the owner bought the domain through **Namecheap**. Both the root domain and **https://www.digitalfremont.com** have active hosting and HTTPS status.
 
-On October 29, 2026, the static build, simulated category/form interactions, mocked server delivery cases, standalone previews, source syntax, HTML labels/nesting, and eight key contrast pairs passed. An isolated release smoke test verified the missing-endpoint guard and connected-form output, metadata, robots, sitemap, and 404 using reserved test addresses. The temporary output was removed. These are not browser or inbox-delivery results.
+The business serves all of Fremont County, Wyoming through remote help, customer visits, and arranged device drop-off. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
 
-## Remaining before launch
+## Form decision
 
-1. Connect `digitalfremont.com` to the published site using the exact DNS records returned by the hosting service. Use `https://digitalfremont.com` for `SITE_URL`. Namecheap sign-in is pending; preserve unrelated records, including email records.
-2. Connect and deploy the inquiry delivery endpoint. The form and backend code are ready for configuration; see `server/README.md` for the email provider, verified sender, runtime secret, allowed origin, and rate limiter. No live delivery is currently configured.
-3. Complete browser review at 320, 390, 768, 1024, 1200, and 1440px: header, category tabs and disclosures, form prompts, validation, failure/retry behavior, success, keyboard navigation, focus, reduced motion, call links, and email links. Browser access to the local preview was blocked; source checks do not establish these results.
-4. With authorization, verify a real inquiry reaches the owner's inbox from the hosted site. Test messages have not been sent during development.
+The owner explicitly requested leaving the existing form exactly as it was and connecting delivery later. Its presentation, text, and preview behavior were preserved. No unavailable labels, disabled controls, or replacement contact layout were added. The form can validate and summarize a request but does not send. Phone and email are the current working contact methods.
 
-Review builds show an explicit preview form. It can validate and summarize a request but cannot send one. Release builds enable direct submission only with `CONTACT_ENDPOINT` configured. Phone and email links remain available as direct alternatives.
+Delivery configuration and a real inbox test remain future work. Follow `server/README.md` when the owner asks to connect the form. No real inquiry messages have been sent during development or launch.
+
+## Hosting record
+
+- Existing project: `appgprj_6ae12daafb7c8191bb15d06f958c03a3`, now public.
+- Saved version: `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_da9a1d24d0a481918a737f3e0f2c8baa` (version 1).
+- Deployment: `appgdep_6ae4fb848cc08191b27ddc5847d5d780`, succeeded.
+- Hosting source commit: `de22fa29dc417c3d86813cdb6a97cbfcfb7df60f`.
+- Host address: https://fremont-digital-studio.quaboslice.chatgpt.site
+- Root-domain record: `appgdom_6ae4fb98954c8191a18348b75dc7353a`.
+- www-domain record: `appgdom_6ae4fb9f6b5881918b1f400a2cb046b7`.
+
+Namecheap BasicDNS remains in use. The parking CNAME and root redirect were replaced with the host's CNAME and two A records. Supplied ownership/HTTPS TXT records were added. Existing email forwarding and its SPF record were preserved.
 
 ## Build and publish
 
@@ -21,14 +30,24 @@ With Node.js 20 or later, run from `site/`:
 npm run review
 npm run check
 $env:SITE_URL = 'https://digitalfremont.com'
-$env:CONTACT_ENDPOINT = Read-Host 'Connected HTTPS inquiry endpoint ending in /api/inquiry'
+Remove-Item Env:CONTACT_ENDPOINT -ErrorAction SilentlyContinue
 npm run build:release
 ```
 
-Both URLs are validated before output is written. Provider credentials are runtime secrets on the separate inquiry server, never frontend build variables. The release output contains the homepage, local assets, canonical/social metadata, business structured data including the phone, robots.txt, sitemap.xml, and 404 page. Normal `dist/` and offline previews stay noindex. The host-specific `release/` directory is ignored by Git.
+When delivery is connected, set `CONTACT_ENDPOINT` to its configured HTTPS `/api/inquiry` URL before building. Provider credentials are runtime secrets on the separate inquiry server, never frontend build variables.
 
-Publish only `release/` to the static website host. Deploy the inquiry server separately. Never publish repository notes, historical archives, original logo folders, review tools, server source, or credentials as the public web root. Serve missing pages with the 404 status.
+The ignored `release/` output contains the homepage, local assets, canonical/social metadata, business structured data, robots.txt, sitemap.xml, and 404 page. Normal `dist/` and offline previews stay noindex.
 
-For the requested public launch, retain Sites project `appgprj_6ae12daafb7c8191bb15d06f958c03a3` and make the published business website publicly accessible. Use the supported source and publication workflow, and set the hosting checkout's static directory to `release` after building with the actual address. Do not create a duplicate Site. The project currently remains unpublished and owner-private.
+The supported Sites source workflow uses a separate checkout containing only the site's files, with the release output copied into its `dist/` directory. Its tracked `.openai/hosting.json` retains the existing project ID and declares `static.directory` as `dist`. Push/package with the supported helper and deploy the resulting saved version. Do not create a duplicate Site.
 
-After deployment, verify the live homepage, 404 response, canonical address, category and phone layouts, and inquiry delivery. Do not report browser, accessibility, inbox-delivery, or performance results that have not been measured.
+Only compiled website assets are served publicly. Repository notes, archives, original logo folders, reviews, server source, and credentials are not the public web root. GitHub synchronization alone does not redeploy the Site.
+
+## Verification
+
+Launch checks passed for the release build, source/contact/navigation checks, simulated category and form interactions, and standalone review integrity. Production output has the correct canonical domain and indexable metadata. The live root-domain homepage was opened successfully over HTTPS and visually inspected in the browser. Both custom domains report active hosting and SSL status.
+
+HTTPS checks returned 200 for both domain homepages, robots.txt, and sitemap.xml. A nonexistent page returned 404 with the custom missing-page content. The initial sandboxed DNS lookup failed; these checks succeeded with approved network access.
+
+Earlier October 29 checks also covered mocked server delivery, source syntax, HTML structure, contrast, and connected-form release output. Those are not real inbox-delivery results. A full browser accessibility, responsive, and performance audit has not been completed.
+
+Namecheap displayed a pending registration-contact verification for the domain. The owner should complete Namecheap's verification email; no account contact details were changed during launch.

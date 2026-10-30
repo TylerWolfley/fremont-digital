@@ -18,7 +18,7 @@ The homepage now uses **four clear service categories**, practical service expla
 | Full homepage and copy | Approved V1 with category browsing, service details, phone contact, and contextual form |
 | Online inquiries | Form and backend implemented; delivery connection pending |
 | Public web address | `digitalfremont.com`, purchased through Namecheap |
-| Website deployment | Not published |
+| Website deployment | Public at https://digitalfremont.com; www also connected with HTTPS |
 
 The current `site/dist/` contains the full homepage: opening, four service categories and detail panels, process, practical questions, contact, and compact footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
 
@@ -55,7 +55,7 @@ npm run dev
 
 No dependency installation is needed for the static build or tests. The local site review is at `http://127.0.0.1:4173/review/layout`; the header review remains at `/review/header`. Run `npm run review` after changes. Process and FAQ copy lives in `site/src/data/homepage.mjs`; service IDs are in `site/src/data/services.mjs`. Category explanations, service detail, and form prompts live in `site/src/data/service-guides.mjs`.
 
-See [publication preparation](site/LAUNCH.md) and [inquiry connection instructions](site/server/README.md). Review builds stay out of search and never send forms. A release requires the actual web address and connected inquiry endpoint. Checks cover navigation, phone links, content, form validation, backend failures, and publication settings; they do not replace browser or real delivery verification.
+See [launch record](site/LAUNCH.md) and [inquiry connection instructions](site/server/README.md). Review builds stay out of search and never send forms. A release requires the actual web address; an inquiry endpoint is optional until delivery is activated. The owner requested leaving the form unchanged for launch and connecting delivery later. Checks do not replace browser or real delivery verification.
 
 ## Favicon draft
 
@@ -73,4 +73,4 @@ The script verifies icon dimensions and that the original logo file remains unch
 
 ## Repository boundaries
 
-Rejected artwork, local deployment configuration, temporary downloads, credentials, and development caches are excluded. On October 30, 2026, the owner requested publishing the approved website at `digitalfremont.com`. Domain connection and live inquiry delivery remain pending; the website has not yet been deployed.
+Rejected artwork, local deployment configuration, temporary downloads, credentials, and development caches are excluded. The approved website launched at `digitalfremont.com` on October 30, 2026. Domain connection is complete. Inquiry delivery is deferred at the owner's request; phone and email are the current working contact methods.
