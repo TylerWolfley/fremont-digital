@@ -8,8 +8,8 @@ export const business = Object.freeze({
   phoneE164: '+13073494694',
   phoneLink: 'tel:+13073494694',
   facebookUrl: 'https://fb.com/digitalfremont',
-  title: 'Fremont Digital | Websites & Tech Help in Fremont County, WY',
-  description: `Web design, phone and computer repair, business tech, photography, and video in ${location}. Tell Fremont Digital what you need.`,
+  title: 'Fremont Digital | Websites & Business Automation in Wyoming',
+  description: `Website design and small-business automation, based in ${location}. Websites, booking, forms, and follow-ups built around your business. Local and remote projects.`,
 });
 
 export function inquiryLink(subject = 'How can Fremont Digital help?') {

@@ -3,7 +3,7 @@
   function validateInquiry(data, allowedCategories) {
     const errors = {};
     const clean = {};
-    const limits = { name: 100, category: 40, service: 80, method: 10, contact: 160, context: 240, location: 100, message: 4000, timing: 160, company_url: 240 };
+    const limits = { name: 100, category: 40, service: 80, method: 10, contact: 160, context: 240, location: 100, message: 4000, timing: 160, company_url: 240, device_model: 100, screen_option: 20 };
     for (const [key, max] of Object.entries(limits)) {
       const value = data?.[key];
       clean[key] = typeof value === 'string' ? value.trim() : '';
@@ -15,6 +15,10 @@
     if (clean.method === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean.contact)) errors.contact = 'Enter a valid email address.';
     if (clean.method === 'phone' && (!/^[+\d() .-]+$/.test(clean.contact) || clean.contact.replace(/\D/g, '').length < 10 || clean.contact.replace(/\D/g, '').length > 15)) errors.contact = 'Enter a phone number with area code.';
     if (clean.message.length < 10) errors.message = 'Add a few details about what you need (at least 10 characters).';
+    if (clean.category === 'repairs-tech' && clean.service === 'screen-repair') {
+      if (!clean.device_model) errors.device_model = 'Enter the device make and model, or tell me what you know.';
+      if (!['standard', 'genuine', 'not-sure'].includes(clean.screen_option)) errors.screen_option = 'Choose a screen preference, or ask to compare options.';
+    } else { clean.device_model = ''; clean.screen_option = ''; }
     return { data: clean, errors, valid: Object.keys(errors).length === 0 };
   }
   async function sendInquiry(endpoint, data, requestId, transport = fetch) {
@@ -26,6 +30,7 @@
       reply_by: data.method, contact: data.contact,
       ...(data.method === 'email' ? { email: data.contact } : { phone: data.contact }),
       message: data.message, context: data.context, location: data.location, timing: data.timing,
+      ...(data.device_model ? { device_model: data.device_model, screen_option: data.screen_option } : {}),
       _gotcha: data.company_url,
       _subject: 'Fremont Digital website inquiry',
     } : data;
@@ -41,7 +46,7 @@
       if (formspree && Array.isArray(result.errors)) {
         for (const item of result.errors) {
           const name = ['email', 'phone'].includes(item.field) ? 'contact' : item.field;
-          if (['name', 'contact', 'message', 'context', 'location', 'timing'].includes(name)) error.fields[name] = 'Please check this field and try again.';
+          if (['name', 'contact', 'message', 'context', 'location', 'timing', 'device_model', 'screen_option'].includes(name)) error.fields[name] = 'Please check this field and try again.';
         }
       }
       throw error;

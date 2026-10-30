@@ -1,8 +1,8 @@
 .site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--color-line)}
-.header-container{display:flex;align-items:center;gap:34px;width:100%;max-width:calc(var(--max-width) + var(--gutter)*2);min-height:82px;padding-inline:var(--gutter);margin:auto}
+.header-container{display:flex;align-items:center;gap:22px;width:100%;max-width:calc(var(--max-width) + var(--gutter)*2);min-height:82px;padding-inline:var(--gutter);margin:auto}
 .brand{display:block;width:202px;flex-shrink:0}
 .brand img{width:100%}
-.desktop-nav{display:flex;align-items:center;gap:30px;margin-left:auto}
+.desktop-nav{display:flex;align-items:center;gap:22px;margin-left:auto}
 .desktop-nav>a,.desktop-nav summary{display:flex;align-items:center;gap:7px;min-height:46px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer}
 .header-phone{display:flex;align-items:center;justify-content:center;min-height:45px;border:1px solid #b5c8e5;border-radius:7px;padding:10px 15px;color:var(--color-accent);font-size:15px;font-weight:800;text-decoration:none;white-space:nowrap}
 .header-phone:hover{background:var(--color-accent-soft)}
@@ -21,7 +21,7 @@ summary::-webkit-details-marker{display:none}
 .nav-category-icon svg{width:25px;height:25px}
 .service-menu .service-menu-all{margin-top:6px;border-top:1px solid var(--color-line);border-radius:0;color:var(--color-accent)}
 .mobile-menu{display:none}
-@media(max-width:899px){
+@media(max-width:1079px){
  .header-container{min-height:74px;justify-content:space-between;gap:20px}
  .brand{width:188px}
  .desktop-nav{display:none}

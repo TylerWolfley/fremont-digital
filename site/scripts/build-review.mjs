@@ -26,6 +26,9 @@ async function inlinePage(page) {
   }
   page = page.replace('</body>', `${scripts.map(script => `<script>${script}</script>`).join('\n')}</body>`);
   page = page.replace('class="brand" href="/"','class="brand" href="#top"');
+  // A one-page file snapshot opens other pages on the published domain.
+  // Full multi-page development uses the local server, not filesystem roots.
+  page = page.replace(/href="(\/[^\"]*)"/g, (_, path) => `href="https://digitalfremont.com${path}"`);
   return page;
 }
 

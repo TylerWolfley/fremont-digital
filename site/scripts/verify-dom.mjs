@@ -1,17 +1,18 @@
 // Real DOM regressions with mocked transport. No browser or external submissions.
-// Run with jsdom installed, or --jsdom-module /absolute/path/to/jsdom.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
-import { homePage } from '../src/pages/home.mjs';
+import { contactPage } from '../src/pages/contact.mjs';
+import { servicePage } from '../src/pages/service.mjs';
+import { sitePages } from '../src/data/pages.mjs';
 import { serviceGuides } from '../src/data/service-guides.mjs';
 const require = createRequire(import.meta.url);
 const moduleIndex = process.argv.indexOf('--jsdom-module');
 const { JSDOM } = require(moduleIndex >= 0 ? process.argv[moduleIndex + 1] : 'jsdom');
 const scripts = await Promise.all(['header.js', 'inquiry-tools.js', 'home.js'].map(name => readFile(new URL(`../src/scripts/${name}`, import.meta.url), 'utf8')));
 const expectedLabels = Object.values(serviceGuides).map(guide => guide.label);
-function mount(endpoint = '') {
-  const dom = new JSDOM(homePage({ contactEndpoint: endpoint }), { url: 'https://example.invalid/', runScripts: 'outside-only' });
+function mount(endpoint = '', path = '/contact/') {
+  const dom = new JSDOM(contactPage({ contactEndpoint: endpoint }), { url: new URL(path, 'https://example.invalid/').href, runScripts: 'outside-only' });
   const w = dom.window;
   const d = w.document;
   w.matchMedia = () => ({ matches: false, addEventListener() {} });
@@ -20,6 +21,8 @@ function mount(endpoint = '') {
   w.AbortSignal = AbortSignal;
   w.fetch = async () => { throw new Error('Unexpected external request'); };
   scripts.forEach(script => w.eval(script));
+  // jsdom cannot navigate documents; actual page navigation is checked in browser QA.
+  d.addEventListener('click', event => { if (event.target.closest('a')?.getAttribute('href')?.startsWith('/')) event.preventDefault(); });
   const form = d.querySelector('form');
   const field = name => form.elements.namedItem(name);
   const fire = (el, type) => el.dispatchEvent(new w.Event(type, { bubbles: true, cancelable: true }));
@@ -27,31 +30,15 @@ function mount(endpoint = '') {
   return { dom, w, d, form, field, fire, settle, scrollTargets, labels: () => [...field('category').options].map(option => option.textContent), status: d.querySelector('[data-form-status]') };
 }
 const ui = mount();
-assert.deepEqual(ui.labels(), expectedLabels, 'Initialization must not overwrite option labels.');
+assert.deepEqual(ui.labels(), expectedLabels);
 assert(!ui.form.hidden);
-assert.equal(ui.d.querySelectorAll('[role="tabpanel"]:not([hidden])').length, 1);
-const tabs = [...ui.d.querySelectorAll('[role="tab"]')];
-tabs[2].click();
-assert.equal(ui.w.location.hash, '#repairs-tech');
-assert.equal(tabs[2].getAttribute('aria-selected'), 'true');
-tabs[2].dispatchEvent(new ui.w.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
-assert.equal(ui.d.activeElement, tabs[3]);
-assert.equal(ui.w.location.hash, '#photo-media', 'Keyboard selection must keep the shareable category URL current.');
-tabs[1].dispatchEvent(new ui.w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-assert.equal(ui.w.location.hash, '#business-tech');
-ui.d.querySelector('[data-category-link="business-tech"]').click();
-assert.equal(ui.d.activeElement.id, 'business-tech-heading');
-const repair = ui.d.querySelector('[data-request-service="phone-repair"]');
-const website = ui.d.querySelector('[data-request-service="website-builds"]');
-repair.click();
-assert.equal(ui.field('service').value, 'phone-repair');
-assert.equal(ui.scrollTargets.at(-1), ui.form, 'Service inquiries must scroll to the form, below the mobile contact copy.');
-assert.equal(ui.d.activeElement, ui.field('name'));
+assert.equal(ui.d.querySelectorAll('[role="tab"]').length, 0);
+ui.field('category').value = 'repairs-tech'; ui.fire(ui.field('category'), 'change');
 ui.field('message').value = 'My phone screen is broken.';
-website.click();
+ui.field('category').value = 'web-digital'; ui.fire(ui.field('category'), 'change');
 assert.equal(ui.field('message').value, '');
 ui.field('message').value = 'I need a website for my business.';
-repair.click();
+ui.field('category').value = 'repairs-tech'; ui.fire(ui.field('category'), 'change');
 assert.equal(ui.field('message').value, 'My phone screen is broken.');
 for (const id of Object.keys(serviceGuides)) {
   ui.field('category').value = id; ui.fire(ui.field('category'), 'change');
@@ -69,36 +56,65 @@ assert.equal(ui.field('contact').value, 'example@example.invalid');
 ui.fire(ui.form, 'submit');
 assert.equal(ui.d.activeElement.id, 'inquiry-name');
 assert.equal(ui.field('name').getAttribute('aria-describedby'), 'error-name');
-ui.field('message').value = '';
-ui.fire(ui.form, 'submit');
+ui.field('message').value = ''; ui.fire(ui.form, 'submit');
 assert.equal(ui.field('message').getAttribute('aria-describedby'), 'message-hint error-message');
 ui.field('name').value = 'DOM test'; ui.field('message').value = 'This is a local test only.';
 ui.fire(ui.form, 'submit');
 assert.match(ui.status.textContent, /Nothing has been sent/);
 assert(!ui.d.querySelector('[data-request-review]').hidden);
-assert.equal(ui.field('message').getAttribute('aria-describedby'), 'message-hint', 'Clearing errors must keep the original field hint.');
+assert.equal(ui.field('message').getAttribute('aria-describedby'), 'message-hint');
 assert(!ui.field('name').hasAttribute('aria-describedby'));
-// Native menu remains usable; enhancement closes it and restores focus on Escape.
 const menu = ui.d.querySelector('[data-mobile-menu]');
 menu.open = true;
 const menuSummary = menu.querySelector('summary'); menuSummary.focus();
 menuSummary.dispatchEvent(new ui.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
 assert.equal(menu.open, false); assert.equal(ui.d.activeElement, menuSummary);
-// Pointer focus can briefly report body before entering a menu link.
-// A focusout with no destination must not close the menu before its click.
 menuSummary.blur(); menu.open = true;
 menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: null }));
-await ui.settle();
-assert(menu.open, 'An intermediate pointer-focus state must leave the menu link clickable.');
-const menuLink = menu.querySelector('[data-category-link="business-tech"]');
+await ui.settle(); assert(menu.open, 'An intermediate pointer-focus state must leave links clickable.');
+const menuLink = menu.querySelector('a[href="/automation/"]');
 menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: menuLink }));
 await ui.settle(); assert(menu.open);
-menuLink.click();
-assert(!menu.open);
-assert.equal(ui.d.querySelector('[role="tabpanel"]:not([hidden])').id, 'business-tech');
+menuLink.click(); assert(!menu.open);
 menu.open = true;
 menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: ui.field('name') }));
-assert(!menu.open, 'Tabbing out of the header should close the menu.');
+assert(!menu.open);
+// Follow the URLs rendered by service pages into the actual contact document.
+for (const page of sitePages.filter(page => page.category)) {
+  const content = new JSDOM(servicePage(page.id));
+  for (const link of content.window.document.querySelectorAll('a[href^="/contact/?"]')) {
+    const destination = mount('', link.getAttribute('href'));
+    assert.equal(destination.field('category').value, page.category);
+    assert.equal(destination.d.activeElement, destination.field('name'));
+    assert.equal(destination.scrollTargets.at(-1), destination.form);
+    const params = new URL(link.getAttribute('href'), 'https://example.invalid').searchParams;
+    if (params.get('service')) assert.equal(destination.field('service').value, params.get('service'));
+    if (params.get('screen')) assert.equal(destination.field('screen_option').value, params.get('screen'));
+    destination.dom.window.close();
+  }
+  content.window.close();
+}
+const invalid = mount('', '/contact/?category=web-digital&service=screen-repair&screen=genuine');
+assert.equal(invalid.field('service').value, '');
+assert(invalid.d.querySelector('[data-repair-fields]').hidden);
+invalid.dom.window.close();
+const repair = mount('https://formspree.io/f/testonly', '/contact/?category=repairs-tech&service=screen-repair&screen=genuine');
+assert(!repair.d.querySelector('[data-repair-fields]').hidden);
+assert(repair.field('device_model').required);
+for (const [name, value] of Object.entries({ name: 'Quote test', contact: '3075550123', message: 'Cracked display, touch still works.' })) repair.field(name).value = value;
+repair.fire(repair.form, 'submit'); await repair.settle();
+assert.equal(repair.d.activeElement.id, 'inquiry-device-model');
+assert.equal(repair.field('device_model').getAttribute('aria-describedby'), 'device-model-hint error-device_model');
+repair.field('device_model').value = 'iPhone 13';
+let quotePayload;
+repair.w.fetch = async (_, options) => { quotePayload = JSON.parse(options.body); return Response.json({ ok: true }); };
+repair.fire(repair.form, 'submit'); await repair.settle();
+assert.equal(quotePayload.device_model, 'iPhone 13');
+assert.equal(quotePayload.screen_option, 'genuine');
+assert.equal(quotePayload.service, 'screen-repair');
+assert(repair.d.querySelector('[data-repair-fields]').hidden);
+assert(!repair.field('device_model').required);
+repair.dom.window.close();
 
 const live = mount('https://formspree.io/f/testonly');
 const values = { name: 'DOM test', category: 'general', method: 'email', contact: 'example@example.invalid', message: 'This is a local test, never sent.' };
@@ -140,4 +156,4 @@ for (const el of ui.d.querySelectorAll('[aria-controls], [aria-labelledby], [ari
   for (const name of ['aria-controls','aria-labelledby','aria-describedby']) for (const id of (el.getAttribute(name) || '').split(' ').filter(Boolean)) assert(ui.d.getElementById(id), `Missing ARIA target ${id}`);
 }
 ui.dom.window.close(); live.dom.window.close();
-console.log('Passed real-DOM regressions: preserved options, all category prompts, tabs/deep links/keyboard, draft retention, menu focus, labels, validation, Formspree payloads, failed/invalid/limited/network responses, duplicate-submit guard, and success reset. No external requests or browser rendering.');
+console.log('Passed real-DOM regressions: routed inquiries, repair quotes, drafts, menu focus, labels, validation, delivery failure, duplicate-submit guard, and success reset. No external requests.');

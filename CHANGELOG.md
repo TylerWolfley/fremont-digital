@@ -1,5 +1,13 @@
 # Version history
 
+## Six-page organization and V1 sales review — October 30, 2026
+
+- Put websites and business automation first on the homepage and in navigation. Added dedicated website, automation, repair, media, and contact pages with shared components and unique metadata.
+- Rewrote the generic opening and service copy. “Fremont County, Wyoming” identifies the local base; remote website work is not geographically restricted. The sales review records eight concrete findings and remaining gaps rather than treating performance scores as conversion evidence.
+- Kept the two supplied past-work links secondary on the Websites page.
+- Added standard aftermarket and genuine/OEM screen choices, model-based quoting, and device/model context in the existing inquiry form. No fixed prices were invented.
+- Verified six routes and the live quote handoff after publishing Sites version 9. Local responsive and actual-DOM checks passed. No new real inquiry, inbox-delivery test, PageSpeed score, or sales result is claimed.
+
 ## Formspree connection — October 30, 2026
 
 - Saved the owner's public Formspree endpoint, `https://formspree.io/f/mrppayow`, as the production default so future releases retain the connection.

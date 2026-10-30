@@ -2,7 +2,19 @@
 
 The approved V1 website launched on October 30, 2026 at **https://digitalfremont.com** after the owner bought the domain through **Namecheap**. Both the root domain and **https://www.digitalfremont.com** have active hosting and HTTPS status.
 
-The business serves all of Fremont County, Wyoming through remote help, customer visits, and arranged device drop-off. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
+The business is based in Fremont County, Wyoming. Website and automation projects can be handled remotely for customers elsewhere; local visits and device drop-off are arranged individually. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
+
+## Current revision: six pages and V1 sales review
+
+The owner rejected the earlier audit's assessment of the sales message. Technical scores did not establish persuasive writing, differentiation, or commercial readiness. The current revision prioritizes websites and small-business automation, moves repairs and media to secondary navigation, and rewrites the opening, service explanations, examples, and inquiry prompts. The specific findings and unresolved gaps are in [the sales review](../reviews/06-pages/sales-review.txt).
+
+Routes: `/`, `/websites/`, `/automation/`, `/repairs/`, `/media/`, and `/contact/`. The two authorized past-work links appear only on the Websites page. Screen repairs now use model-based quotes with standard aftermarket and genuine/OEM choices when available. The device model and screen preference carry into the existing Formspree inquiry. No supplier costs or labor rates have been invented.
+
+Normal, release, and offline-review builds passed, along with source, service/payload, optional server, review-integrity, and actual-DOM checks. All six local pages were checked at 320, 768, and 1440 pixels without horizontal overflow. Mobile menu navigation, a legacy hash link, inquiry focus, model validation, and the local preview payload were checked in the browser.
+
+After publication, all six custom-domain routes loaded their correct pages and canonical metadata. The live sitemap contains all six URLs. The live genuine/OEM selection reached the contact form with the correct service and required model field; empty submission showed the expected errors and focused the name input. No live inquiry was sent. Prior inbox delivery remains owner-confirmed. The browser XML viewer again logged the previously observed unattributed animation error after opening the sitemap; no new site-script failure was identified. Screenshots and route checks are saved under `../reviews/06-pages/`.
+
+No new PageSpeed measurement, physical-device test, or conversion result is claimed. Independent customer proof, a defined commercial offer, and stronger visual differentiation remain open sales gaps. This revision is a more focused V1, not a validated claim to be the best provider in the county.
 
 ## Form decision
 
@@ -55,7 +67,9 @@ Validation passed after the fixes: normal/release/review builds, standard verifi
 
 ## Hosting record
 
-Latest update: two owner-supplied past projects published October 30, 2026 as Sites version 8. Source commit `27e490eba18a99480352b744b68af0b30b2914e3`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_11c7db1087a0819198979ecf986cda1f`; successful deployment `appgdep_6ae50f3a9f908191a5d57c6c351faef8`.
+Latest update: six-page organization, sales-copy revision, and model-based screen quotes published October 30, 2026 as Sites version 9. Source commit `48d76e02c13e68e925bd29fff11779f2745d0ed8`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_a09938ba4ef48191a01b7fe0c2a93f40`; successful deployment `appgdep_6ae513fe583c8191af2178d87493d458` at `2026-10-30T22:02:44.729797+00:00`. Custom-domain verification is recorded above.
+
+Previous update: two owner-supplied past projects published October 30, 2026 as Sites version 8. Source commit `27e490eba18a99480352b744b68af0b30b2914e3`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_11c7db1087a0819198979ecf986cda1f`; successful deployment `appgdep_6ae50f3a9f908191a5d57c6c351faef8`.
 
 After the audit, the owner requested a casual, professional mention of Wind River Trading Company (`https://wrtradingcompany.com/`) and Wind River Renewal (`https://windriverrenewal.com/`). This specific request updates the earlier no-portfolio direction: both now appear in a compact “Past work” row beneath website-service details, introduced by “A couple of sites I’ve built.” They are not in the hero or other service categories. The links open in new tabs with accessible labels. Names and destinations are maintained in `src/data/past-work.mjs`; rendering is in `src/components/past-work.mjs`.
 

@@ -65,6 +65,7 @@ export async function handleInquiry(request, env, transport = fetch) {
     `Name: ${data.name}`,
     `Category: ${guide.label}`,
     ...(service ? [`Service: ${service.name}`] : []),
+    ...(data.device_model ? [`Device model: ${data.device_model}`, `Screen preference: ${data.screen_option}`] : []),
     `Preferred reply: ${data.method}`,
     `Contact: ${data.contact}`,
     `Town or area: ${data.location || 'Not provided'}`,

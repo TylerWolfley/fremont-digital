@@ -29,6 +29,15 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 
 ## Direction
 
+### October 30 priorities and V1 review — supersedes earlier layout guidance
+
+- Websites and small-business automation are the owner's main priorities. Give them dedicated pages and primary navigation; repairs and media remain available through secondary navigation. Use a separate contact page.
+- Treat the accepted V1 as a draft to improve, not evidence of persuasive copy or sales. Report concrete problems and unresolved business gaps rather than presenting technical scores as proof of quality.
+- Use “Fremont County, Wyoming” as the location. Remove “All of Fremont County” from public copy. The local base does not restrict remote website or automation customers.
+- The owner subsequently requested two understated past-work links: Wind River Trading Company and Wind River Renewal. This supersedes the earlier blanket no-portfolio direction only for those two supplied projects. Keep them secondary on the Websites page.
+- Screen repairs use model-based quotes for now. Compare standard aftermarket replacement with genuine/OEM when available; confirm the part's origin and condition when quoting. Collect the device model and screen preference. Do not invent supplier costs, labor rates, warranties, or instant prices.
+- Browser access has been restored and the six-page preview has been reviewed at desktop, tablet, and phone widths. Current sales-review findings and limits are recorded in `reviews/06-pages/sales-review.txt`.
+
 - The owner confirmed that the business is in **Fremont County, Wyoming**. This location supersedes all earlier assumptions and historical material. Keep site location text sourced from `site/src/data/business.mjs`.
 - Aim to make the website a leading example of quality in Fremont County, Wyoming. Do not claim a verified ranking.
 - Fremont Digital covers websites, digital marketing, professional photography, YouTube/video and media work, computer troubleshooting, virus cleanup, phone and basic device repairs, and other suitable technology jobs.

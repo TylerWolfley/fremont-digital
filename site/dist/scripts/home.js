@@ -1,45 +1,9 @@
-// Progressive category browsing and an inquiry form with explicit delivery states.
+// Shared contact-page form with service-aware links and explicit delivery states.
 (() => {
-  const tabs = [...document.querySelectorAll('[data-category-tab]')];
-  const panels = [...document.querySelectorAll('[data-service-panel]')];
-  const tablist = document.querySelector('[data-category-tabs]');
-  tablist.setAttribute('role', 'tablist');
-  tabs.forEach(tab => { tab.setAttribute('role', 'tab'); tab.setAttribute('aria-controls', tab.dataset.categoryTab); });
-  panels.forEach(panel => { panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', `tab-${panel.id}`); panel.tabIndex = 0; });
-  function activate(id) {
-    if (!panels.some(panel => panel.id === id)) return;
-    panels.forEach(panel => { panel.hidden = panel.id !== id; });
-    tabs.forEach(tab => { const selected = tab.dataset.categoryTab === id; tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1; });
-  }
-  function selectCategory(id) {
-    activate(id);
-    window.history.replaceState(null, '', `#${id}`);
-  }
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', event => {
-      event.preventDefault(); selectCategory(tab.dataset.categoryTab);
-    });
-    tab.addEventListener('keydown', event => {
-      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); selectCategory(tab.dataset.categoryTab); return; }
-      let next;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = tabs.length - 1;
-      if (next === undefined) return;
-      event.preventDefault(); selectCategory(tabs[next].dataset.categoryTab); tabs[next].focus();
-    });
-  });
-  document.querySelectorAll('[data-category-link]').forEach(link => link.addEventListener('click', () => {
-    activate(link.dataset.categoryLink);
-    document.getElementById(`${link.dataset.categoryLink}-heading`)?.focus({ preventScroll: true });
-  }));
-  function syncHash() { activate(window.location.hash.slice(1)); }
-  activate(panels[0].id); syncHash();
-  window.addEventListener('hashchange', syncHash);
-
-  const { validateInquiry, sendInquiry } = globalThis.FremontInquiryTools;
   const form = document.querySelector('[data-inquiry-form]');
+  if (!form) return;
+  const { validateInquiry, sendInquiry } = globalThis.FremontInquiryTools;
+  const services = JSON.parse(form.dataset.services);
   const fields = form.elements;
   const category = fields.namedItem('category');
   const contact = fields.namedItem('contact');
@@ -47,6 +11,7 @@
   const button = form.querySelector('[data-submit]');
   const review = form.querySelector('[data-request-review]');
   const chosen = form.querySelector('[data-chosen-service]');
+  const repairFields = form.querySelector('[data-repair-fields]');
   const drafts = new Map();
   const contactDrafts = new Map();
   let currentCategory = category.value;
@@ -54,6 +19,12 @@
   let pending = false;
   let submissionKey;
   let lastPayload;
+  function updateRepairFields() {
+    const screenRepair = category.value === 'repairs-tech' && fields.namedItem('service').value === 'screen-repair';
+    repairFields.hidden = !screenRepair;
+    fields.namedItem('device_model').required = screenRepair;
+    fields.namedItem('screen_option').required = screenRepair;
+  }
   function updatePrompts() {
     const selected = category.selectedOptions[0].dataset;
     form.querySelector('label[data-context-label]').textContent = `${selected.contextLabel} (optional)`;
@@ -73,7 +44,7 @@
     fields.namedItem('service').value = service;
     chosen.textContent = name ? `About: ${name}` : '';
     chosen.hidden = !name;
-    updatePrompts(); clearErrors(); review.hidden = true;
+    updatePrompts(); updateRepairFields(); clearErrors(); review.hidden = true;
   }
   category.addEventListener('change', () => chooseCategory(category.value));
   document.querySelectorAll('[data-request-category]').forEach(link => link.addEventListener('click', event => {
@@ -132,7 +103,7 @@
     if (!result.valid) { showErrors(result.errors); status.textContent = 'Please check the highlighted fields.'; return; }
     if (!form.dataset.endpoint) {
       const list = form.querySelector('[data-review-details]'); list.replaceChildren();
-      const entries = { Name: result.data.name, Service: chosen.hidden ? category.selectedOptions[0].textContent : chosen.textContent.replace('About: ', ''), 'Reply by': `${result.data.method}: ${result.data.contact}`, Context: result.data.context, Area: result.data.location, Request: result.data.message, Timing: result.data.timing };
+      const entries = { Name: result.data.name, Service: chosen.hidden ? category.selectedOptions[0].textContent : chosen.textContent.replace('About: ', ''), 'Device model': result.data.device_model, 'Screen preference': result.data.screen_option ? fields.namedItem('screen_option').selectedOptions[0].textContent : '', 'Reply by': `${result.data.method}: ${result.data.contact}`, Context: result.data.context, Area: result.data.location, Request: result.data.message, Timing: result.data.timing };
       for (const [label, value] of Object.entries(entries)) {
         if (!value) continue;
         const term = document.createElement('dt'); term.textContent = label;
@@ -148,7 +119,7 @@
     try {
       await sendInquiry(form.dataset.endpoint, result.data, submissionKey);
       status.textContent = 'Your request has been sent. I’ll use your preferred contact method to follow up.';
-      form.reset(); drafts.clear(); contactDrafts.clear(); currentCategory = category.value; chosen.hidden = true; chosen.textContent = ''; updatePrompts(); updateMethod(false);
+      form.reset(); drafts.clear(); contactDrafts.clear(); currentCategory = category.value; chosen.hidden = true; chosen.textContent = ''; updatePrompts(); updateMethod(false); updateRepairFields();
       form.querySelector('.form-extras').open = false;
       submissionKey = undefined; lastPayload = undefined;
       status.dataset.state = 'success';
@@ -162,5 +133,17 @@
       if (!form.querySelector('[aria-invalid="true"]')) status.focus();
     }
   });
-  form.noValidate = true; updatePrompts(); updateMethod(false); form.hidden = false;
+  form.noValidate = true; updatePrompts(); updateMethod(false); updateRepairFields(); form.hidden = false;
+  const params = new URLSearchParams(window.location.search);
+  const requestedCategory = params.get('category');
+  if ([...category.options].some(option => option.value === requestedCategory)) {
+    const requestedId = params.get('service');
+    const service = Object.hasOwn(services, requestedId) ? services[requestedId] : null;
+    const matches = service?.category === requestedCategory;
+    chooseCategory(requestedCategory, matches ? requestedId : '', matches ? service.name : '');
+    const screen = params.get('screen');
+    if (!repairFields.hidden && ['standard', 'genuine', 'not-sure'].includes(screen)) fields.namedItem('screen_option').value = screen;
+    form.scrollIntoView({ block: 'start', behavior: 'instant' });
+    fields.namedItem('name').focus({ preventScroll: true });
+  }
 })();

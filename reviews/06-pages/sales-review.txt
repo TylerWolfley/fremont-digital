@@ -1,0 +1,94 @@
+FREMONT DIGITAL — V1 SALES AND ORGANIZATION REVIEW
+October 30, 2026
+
+The previous technical audit did not establish that the site was persuasive or
+likely to sell. Its performance scores applied to an older version and are not
+evidence of conversion, market leadership, or the quality of this new draft.
+
+HIGH-PRIORITY FINDINGS AND CHANGES
+
+1. The opening could describe almost any general tech business.
+   “Better websites. Less tech trouble.” did not explain the commercial reason
+   to hire Fremont Digital. Replaced with “Websites built to bring you more
+   business,” followed by specific work: websites, booking, forms, and follow-ups.
+
+2. Equal service categories obscured the owner's actual priorities.
+   The homepage and main navigation now lead with websites and business
+   automation. Repairs and media have their own pages and secondary navigation.
+   Customers no longer browse four competing categories on one long page.
+
+3. Geographic language sounded defensive and unnecessarily restrictive.
+   Removed “All of Fremont County.” The location is now “Fremont County,
+   Wyoming,” with remote projects explained explicitly. Location establishes
+   where the business is based; it is not a boundary for website work.
+
+4. Repeated process language crowded out useful customer information.
+   Rewrote the service descriptions, homepage cards, process, and page-specific
+   calls to action. Replaced repeated “scope,” “clear next step,” and “practical
+   setup” phrasing with what customers can ask for and what the work involves.
+
+5. Automation was a label without a concrete buying reason.
+   Added a separate automation page and an illustrative inquiry-to-customer-list-
+   to-follow-up flow. It is described as an example, not an installed client
+   system or an unsupported claim about hours saved.
+
+6. Real work was available but easy to miss.
+   Kept the two authorized project links in a small Past work row on the website
+   page. Added a secondary link to that row near the website-page introduction.
+   No invented testimonial, result, client endorsement, or oversized case study.
+
+7. Repair pricing and inquiry handoff lacked a defined structure.
+   The repairs page now compares standard aftermarket and genuine/OEM screens
+   where available. A quote covers the model-specific screen and installation;
+   additional work is agreed separately. The selected option carries to the
+   form, which asks for the device model. Supplier and labor amounts are not yet
+   set, so no made-up dollar prices or instant estimates are shown.
+
+8. Contact actions could leave phone visitors above the actual form.
+   Service and homepage inquiry links now select the relevant context and move
+   focus directly to the form. The regular Contact navigation still provides
+   the contact information and form together.
+
+REMAINING SALES GAPS — NOT SOLVED BY COPY OR TEST SCORES
+
+- No verified testimonials or measured customer results are supplied. The two
+  live websites demonstrate completed work; they do not prove conversion gains.
+- Website packages, price guidance, and ongoing support boundaries are not
+  defined. The site can explain the quote process, but cannot honestly promise
+  a fixed price, turnaround, support plan, or warranty without those decisions.
+- The visual identity remains restrained: white/blue, typography, and the logo.
+  It is coherent, but a distinctive visual direction would need a separate
+  design pass. This change preserves the approved style and fixes priorities.
+- The target audience is still broad small businesses. Stronger differentiation
+  needs specific, supportable reasons to choose this service beyond availability
+  and a clear process.
+- There is no conversion baseline or visitor feedback from this revision. The
+  new headline and copy are a reasoned draft, not a validated sales result.
+
+VERIFICATION
+
+- Six real pages, unique search metadata and canonicals, sitemap entries, and
+  native cross-page navigation. Old category hash links retain a destination.
+- All six pages checked at 320, 768, and 1440 pixels with no horizontal overflow.
+  Representative homepage, service, pricing, and mobile form views inspected.
+- Mobile menu navigation and a legacy repair link checked in the browser.
+- Local quote preview retained the model and OEM choice. Missing-model feedback
+  focused the correct input. No live inquiry was sent during these checks.
+- Actual-DOM tests exercise service-generated inquiry URLs, quote payloads,
+  invalid category/service combinations, validation, drafts, failure handling,
+  duplicate-submit protection, and successful reset with mocked delivery.
+- Earlier real inbox delivery was confirmed by the owner. No new inbox delivery,
+  PageSpeed score, device-farm test, or conversion claim is made for this revision.
+- Published as Sites version 9. All six public routes and their canonical URLs
+  were checked, along with the six-entry sitemap and legacy repair hash link.
+  The live OEM option reached the contact form correctly. Empty submission
+  showed required-field feedback without sending a request. The sitemap's XML
+  viewer repeated the previously observed unattributed animation error; this
+  was not identified as a new site-script failure.
+
+PART LABEL REFERENCES
+
+Apple: https://support.apple.com/en-us/103256
+Samsung: https://www.samsung.com/us/support/self-repair/
+Genuine/OEM is reserved for a confirmed manufacturer-original part. Availability,
+condition, and any model-specific differences need to be checked for the quote.

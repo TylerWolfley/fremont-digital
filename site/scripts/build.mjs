@@ -2,6 +2,9 @@ import { copyFile, cp, mkdir, writeFile, readdir, access, readFile } from 'node:
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { homePage } from '../src/pages/home.mjs';
+import { servicePage } from '../src/pages/service.mjs';
+import { contactPage } from '../src/pages/contact.mjs';
+import { sitePages } from '../src/data/pages.mjs';
 import { serviceGroups } from '../src/data/services.mjs';
 import { publicationConfig } from '../src/config/publication.mjs';
 import { contactConfig } from '../src/config/contact.mjs';
@@ -32,26 +35,35 @@ for (const folder of ['styles', 'scripts']) {
     await copyFile(resolve(root, 'src', folder, name), resolve(out, folder, name));
   }
 }
-const html = homePage({ ...publication, ...contact });
-const sectionIds = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
-if (new Set(sectionIds).size !== sectionIds.length) throw new Error('Duplicate HTML IDs.');
-for (const match of html.matchAll(/href="#([^"]+)"/g)) {
-  if (!sectionIds.includes(match[1])) throw new Error(`Missing section target: ${match[1]}`);
+const pages = new Map(sitePages.map(page => [page.path, page.id === 'home' ? homePage({ ...publication, ...contact }) : page.id === 'contact' ? contactPage({ ...publication, ...contact }) : servicePage(page.id, { ...publication, ...contact })]));
+for (const [path, html] of pages) {
+  const destination = resolve(out, '.' + path, 'index.html');
+  await mkdir(dirname(destination), { recursive: true });
+  await writeFile(destination, html);
 }
-// Catch broken local asset references before any preview is served.
-for (const match of html.matchAll(/(?:href|src)="(\/[^"#]+)"/g)) {
-  await access(resolve(out, '.' + match[1]));
+for (const [path, html] of pages) {
+  const sectionIds = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  if (new Set(sectionIds).size !== sectionIds.length) throw new Error(`Duplicate HTML IDs: ${path}`);
+  for (const match of html.matchAll(/href="#([^"]+)"/g)) {
+    if (!sectionIds.includes(match[1])) throw new Error(`Missing section target: ${path}#${match[1]}`);
+  }
+  // Check navigation and assets against the complete generated site.
+  for (const match of html.matchAll(/(?:href|src)="(\/[^"#]*)"/g)) {
+    const target = new URL(match[1].replaceAll('&amp;', '&'), 'https://example.invalid');
+    if (pages.has(target.pathname)) {
+      if (target.hash && !pages.get(target.pathname).includes(`id="${target.hash.slice(1)}"`)) throw new Error(`Missing destination: ${match[1]}`);
+    } else await access(resolve(out, '.' + target.pathname));
+  }
 }
 for (const name of await readdir(resolve(out, 'styles'))) {
   const css = await readFile(resolve(out, 'styles', name), 'utf8');
   for (const match of css.matchAll(/url\(['"]?(\/[^'"\)]+)['"]?\)/g)) await access(resolve(out, '.' + match[1]));
 }
-await writeFile(resolve(out, 'index.html'), html);
 await writeFile(resolve(out, '404.html'), notFoundPage());
 await writeFile(resolve(out, 'robots.txt'), release
   ? `User-agent: *\nAllow: /\nSitemap: ${publication.siteUrl}sitemap.xml\n`
   : 'User-agent: *\nDisallow: /\n');
 if (release) {
-  await writeFile(resolve(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(publication.siteUrl)}</loc></url></urlset>\n`);
+  await writeFile(resolve(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitePages.map(page => `<url><loc>${escape(new URL(page.path, publication.siteUrl).href)}</loc></url>`).join('')}</urlset>\n`);
 }
-console.log(`Built ${release ? 'release' : 'review'} site: ${serviceGroups.length} service groups, ${ids.size-serviceGroups.length} current services.`);
+console.log(`Built ${release ? 'release' : 'review'} site: ${pages.size} pages, ${serviceGroups.length} service groups, ${ids.size-serviceGroups.length} current services.`);
