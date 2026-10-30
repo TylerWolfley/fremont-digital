@@ -9,7 +9,7 @@ export function homeServices() {
 }
 
 export function ownerIntro() {
-  return `<section class="owner-section" aria-labelledby="owner-heading"><div class="section-container owner-layout"><div><p class="eyebrow">The person behind Fremont Digital</p><h2 id="owner-heading">Hi, I’m Tyler Wolfley.</h2><p class="owner-experience">Coding since 2006.</p></div><div><p>I design and build the websites and automations here. You work directly with me—from the first conversation through the finished project.</p><p>I also own Wind River Renewal. Its website is one of the <a href="/websites/#past-work">projects you can take a look at</a>.</p><a class="text-link" href="/contact/?category=general">Tell me what you’re working on ${arrow}</a></div></div></section>`;
+  return `<section class="owner-section" aria-labelledby="owner-heading"><div class="section-container owner-layout"><div><p class="eyebrow">The person behind Fremont Digital</p><h2 id="owner-heading">Hi, I’m Tyler Wolfley.</h2></div><div><p>I design and build the websites and automations here. You work directly with me—from the first conversation through the finished project.</p><p>I also own Wind River Renewal. Its website is one of the <a href="/websites/#past-work">projects you can take a look at</a>.</p><a class="text-link" href="/contact/?category=general">Tell me what you’re working on ${arrow}</a></div></div></section>`;
 }
 
 export function homeClosing() {

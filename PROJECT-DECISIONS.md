@@ -31,8 +31,11 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 
 ### October 30 priorities and V1 review — supersedes earlier layout guidance
 
+- Latest Websites-page request: make it polished and persuasive through specific work and business decisions, without more boxes or generic sales text. One relevant stock photograph is welcome. The owner rejected landscape imagery as unrelated to a website business; use website/design subject matter instead.
+- Correction: **“Coding since 2006” was background context, not copy authorized for a headline or badge.** Remove it from public pages and do not restore it as a credential slogan. The public name Tyler Wolfley remains appropriate.
+
 - Latest refinement: the owner considered the last pass a visual downgrade and requested fixing the identified weaknesses, starting with the homepage. Remove the dark workflow panel and repetitive card/process presentation. Keep websites and automation first, use the original FD mark and open typography-led sections, and move readable project evidence ahead of the build details on the Websites page.
-- The owner supplied **Tyler Wolfley** as the public name and **coding since 2006** as experience. State these plainly without inventing credentials, professional employment history, or a business founding date. The no-portrait preference remains.
+- The owner supplied **Tyler Wolfley** as the public name. Coding experience was background context; the correction above supersedes the earlier decision to display a date. The no-portrait preference remains.
 - Demonstrate automation with a clearly labeled fictional browser-only example. Do not imply that its records or tasks are connected to real systems. Keep office networking/setup and general IT under Repairs & Tech Help, and keep repair arrangements out of website/automation inquiry introductions.
 - Explain editing, business-owned accounts, handover, platform limits, and support agreed per customer. Do not invent fixed prices, turnaround guarantees, or an independent testimonial.
 

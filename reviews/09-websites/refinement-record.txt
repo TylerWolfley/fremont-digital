@@ -1,0 +1,24 @@
+Fremont Digital — Websites page refinement
+October 30, 2026
+
+User direction
+Keep the improved visual direction, but make the Websites page more polished and give a business owner a concrete reason to hire. Avoid more boxes and generic sales filler. Add one relevant photograph. Landscape imagery was rejected as unrelated to a website business. The owner also clarified that coding since 2006 was background context, not intended public copy.
+
+Changes
+- One credited stock photograph of website layouts on a laptop and phone anchors the opening. No landscape or owner photograph. Source/license information is in image-source.txt; it is not implied to show Tyler's own work or workspace.
+- Open project rows show the two supplied sites at a useful scale, with concise explanations of their different purposes. Wind River Renewal remains labeled as the owner's own business. No results or testimonial invented.
+- Content and customer decisions replace the previous generic build sequence. The connection to the existing automation example shows what can happen after a form is submitted.
+- Existing websites can be improved rather than automatically replaced. The same five website/digital service choices remain accessible.
+- Practical questions explain quoting, editing, accounts, platform limits, and support agreed per project. CTAs carry the website-build context into the existing inquiry form.
+- Removed the coding date from the homepage hero and owner introduction.
+
+Verification
+Normal, offline-review, and release builds; standard content/link checks; review integrity; and existing actual-DOM inquiry regressions passed. No new application behavior was introduced beyond navigation and native disclosures.
+Home and Websites were inspected at 320, 390, 768, and 1440 pixels: one H1 each, no horizontal overflow, and no public coding date. The mobile heading was adjusted after observing an orphaned word. See layout-checks.json.
+Desktop opening, project rows, approach section, mobile opening, and practical answers were visually inspected. The project CTA reached the contact form with “Websites & digital” selected, “About: Website builds” visible, and the name field focused. No real submission was sent.
+
+Limits
+The photo is licensed illustrative stock. The project descriptions explain visible site features, not measured business outcomes. Existing inbox delivery is owner-confirmed from the prior release. This refinement does not establish conversion lift, independent customer satisfaction, a new PageSpeed score, or physical-device accessibility coverage.
+
+Publication
+Published as Sites version 12 at https://digitalfremont.com/websites/ on October 30, 2026. The live page and responsive photograph loaded, the main CTA showed “About: Website builds” on the contact page, and the saved Formspree endpoint remained present. The live homepage no longer contains the coding date. The tested routes returned no browser warning/error entries. Published desktop and local mobile screenshots are retained here.

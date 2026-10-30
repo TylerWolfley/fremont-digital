@@ -4,7 +4,17 @@ The approved V1 website launched on October 30, 2026 at **https://digitalfremont
 
 The business is based in Fremont County, Wyoming. Website and automation projects can be handled remotely for customers elsewhere; local visits and device drop-off are arranged individually. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
 
-## Current revision: homepage rebuild and business inquiry paths
+## Current revision: Websites page refinement
+
+Published as Sites version 12 on October 30, 2026. The live custom-domain page loaded the new design and photograph; its main CTA selected Website builds in the connected contact form. The live homepage no longer contains the coding date. No warnings or errors were returned for these browser checks, and no inquiry was submitted.
+
+The Websites page now has a dedicated photographic opening, specific explanations of the two supplied websites, open sections about content and inquiry decisions, and practical answers about cost, updates, accounts, and support. The one stock image depicts website design on a laptop and phone; it is credited to Compagnons on Unsplash and is not presented as Tyler's workspace or client work. Responsive WebP files are approximately 33 KB and 74 KB; the source and license are recorded in `../reviews/09-websites/image-source.txt`.
+
+The owner corrected the prior use of “Coding since 2006”: it was background information, not intended public copy. Both homepage placements have been removed. Landscape imagery was also rejected and is not in the site.
+
+Normal/review builds and checks passed, including actual-DOM inquiry regressions. Home and Websites were checked at 320, 390, 768, and 1440 pixels with no horizontal overflow. Native questions and page anchors were checked; the project CTA opened the contact page with Websites & digital and Website builds selected and the name field focused. No real inquiry was sent. See `../reviews/09-websites/` for the review record.
+
+## Previous revision: homepage rebuild and business inquiry paths
 
 Published as Sites version 11 on October 30, 2026. Live custom-domain checks confirmed the new homepage and owner credit, working demo execution and completion, both loaded project previews and own-business disclosure, and the website inquiry's hidden repair arrangements with the saved Formspree endpoint intact. No live inquiry was sent.
 
@@ -85,7 +95,9 @@ Validation passed after the fixes: normal/release/review builds, standard verifi
 
 ## Hosting record
 
-Latest update: homepage rebuild and business inquiry refinement published October 30, 2026 as Sites version 11. Source commit `3bb5eae7c432e40ca58b23bd6b7cba1b0e33ccce`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_6f771ce0b8d08191aef10861ba1cc64a`; successful deployment `appgdep_6ae51af20614819181aaf4306e00ca33` at `2026-10-30T22:32:23.929542+00:00`. Published screenshots and verification notes are under `../reviews/08-editorial/`.
+Latest update: Websites page refinement published October 30, 2026 as Sites version 12. Source commit `8ec1d0ee3affcd6f383621b1903bc25b295ff823`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_22448b6947ec81918f2c79d9740ad08b`; successful deployment `appgdep_6ae51d5f3df88191a1cc726c25b6fa13` at `2026-10-30T22:42:45.684430+00:00`. Published screenshot and verification notes are under `../reviews/09-websites/`.
+
+Previous update: homepage rebuild and business inquiry refinement published October 30, 2026 as Sites version 11. Source commit `3bb5eae7c432e40ca58b23bd6b7cba1b0e33ccce`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_6f771ce0b8d08191aef10861ba1cc64a`; successful deployment `appgdep_6ae51af20614819181aaf4306e00ca33` at `2026-10-30T22:32:23.929542+00:00`. Published screenshots and verification notes are under `../reviews/08-editorial/`.
 
 Previous update: offer and visual refinement published October 30, 2026 as Sites version 10. Source commit `829e915a06b78df18e170b7685b88b6af27288cb`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b54475fe06fc819181eddf5fdd34f210`; successful deployment `appgdep_6ae516709c048191ba73801958a18044` at `2026-10-30T22:13:10.924055+00:00`.
 

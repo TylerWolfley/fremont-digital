@@ -10,6 +10,7 @@ The website is static HTML/CSS/JavaScript built with Node. Production inquiries 
 - `src/data/repair-pricing.mjs`: two screen options. Dollar amounts await supplier and labor decisions.
 - `src/data/past-work.mjs`: the two owner-supplied website examples.
 - `src/components/website-offer.mjs`: build deliverables, what the quote specifies, and flexible post-launch support arrangements.
+- The Websites route has its own hero, project decisions, service disclosures, practical questions, and closing in `website-offer.mjs`, with page-only `styles/websites.css`. `past-work.mjs` presents the two supplied examples with factual design context. One licensed design-work photograph has responsive 640/1200px variants under `src/assets/design` and prepared copies in `dist/assets/design`; source/credit are recorded in `reviews/09-websites/image-source.txt`.
 - `src/components/home-editorial.mjs`: open service rows, Tyler Wolfley's introduction, and the homepage closing. The hero uses the original FD monogram as a decorative background; the old dark connection diagram is removed.
 - `src/components/automation-demo.mjs` and `src/scripts/automation-demo.js`: a local, fictional inquiry-to-record-and-task demonstration, with sample selection, completion, and reset. It sends nothing and connects to no accounts.
 - `src/styles/studio.css`: the current homepage composition, larger project previews, compact build/support layout, and interactive automation example.
@@ -36,7 +37,7 @@ The build preserves prepared assets. Original logo files in `../logos/` remain u
 
 The homepage prioritizes website design and small-business automation. Repairs and media sit under “More services” and have secondary homepage links. “Fremont County, Wyoming” establishes the business's base, not a geographic restriction on remote work.
 
-General office setup, networking, email/domain configuration, backups, and signage are now grouped under Repairs & Tech Help. Automation focuses on workflows, booking/payments, and business software. Legacy inquiry URLs for the moved service IDs are migrated to the new category. The contact page adjusts its introduction and repair-only arrangements/FAQs to the chosen inquiry type. The owner supplied the name Tyler Wolfley and the statement that he has been coding since 2006; this does not imply a company founding date or professional employment history.
+General office setup, networking, email/domain configuration, backups, and signage are now grouped under Repairs & Tech Help. Automation focuses on workflows, booking/payments, and business software. Legacy inquiry URLs for the moved service IDs are migrated to the new category. The contact page adjusts its introduction and repair-only arrangements/FAQs to the chosen inquiry type. Tyler Wolfley is the supplied public name. The coding start date was background context and has been removed from public content at the owner's correction.
 
 The six routes are `/`, `/websites/`, `/automation/`, `/repairs/`, `/media/`, and `/contact/`. Each has its own HTML, title, description, and canonical URL. Links, service disclosures, and FAQs work without JavaScript. The desktop header breakpoint is 1080px in CSS and JavaScript. Legacy homepage hashes for the four categories, contact, and FAQs redirect to the corresponding pages when JavaScript is available.
 

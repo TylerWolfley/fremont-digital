@@ -1,5 +1,14 @@
 # Version history
 
+## Websites page: visual refinement and a clearer reason to hire — October 30, 2026
+
+- Rebuilt the Websites opening around one credited, optimized photograph of website design work. No landscape imagery or extra card grid.
+- Added specific context to the two real examples, with large previews and direct website links. The owner-operated status of Wind River Renewal stays explicit.
+- Explained decisions about content, customer inquiries, and connections to business tools. Included a concise existing-site option and practical cost, editing, ownership, and support answers.
+- Removed “Coding since 2006” from both homepage placements; it was background context rather than intended public copy.
+- Checked mobile/desktop composition, section links, native disclosures, the website inquiry handoff, and existing regression checks. Details and photo credit are under `reviews/09-websites/`.
+- Published Sites version 12 and checked the live photograph, inquiry selection, existing Formspree endpoint, and homepage date removal.
+
 ## Homepage rebuild and business-focused inquiry paths — October 30, 2026
 
 - Replaced the rejected dark panel and repeated cards with a typographic homepage, original FD watermark, open service rows, and a direct owner introduction: Tyler Wolfley, coding since 2006.

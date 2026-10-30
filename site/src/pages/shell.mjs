@@ -12,6 +12,7 @@ export function pageShell(page, content, { indexable = false, siteUrl = '', head
   <link rel="stylesheet" href="/styles/tokens.css"><link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/home.css"><link rel="stylesheet" href="/styles/pages.css">
   <link rel="stylesheet" href="/styles/studio.css">
+  ${page.id === 'websites' ? '<link rel="stylesheet" href="/styles/websites.css">' : ''}
   <script src="/scripts/header.js" defer></script>
   ${page.id === 'automation' ? '<script src="/scripts/automation-demo.js" defer></script>' : ''}
   ${page.id === 'contact' ? '<script src="/scripts/inquiry-tools.js" defer></script><script src="/scripts/home.js" defer></script>' : ''}

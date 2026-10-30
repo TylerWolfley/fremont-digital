@@ -3,7 +3,6 @@ const location = 'Fremont County, Wyoming';
 export const business = Object.freeze({
   name: 'Fremont Digital',
   owner: 'Tyler Wolfley',
-  codingSince: 2006,
   location,
   email: 'digitalfremont@gmail.com',
   phone: '(307) 349-4694',

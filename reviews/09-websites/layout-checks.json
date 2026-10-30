@@ -1,0 +1,66 @@
+[
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": "http://127.0.0.1:4173/assets/design/web-design-640.webp",
+    "overflow": false,
+    "path": "/websites/",
+    "width": 320
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": null,
+    "overflow": false,
+    "path": "/",
+    "width": 320
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": "http://127.0.0.1:4173/assets/design/web-design-640.webp",
+    "overflow": false,
+    "path": "/websites/",
+    "width": 390
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": null,
+    "overflow": false,
+    "path": "/",
+    "width": 390
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": "http://127.0.0.1:4173/assets/design/web-design-640.webp",
+    "overflow": false,
+    "path": "/websites/",
+    "width": 768
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": null,
+    "overflow": false,
+    "path": "/",
+    "width": 768
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": "http://127.0.0.1:4173/assets/design/web-design-640.webp",
+    "overflow": false,
+    "path": "/websites/",
+    "width": 1440
+  },
+  {
+    "codingDatePresent": false,
+    "h1": 1,
+    "image": null,
+    "overflow": false,
+    "path": "/",
+    "width": 1440
+  }
+]

@@ -1,0 +1,8 @@
+Website design photograph
+Photo: Compagnons (@sigmund), formerly displayed as Sigmund, on Unsplash.
+Source: https://unsplash.com/photos/black-and-silver-laptop-computer-FkUTlyPLhJQ
+Image: https://images.unsplash.com/photo-1605907126332-53b63528ce99
+License: https://unsplash.com/license
+Source page checked October 30, 2026: free to use under the Unsplash License. The license permits commercial use.
+Subject: website layouts being prototyped on a laptop and checked on a phone. This is stock photography, not Tyler's workspace or a Fremont Digital project.
+Local outputs: web-design-640.webp and web-design-1200.webp. Proportional resizing and compression only; responsive display crops through CSS. A visible photo credit links to the source.
