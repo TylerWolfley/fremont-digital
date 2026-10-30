@@ -1,0 +1,192 @@
+{
+  "url": "https://digitalfremont.com/",
+  "date": "2026-10-30",
+  "testedVersion": 7,
+  "serviceDisclosureTestVersion": 6,
+  "serviceDisclosureVersionNote": "All eighteen disclosures were exercised before the version 7 header/CSS fixes. Service components were unchanged by that release.",
+  "responsiveChecks": [
+    {
+      "contentWidth": 305,
+      "formWidth": 227.1999969482422,
+      "headerHeight": 74.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 305,
+      "width": 320
+    },
+    {
+      "contentWidth": 360,
+      "formWidth": 282.3999938964844,
+      "headerHeight": 74.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 360,
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "formWidth": 297.6000061035156,
+      "headerHeight": 74.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "contentWidth": 753,
+      "formWidth": 636.8500366210938,
+      "headerHeight": 74.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 753,
+      "width": 768
+    },
+    {
+      "contentWidth": 885,
+      "formWidth": 429.0375061035156,
+      "headerHeight": 82.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 885,
+      "width": 900
+    },
+    {
+      "contentWidth": 1425,
+      "formWidth": 663.2999877929688,
+      "headerHeight": 82.80000305175781,
+      "headlineBreak": "inline",
+      "scrollWidth": 1425,
+      "width": 1440
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How much will it cost?",
+      "expanded": true
+    },
+    {
+      "question": "Can you improve my existing website?",
+      "expanded": true
+    },
+    {
+      "question": "Can you repair my phone or computer?",
+      "expanded": true
+    },
+    {
+      "question": "Where do you offer help?",
+      "expanded": true
+    },
+    {
+      "question": "Can I drop off a device?",
+      "expanded": true
+    },
+    {
+      "question": "What if I need something that isn’t listed?",
+      "expanded": true
+    }
+  ],
+  "skipLink": {
+    "activeElement": "main"
+  },
+  "deepLinkReload": {
+    "hash": "#photo-media",
+    "activePanel": "photo-media"
+  },
+  "indexing": {
+    "robots": "- generic: \"User-agent: * Allow: / Sitemap: https://digitalfremont.com/sitemap.xml\"",
+    "sitemap": "- generic: This XML file does not appear to have any style information associated with it. The document tree is shown below.\n- text: <urlset\n- generic: xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n- text: \">\"\n- generic: <url>\n- generic: <loc>\n- text: https://digitalfremont.com/\n- generic: </loc>\n- generic: </url>\n- generic: </urlset>"
+  },
+  "missingPage": "- main:\n  - link \"Fremont Digital home\":\n    - /url: /\n    - img \"Fremont Digital\"\n  - paragraph: 404 / Page not found\n  - heading \"This page isn’t here.\" [level=1]\n  - paragraph: The link may be out of date. You can find the services on the homepage or get in touch directly.\n  - link \"Back to the homepage\":\n    - /url: /\n    - text: Back to the homepage\n  - link \"Contact Fremont Digital\":\n    - /url: mailto:digitalfremont@gmail.com?subject=How%20can%20Fremont%20Digital%20help%3F\n    - text: Contact Fremont Digital",
+  "services": [
+    {
+      "label": "Website builds",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Website updates & care",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Search engine optimization",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Google Business Profile",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Social media & marketing",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Business email & domains",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Booking & payment systems",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Office setup & Wi-Fi",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Business software setup",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Data transfers & backups",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Digital signage & QR menus",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Phone & device repairs",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Computer repairs & upgrades",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Virus & malware cleanup",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Device & software setup",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Professional photography",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Video & YouTube content",
+      "open": true,
+      "requestLink": "#contact"
+    },
+    {
+      "label": "Editing & promotional media",
+      "open": true,
+      "requestLink": "#contact"
+    }
+  ],
+  "notes": [
+    "No valid inquiry was submitted during this browser audit. The owner previously confirmed both a live success message and email receipt.",
+    "Mobile pointer navigation and desktop dropdown navigation passed after the version 7 fix.",
+    "Viewport testing uses the in-app Chromium browser; these are not physical iOS/Safari or Android-device results."
+  ]
+}

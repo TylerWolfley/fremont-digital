@@ -285,7 +285,7 @@ h2{font-size:34px;font-weight:800;margin-bottom:16px}
  .footer-main{flex-wrap:wrap;gap:12px 25px}.footer-main&gt;p{width:100%;text-align:left;display:flex;justify-content:space-between}.footer-main&gt;p&gt;span{display:inline}
 }
 @media(max-width:560px){
- html{scroll-padding-top:94px}.hero{padding-block:30px}.hero-location{font-size:13px;margin-bottom:19px}.hero h1{font-size:35px}.hero h1 br{display:none}.hero-description{font-size:16px;line-height:1.8}.hero-actions{gap:9px 19px}.hero-actions .button{font-size:15px}.hero-contact{grid-template-columns:1fr;gap:8px}.hero-contact&gt;p{grid-column:1;grid-row:auto;max-width:330px;margin-top:3px}.hero-phone{font-size:29px}.availability{font-size:13px;gap:9px 13px}
+ html{scroll-padding-top:94px}.hero{padding-block:30px}.hero-location{font-size:13px;margin-bottom:19px}.hero h1{font-size:35px}.hero-description{font-size:16px;line-height:1.8}.hero-actions{gap:9px 19px}.hero-actions .button{font-size:15px}.hero-contact{grid-template-columns:1fr;gap:8px}.hero-contact&gt;p{grid-column:1;grid-row:auto;max-width:330px;margin-top:3px}.hero-phone{font-size:29px}.availability{font-size:13px;gap:9px 13px}
  .services-heading h2{font-size:28px}.category-tabs{gap:10px;margin-bottom:20px}.category-tabs&gt;a{padding:17px 14px;gap:13px}.category-tabs strong{font-size:15px;line-height:1.5}.category-tabs small{font-size:13px;line-height:1.7}.category-tabs&gt;a&gt;svg{width:17px;height:17px;right:13px;top:25px}.category-icon{width:36px;height:36px}.category-icon svg{width:28px;height:28px}
  .service-panel{padding:25px 20px;scroll-margin-top:95px}.service-intro h3{font-size:26px}.service-intro&gt;p:last-child{font-size:15px}.service-intro{margin-bottom:25px}.service-depth{grid-template-columns:1fr;gap:27px}.service-outcomes{padding:22px}.service-outcomes li,.service-detail p{font-size:15px}.service-detail summary{font-size:15px}.services-other{display:block;text-align:center;font-size:14px}.services-other a{justify-content:center;margin-left:5px}
  .process-steps{grid-template-columns:1fr;gap:27px}.process-steps li{padding-left:48px}.step-number{position:absolute;margin:0}.process-steps h3{font-size:17px}.process-steps p{font-size:15px}.process-intro{font-size:15px}.faq-list{padding-inline:20px}.faq-list p{padding-right:0}
@@ -448,10 +448,10 @@ header.addEventListener('keydown', event =&gt; {
   }
 });
 
-header.addEventListener('focusout', () =&gt; {
-  queueMicrotask(() =&gt; {
-    if (!header.contains(document.activeElement)) closeAll();
-  });
+header.addEventListener('focusout', event =&gt; {
+  // activeElement can briefly be body between pointer focus events. Closing
+  // here would hide the destination link before its click is dispatched.
+  if (event.relatedTarget &amp;&amp; !header.contains(event.relatedTarget)) closeAll();
 });
 
 header.querySelectorAll('a').forEach(link =&gt; link.addEventListener('click', closeAll));

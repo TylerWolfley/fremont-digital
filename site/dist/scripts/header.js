@@ -45,10 +45,10 @@ header.addEventListener('keydown', event => {
   }
 });
 
-header.addEventListener('focusout', () => {
-  queueMicrotask(() => {
-    if (!header.contains(document.activeElement)) closeAll();
-  });
+header.addEventListener('focusout', event => {
+  // activeElement can briefly be body between pointer focus events. Closing
+  // here would hide the destination link before its click is dispatched.
+  if (event.relatedTarget && !header.contains(event.relatedTarget)) closeAll();
 });
 
 header.querySelectorAll('a').forEach(link => link.addEventListener('click', closeAll));

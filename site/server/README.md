@@ -1,6 +1,6 @@
 # Inquiry delivery
 
-The October 30 audit added Formspree support alongside the original custom server. The owner supplied `https://formspree.io/f/mrppayow`, now saved as the production default. The custom server is not deployed. The owner submitted a live test and confirmed the success message and inbox receipt on October 30, 2026. The agent’s browser access remains blocked; the real delivery confirmation is from the owner, separately from the mocked tests.
+The October 30 audit added Formspree support alongside the original custom server. The owner supplied `https://formspree.io/f/mrppayow`, now saved as the production default. The custom server is not deployed. The owner submitted a live test and confirmed the success message and inbox receipt on October 30, 2026. Browser access was subsequently restored, and the agent checked live form validation and interactions without sending another inquiry. Real inbox delivery remains owner-confirmed, separately from the mocked tests. See `../LAUNCH.md` for the completed live audit.
 
 ## Formspree connection
 

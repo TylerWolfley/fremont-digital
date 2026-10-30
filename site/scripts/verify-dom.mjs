@@ -84,6 +84,21 @@ menu.open = true;
 const menuSummary = menu.querySelector('summary'); menuSummary.focus();
 menuSummary.dispatchEvent(new ui.w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
 assert.equal(menu.open, false); assert.equal(ui.d.activeElement, menuSummary);
+// Pointer focus can briefly report body before entering a menu link.
+// A focusout with no destination must not close the menu before its click.
+menuSummary.blur(); menu.open = true;
+menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: null }));
+await ui.settle();
+assert(menu.open, 'An intermediate pointer-focus state must leave the menu link clickable.');
+const menuLink = menu.querySelector('[data-category-link="business-tech"]');
+menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: menuLink }));
+await ui.settle(); assert(menu.open);
+menuLink.click();
+assert(!menu.open);
+assert.equal(ui.d.querySelector('[role="tabpanel"]:not([hidden])').id, 'business-tech');
+menu.open = true;
+menuSummary.dispatchEvent(new ui.w.FocusEvent('focusout', { bubbles: true, relatedTarget: ui.field('name') }));
+assert(!menu.open, 'Tabbing out of the header should close the menu.');
 
 const live = mount('https://formspree.io/f/testonly');
 const values = { name: 'DOM test', category: 'general', method: 'email', contact: 'example@example.invalid', message: 'This is a local test, never sent.' };
