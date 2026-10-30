@@ -38,6 +38,7 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 - Personal, clear writing. No invented reviews, credentials, team, results, pricing, or turnaround guarantees.
 - Business email: digitalfremont@gmail.com.
 - Business phone: (307) 349-4694; dialable link `tel:+13073494694`.
+- Facebook: `https://fb.com/digitalfremont`, supplied by the owner on October 30, 2026 and linked from the footer.
 - The owner purchased `digitalfremont.com` through Namecheap on October 30, 2026. Use `https://digitalfremont.com` as `SITE_URL` for the release. Purchase does not establish that hosting, DNS, or HTTPS is connected.
 
 ## Service scope refinement

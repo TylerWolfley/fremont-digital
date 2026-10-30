@@ -1,5 +1,9 @@
 # Version history
 
+## Facebook footer link — October 30, 2026
+
+- Added the owner's `https://fb.com/digitalfremont` page to the existing compact footer navigation.
+
 ## Favicon refinement — October 30, 2026
 
 - Replaced the white-square raster favicon with a crisp vector adaptation of the supplied FD symbol.
