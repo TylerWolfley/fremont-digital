@@ -4,7 +4,17 @@ The approved V1 website launched on October 30, 2026 at **https://digitalfremont
 
 The business is based in Fremont County, Wyoming. Website and automation projects can be handled remotely for customers elsewhere; local visits and device drop-off are arranged individually. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
 
-## Current revision: website offer, visual character, and work evidence
+## Current revision: homepage rebuild and business inquiry paths
+
+Published as Sites version 11 on October 30, 2026. Live custom-domain checks confirmed the new homepage and owner credit, working demo execution and completion, both loaded project previews and own-business disclosure, and the website inquiry's hidden repair arrangements with the saved Formspree endpoint intact. No live inquiry was sent.
+
+The owner rejected the last visual pass. This revision removes the dark workflow panel, opens up the homepage composition, introduces Tyler Wolfley and the owner-supplied “Coding since 2006,” and retains websites and automation as the main priorities. Larger real project previews appear earlier on the Websites page, followed by a shorter build outline and editing, ownership, handover, and support answers.
+
+The automation page includes a working fictional inquiry-to-record-and-task example. It runs only in the browser, supports completion and reset, and connects to no accounts. General IT services move to Repairs & Tech Help; legacy inquiry links are retained. Contact content adjusts to the selected category so website buyers see project guidance and repair customers see device arrangements.
+
+Standard checks, actual-DOM inquiries, and new automation regressions passed. All six local routes were checked at 320, 390, 768, and 1440 pixels without horizontal overflow. Desktop/mobile visuals, demo controls, and category-specific contact content were inspected in the browser. No live inquiry was sent. See `../reviews/08-editorial/refinement-record.txt` and its saved images/measurements. This is not a new performance score, independent customer endorsement, or measured sales result.
+
+## Previous revision: website offer, visual character, and work evidence
 
 Published as Sites version 10 on October 30, 2026. The owner requested addressing the remaining design, offer, and proof weaknesses. The approved white/blue identity now has a contrasting illustrated workflow, stronger type and section hierarchy, a concrete website-build outline, and explicit support options. Support is agreed per customer: individual updates, ongoing care, or a combination. Hosting, domain renewals, and paid tools are distinguished from the build.
 
@@ -75,7 +85,9 @@ Validation passed after the fixes: normal/release/review builds, standard verifi
 
 ## Hosting record
 
-Latest update: offer and visual refinement published October 30, 2026 as Sites version 10. Source commit `829e915a06b78df18e170b7685b88b6af27288cb`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b54475fe06fc819181eddf5fdd34f210`; successful deployment `appgdep_6ae516709c048191ba73801958a18044` at `2026-10-30T22:13:10.924055+00:00`. Current verification is recorded above.
+Latest update: homepage rebuild and business inquiry refinement published October 30, 2026 as Sites version 11. Source commit `3bb5eae7c432e40ca58b23bd6b7cba1b0e33ccce`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_6f771ce0b8d08191aef10861ba1cc64a`; successful deployment `appgdep_6ae51af20614819181aaf4306e00ca33` at `2026-10-30T22:32:23.929542+00:00`. Published screenshots and verification notes are under `../reviews/08-editorial/`.
+
+Previous update: offer and visual refinement published October 30, 2026 as Sites version 10. Source commit `829e915a06b78df18e170b7685b88b6af27288cb`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b54475fe06fc819181eddf5fdd34f210`; successful deployment `appgdep_6ae516709c048191ba73801958a18044` at `2026-10-30T22:13:10.924055+00:00`.
 
 Previous update: six-page organization, sales-copy revision, and model-based screen quotes published October 30, 2026 as Sites version 9. Source commit `48d76e02c13e68e925bd29fff11779f2745d0ed8`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_a09938ba4ef48191a01b7fe0c2a93f40`; successful deployment `appgdep_6ae513fe583c8191af2178d87493d458` at `2026-10-30T22:02:44.729797+00:00`. Custom-domain verification is recorded above.
 

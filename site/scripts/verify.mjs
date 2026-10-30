@@ -39,7 +39,7 @@ assert.equal(titles.size, sitePages.length, 'Each page needs its own search titl
 assert.equal(serviceCount, serviceGroups.flatMap(group => group.services).length);
 const home = homePage();
 assert(!home.includes('data-category-tabs') && !home.includes('data-inquiry-form'));
-assert.equal((home.match(/class="priority-card"/g) || []).length, 2);
+assert.equal((home.match(/class="service-story"/g) || []).length, 2);
 assert(!home.includes('All of Fremont County') && !home.includes('Less tech trouble.'));
 const contact = contactPage();
 assert.match(contact, /data-inquiry-form data-endpoint=""/);

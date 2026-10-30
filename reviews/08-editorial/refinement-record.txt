@@ -1,0 +1,25 @@
+Fremont Digital — homepage rebuild and business inquiry refinement
+October 30, 2026
+
+Why this revision exists
+The owner called the previous pass a downgrade. Its dark diagram competed with the opening, mobile users scrolled through too much process, and the small project images did little to establish capability. Copy repeated generic expectations. Automation was described without something to try, the person doing the work was unnamed, and the contact page gave website prospects repair arrangements.
+
+Changes
+- A simpler homepage with a large headline, original FD background mark, two open service rows, an owner introduction, and a compact closing. Websites and automation retain priority.
+- Tyler Wolfley and “Coding since 2006,” using the owner's supplied facts. No portrait or invented professional credentials.
+- Website proof moved immediately after the Websites page opening. Two columns on desktop, full-width previews on phones. Wind River Renewal remains explicitly the owner's own business.
+- Shorter build explanation and answers about editing, business accounts, handover, platform limitations, and support by individual agreement.
+- A functional local automation example creates a fictional customer record and follow-up task, supports completion, changes between two sample requests, and resets. It does not send messages, create bookings, or connect accounts.
+- General IT moved out of automation. Existing inquiry links for moved services still select the right service/category.
+- Contact introduction, repair arrangements, and repair FAQs adapt to the category. Website prospects see business-project guidance. Existing Formspree configuration is retained.
+
+Verification
+Normal and offline-review builds and all existing standard checks passed. Actual-DOM contact regressions passed. New automation checks cover execution, completion, repeat runs, sample changes, reset/focus, no external requests, and legacy inquiry migration.
+All six routes were checked in Chromium at 320, 390, 768, and 1440 pixels: one H1 each and no horizontal overflow. At 390px the homepage opening is 504px high and project images are 334px wide; the previous review identified an approximately 1,109px opening and approximately 110px previews. Exact current measurements are in layout-checks.json.
+Desktop homepage, mobile homepage, project examples, and the running automation demo were visually inspected. The real browser confirmed website inquiries hide repair arrangements and switching to repair shows them. No warning/error entries were returned for the tested local routes/interactions.
+
+Limits and remaining business evidence
+This is a design and usability revision, not evidence of increased sales. The automation example demonstrates behavior but is not a customer integration case study. There is still no independent testimonial, measured customer result, or physical-device/accessibility certification. No new PageSpeed score is claimed. No live form submission was sent; the owner's earlier successful inbox test remains the delivery evidence.
+
+Publication
+Published as Sites version 11 at https://digitalfremont.com/ on October 30, 2026. Live browser checks confirmed the new opening and owner credit, demo execution and task completion, both loaded website images and the own-business label, website-focused contact copy, hidden repair arrangements for website inquiries, and the unchanged public Formspree endpoint. The hosting source retains an unused legacy connection-visual module; it is not imported or served. The active GitHub source removes that obsolete component. Production desktop-home and demo screenshots are saved in this folder.

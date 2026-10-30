@@ -31,6 +31,11 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 
 ### October 30 priorities and V1 review — supersedes earlier layout guidance
 
+- Latest refinement: the owner considered the last pass a visual downgrade and requested fixing the identified weaknesses, starting with the homepage. Remove the dark workflow panel and repetitive card/process presentation. Keep websites and automation first, use the original FD mark and open typography-led sections, and move readable project evidence ahead of the build details on the Websites page.
+- The owner supplied **Tyler Wolfley** as the public name and **coding since 2006** as experience. State these plainly without inventing credentials, professional employment history, or a business founding date. The no-portrait preference remains.
+- Demonstrate automation with a clearly labeled fictional browser-only example. Do not imply that its records or tasks are connected to real systems. Keep office networking/setup and general IT under Repairs & Tech Help, and keep repair arrangements out of website/automation inquiry introductions.
+- Explain editing, business-owned accounts, handover, platform limits, and support agreed per customer. Do not invent fixed prices, turnaround guarantees, or an independent testimonial.
+
 - Follow-up: the owner requested stronger visual character, a clearer website offer, and credible evidence of completed work. Keep the approved white/blue foundation; strengthen contrast and composition rather than restoring rejected western artwork or turquoise themes.
 - Support can be individual updates, ongoing care, or a mix, depending on the customer's agreement. Do not impose a fixed support plan or invent its price, coverage, or response promise.
 - The owner has no customer testimonial yet and confirmed that they also own Wind River Renewal. Present that site as work for their own business, never as an independent customer endorsement. Small actual website screenshots and factual feature descriptions are authorized; keep these secondary on the Websites page.

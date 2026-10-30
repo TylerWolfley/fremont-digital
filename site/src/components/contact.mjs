@@ -11,11 +11,12 @@ export function contact({ contactEndpoint = '', standalone = false } = {}) {
   return `<section id="contact" class="contact-section section-space" aria-labelledby="contact-heading">
     <div class="section-container contact-layout">
       <div class="contact-copy">
-        <p class="eyebrow">Let’s make a start</p><${standalone ? 'h1' : 'h2'} class="contact-title" id="contact-heading">Let’s talk about<br> what you need.</${standalone ? 'h1' : 'h2'}>
-        <p>Send a link to your current website, describe a task you want automated, or tell me what you need help with. I’ll get back to you by phone or email.</p>
+        <p class="eyebrow">Talk with Tyler Wolfley</p><${standalone ? 'h1' : 'h2'} class="contact-title" id="contact-heading" data-contact-heading>Tell me about<br> your project.</${standalone ? 'h1' : 'h2'}>
+        <p data-contact-intro>Send your current website or describe a task you want automated. Tell me what you want to change and what you’re working with now.</p>
         <a class="contact-phone" href="${business.phoneLink}">${business.phone}</a>
         <a class="contact-address" href="${escape(inquiryLink())}">${business.email}</a>
-        <div class="coverage"><${standalone ? 'h2' : 'h3'}>Based in Fremont County, Wyoming.</${standalone ? 'h2' : 'h3'}><p>Website and automation projects can be handled remotely. Local visits and arranged device drop-off are also available.</p><p>For device drop-off, call first to arrange a handoff. There isn’t a public storefront yet.</p></div>
+        <p class="contact-next">I’ll review your request, ask about any missing details, and talk through the work and a quote with you before anything starts.</p>
+        <div class="coverage"><${standalone ? 'h2' : 'h3'}>Fremont County, Wyoming.</${standalone ? 'h2' : 'h3'}><p>Local and remote projects welcome.</p><p data-repair-arrangement hidden>Customer visits and arranged device drop-off are available. Call first to arrange a handoff.</p></div>
       </div>
       <div class="inquiry-panel">
         <form class="inquiry-form" data-inquiry-form data-endpoint="${escape(contactEndpoint)}" data-services="${escape(JSON.stringify(serviceIndex))}" hidden>
@@ -35,11 +36,11 @@ export function contact({ contactEndpoint = '', standalone = false } = {}) {
             <div><label for="inquiry-method">Reply by</label><select id="inquiry-method" name="method"><option value="phone">Phone</option><option value="email">Email</option></select></div>
             <div><label for="inquiry-contact" data-contact-label>Phone number *</label><input id="inquiry-contact" name="contact" type="tel" autocomplete="tel" maxlength="160" required></div>
           </div>
+          <label for="inquiry-context" data-context-label>Your business or current website <span>(optional)</span></label><input id="inquiry-context" name="context" maxlength="240" placeholder="Business name or website link">
           <label for="inquiry-message">What can I help with? *</label>
           <textarea id="inquiry-message" name="message" rows="4" minlength="10" maxlength="4000" required aria-describedby="message-hint"></textarea>
           <p id="message-hint" class="field-hint" data-message-hint>Tell me what you need help with. We can work out where to start.</p>
           <details class="form-extras"><summary>Add a few more details <span>(optional)</span>${plus}</summary>
-            <label for="inquiry-context" data-context-label>A little context <span>(optional)</span></label><input id="inquiry-context" name="context" maxlength="240" placeholder="Your business, device, or project">
             <div class="form-row">
               <div><label for="inquiry-location">Town or area <span>(optional)</span></label><input id="inquiry-location" name="location" autocomplete="address-level2" maxlength="100" placeholder="Where are you based?"></div>
               <div><label for="inquiry-timing" data-timing-label>Preferred timeframe <span>(optional)</span></label><input id="inquiry-timing" name="timing" maxlength="160" placeholder="If you have a date in mind"></div>

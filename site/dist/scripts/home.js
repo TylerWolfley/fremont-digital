@@ -31,6 +31,12 @@
     fields.namedItem('context').placeholder = selected.contextPlaceholder;
     form.querySelector('[data-message-hint]').textContent = selected.messagePrompt;
     form.querySelector('label[data-timing-label]').textContent = `${selected.timingLabel} (optional)`;
+    const repair = category.value === 'repairs-tech';
+    const media = category.value === 'photo-media';
+    document.querySelector('[data-contact-heading]').textContent = repair ? 'Tell me what needs attention.' : media ? 'Tell me about your shoot or edit.' : 'Tell me about your project.';
+    document.querySelector('[data-contact-intro]').textContent = repair ? 'Describe the device or setup, what’s happening, and what you’ve tried. I’ll check the options with you.' : media ? 'Tell me what you need to photograph, film, or edit, where you’ll use it, and any date you have in mind.' : 'Send your current website or describe a task you want automated. Tell me what you want to change and what you’re working with now.';
+    document.querySelector('[data-repair-arrangement]').hidden = !repair;
+    document.querySelectorAll('[data-faq-repair]').forEach(item => { item.hidden = !repair; });
   }
   function chooseCategory(id, service = '', name = '') {
     if (![...category.options].some(option => option.value === id)) return;
@@ -135,7 +141,9 @@
   });
   form.noValidate = true; updatePrompts(); updateMethod(false); updateRepairFields(); form.hidden = false;
   const params = new URLSearchParams(window.location.search);
-  const requestedCategory = params.get('category');
+  let requestedCategory = params.get('category');
+  // Preserve older inquiry links for setup services now grouped under tech help.
+  if (requestedCategory === 'business-tech' && ['email-domains','office-networking','business-backups','signage-menus'].includes(params.get('service'))) requestedCategory = 'repairs-tech';
   if ([...category.options].some(option => option.value === requestedCategory)) {
     const requestedId = params.get('service');
     const service = Object.hasOwn(services, requestedId) ? services[requestedId] : null;

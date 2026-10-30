@@ -1,5 +1,14 @@
 # Version history
 
+## Homepage rebuild and business-focused inquiry paths — October 30, 2026
+
+- Replaced the rejected dark panel and repeated cards with a typographic homepage, original FD watermark, open service rows, and a direct owner introduction: Tyler Wolfley, coding since 2006.
+- Moved larger real project previews earlier on the Websites page and shortened the build outline. Explained editing, account ownership, handover, platform limits, and individually agreed support.
+- Added an interactive, fictional automation example with customer-record creation, follow-up tasks, completion, and reset. It runs locally and sends nothing.
+- Moved general office IT services to Repairs & Tech Help, preserved old inquiry links, and adapted contact introductions and repair-only details to the selected category.
+- Verified six routes at 320, 390, 768, and 1440 pixels; new demo and contact regressions passed. See `reviews/08-editorial/refinement-record.txt` for scope and remaining evidence gaps.
+- Published Sites version 11 and verified the custom-domain homepage, interactive demo, project images, and inquiry configuration.
+
 ## Offer, visual character, and work evidence — October 30, 2026
 
 - Strengthened the approved white/blue identity with an illustrated website-to-inquiry workflow, stronger hierarchy, and distinct build/support sections.

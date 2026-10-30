@@ -17,12 +17,8 @@ export const serviceGroups = [
     navLabel: 'Business Automation',
     services: [
       { id: 'workflow-automation', name: 'Workflow automation', description: 'Connect inquiries, follow-ups, and repeat admin tasks around how your business works.' },
-      { id: 'email-domains', name: 'Business email & domains', description: 'Domain configuration, professional email accounts, and setup on your devices.' },
       { id: 'booking-payments', name: 'Booking & payment systems', description: 'Online scheduling, payments, and point-of-sale setup.' },
-      { id: 'office-networking', name: 'Office setup & Wi-Fi', description: 'Workstations, networking, printers, and scanners.' },
       { id: 'business-software', name: 'Business software setup', description: 'Configure inventory tools and everyday software around your workflow.' },
-      { id: 'business-backups', name: 'Data transfers & backups', description: 'Move business files and set up a backup routine.' },
-      { id: 'signage-menus', name: 'Digital signage & QR menus', description: 'Help customers find your menu, information, and offers.' },
     ],
   },
   {
@@ -34,6 +30,10 @@ export const serviceGroups = [
       { id: 'computer-help', name: 'Computer repairs & upgrades', description: 'Troubleshooting, component replacements, and upgrades.' },
       { id: 'virus-cleanup', name: 'Virus & malware cleanup', description: 'Help investigating suspicious behavior and removing unwanted software.' },
       { id: 'setup-support', name: 'Device & software setup', description: 'New devices, software installation, and personal file transfers.' },
+      { id: 'email-domains', name: 'Business email & domains', description: 'Domain configuration, professional email accounts, and setup on your devices.' },
+      { id: 'office-networking', name: 'Office setup & Wi-Fi', description: 'Workstations, networking, printers, and scanners.' },
+      { id: 'business-backups', name: 'Data transfers & backups', description: 'Move business files and set up a backup routine.' },
+      { id: 'signage-menus', name: 'Digital signage & QR menus', description: 'Help customers find your menu, information, and offers.' },
     ],
   },
   {

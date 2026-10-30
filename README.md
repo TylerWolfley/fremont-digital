@@ -10,7 +10,7 @@ Websites and small-business automation are the main priorities. Repairs, technol
 
 The current revision treats that V1 as a starting point, not proof of sales effectiveness. Six pages now separate Home, Websites, Business Automation, Repairs & Tech Help, Photography & Media, and Contact. The homepage and main navigation prioritize websites and automation. Copy has been rewritten around customer needs, and the [sales review](reviews/06-pages/sales-review.txt) records specific weaknesses, fixes, and unresolved gaps. Browser access is restored. The owner's Formspree endpoint remains connected; the owner previously confirmed successful delivery.
 
-The [follow-up refinement](reviews/07-offer/refinement-record.txt) adds a stronger visual composition, a concrete build outline, flexible support arrangements, and modest previews of the two real websites. Wind River Renewal is identified as the owner's own business. No customer endorsement or performance result is implied.
+The [current refinement](reviews/08-editorial/refinement-record.txt) replaces the rejected dark panel with a simpler typographic homepage and the original FD mark, introduces Tyler Wolfley and “Coding since 2006,” brings readable website examples earlier on the Websites page, and adds a working local automation demonstration. Ownership, editing, handover, and flexible support are explained. Contact content adapts to the inquiry. Wind River Renewal is identified as the owner's own business; no customer endorsement or performance result is implied.
 
 | Component | Status |
 | --- | --- |
@@ -23,7 +23,7 @@ The [follow-up refinement](reviews/07-offer/refinement-record.txt) adds a strong
 | Public web address | `digitalfremont.com`, purchased through Namecheap |
 | Website deployment | Public at https://digitalfremont.com; www also connected with HTTPS |
 
-The current `site/dist/` contains all six preview pages. The Websites page includes the two owner-supplied past projects in a modest row. There is no owner portrait or fictional client gallery. Phone resale remains a future expansion after a physical location is established.
+The current `site/dist/` contains all six preview pages. The Websites page includes the two owner-supplied past projects with readable previews, stacked on phones. There is no owner portrait or fictional client gallery. Phone resale remains a future expansion after a physical location is established.
 
 Read [PROJECT-DECISIONS.md](PROJECT-DECISIONS.md) before making changes. Its current decisions take precedence over historical V1/V2 handoff material.
 

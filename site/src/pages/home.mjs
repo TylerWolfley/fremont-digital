@@ -1,9 +1,8 @@
 import { pageShell } from './shell.mjs';
 import { pageById } from '../data/pages.mjs';
 import { hero } from '../components/hero.mjs';
-import { processSection } from '../components/process.mjs';
-import { homeServices, nextStep } from '../components/page-sections.mjs';
+import { homeServices, ownerIntro, homeClosing } from '../components/home-editorial.mjs';
 
 export function homePage(config = {}) {
-  return pageShell(pageById.home, [hero(), homeServices(), processSection(), nextStep()].join('\n'), config);
+  return pageShell(pageById.home, [hero(), homeServices(), ownerIntro(), homeClosing()].join('\n'), config);
 }

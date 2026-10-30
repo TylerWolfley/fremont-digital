@@ -32,10 +32,15 @@ function mount(endpoint = '', path = '/contact/') {
 const ui = mount();
 assert.deepEqual(ui.labels(), expectedLabels);
 assert(!ui.form.hidden);
+assert(ui.d.querySelector('[data-repair-arrangement]').hidden, 'Business inquiries must not lead with device drop-off.');
 assert.equal(ui.d.querySelectorAll('[role="tab"]').length, 0);
 ui.field('category').value = 'repairs-tech'; ui.fire(ui.field('category'), 'change');
+assert(!ui.d.querySelector('[data-repair-arrangement]').hidden);
+assert.match(ui.d.querySelector('[data-contact-heading]').textContent, /attention/);
 ui.field('message').value = 'My phone screen is broken.';
 ui.field('category').value = 'web-digital'; ui.fire(ui.field('category'), 'change');
+assert(ui.d.querySelector('[data-repair-arrangement]').hidden);
+assert([...ui.d.querySelectorAll('[data-faq-repair]')].every(item => item.hidden));
 assert.equal(ui.field('message').value, '');
 ui.field('message').value = 'I need a website for my business.';
 ui.field('category').value = 'repairs-tech'; ui.fire(ui.field('category'), 'change');
