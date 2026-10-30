@@ -8,7 +8,7 @@ The business serves all of Fremont County, Wyoming through remote help, customer
 
 At launch, the owner requested leaving the existing form as it was and connecting delivery later. The subsequent October 30 audit request authorizes fixing and simplifying the form and connecting Formspree. The owner then supplied `https://formspree.io/f/mrppayow`, now saved in `src/config/contact.mjs` as the production endpoint. Live builds show “Send request” without the preview notice. Offline review builds stay disconnected. Phone and email remain direct alternatives.
 
-The endpoint is configured; a real submission and inbox receipt remain pending. Browser access was retried after the owner offered to enable it, but the saved permission gate still denied access. No real inquiry message has been sent by the agent. See `server/README.md` for provider configuration and verification details.
+The owner submitted a live test after publication and reported “Success message and email received” on October 30, 2026, confirming delivery to digitalfremont@gmail.com. Browser access was retried after the owner offered to enable it, but the saved permission gate still denied the agent access. The successful real submission was performed and verified by the owner. See `server/README.md` for provider configuration and verification details.
 
 ## October 30 audit
 
@@ -18,11 +18,11 @@ Manrope downloads were reduced from 289,364 to 90,760 bytes with full-glyph WOFF
 
 Actual-DOM tests exercise the real HTML and scripts with mocked transport: service options and all category prompts, keyboard/deep-link navigation, menu focus, contextual drafts, contact-method drafts, validation, error focus, duplicate-submit prevention, Formspree field mapping, and success/failure states. All standard checks and the actual-DOM tests passed without sending messages. `scripts/verify-dom.mjs` requires jsdom 26.1 or a `--jsdom-module` path. Normal builds remain dependency-free. Font and sharing-image regeneration are optional utilities.
 
-Remaining gates: an actual Formspree submission and inbox receipt must be checked. Browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance are unverified. No alternate browser or network route was used to bypass the denial.
+Formspree submission and inbox receipt were confirmed by the owner after version 5 was published. Remaining audit gates: browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance remain unverified. No alternate browser or network route was used to bypass the denial.
 
 ## Hosting record
 
-Latest update: Formspree connection published October 30, 2026 as Sites version 5. Source commit `8ced16b05689698aac18c285128d97c5037424ee`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b7d893b95e608191ad613f293ea66e83`; successful deployment `appgdep_6ae503ceb2fc8191ba94233ff902e135`. Production uses `https://formspree.io/f/mrppayow`, shows “Send request,” and omits the preview notice. The built HTML and saved configuration were verified. Browser access remained blocked; the owner was asked to submit a test and confirm inbox receipt.
+Latest update: Formspree connection published October 30, 2026 as Sites version 5. Source commit `8ced16b05689698aac18c285128d97c5037424ee`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b7d893b95e608191ad613f293ea66e83`; successful deployment `appgdep_6ae503ceb2fc8191ba94233ff902e135`. Production uses `https://formspree.io/f/mrppayow`, shows “Send request,” and omits the preview notice. The built HTML and saved configuration were verified. Browser access remained blocked; the owner submitted a test and confirmed both the success message and inbox receipt.
 
 Previous update: audit fixes published October 30, 2026 as Sites version 4. Source commit `349ac40a08eb9fc875c9cfc6b637f095e07bdac4`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_d6168623558481919ad4286dea3cc73f`; successful deployment `appgdep_6ae50311dd44819184258da93375a3d1`. That release had no contact endpoint. Build, source, and mocked actual-DOM checks passed. Browser access remained blocked.
 

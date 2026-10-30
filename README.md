@@ -8,7 +8,7 @@ The business covers websites, digital marketing, small-business technology setup
 
 **V1 approved by the owner on October 29, 2026.** The `v1.0.0` Git tag preserves this website milestone. Further improvements should build from this accepted version. See [version history](CHANGELOG.md).
 
-The homepage uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The October 30 audit tightened the opening and service copy, fixed form-label and draft-handling bugs, and reduced font transfers. The owner's Formspree endpoint is now configured for production; a real inbox test remains pending, and browser visual review is blocked by permissions.
+The homepage uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The October 30 audit tightened the opening and service copy, fixed form-label and draft-handling bugs, and reduced font transfers. The owner’s Formspree endpoint is connected, and the owner confirmed a successful live submission and email receipt. The agent’s browser visual review remains blocked by permissions.
 
 | Component | Status |
 | --- | --- |
@@ -16,7 +16,7 @@ The homepage uses **four clear service categories**, practical service explanati
 | Favicon | Prepared from the supplied FD symbol |
 | Header and service navigation | Approved for V1; browser QA remains pending |
 | Full homepage and copy | Approved V1 with category browsing, service details, phone contact, and contextual form |
-| Online inquiries | Formspree endpoint configured; real submission and inbox receipt pending |
+| Online inquiries | Formspree connected; owner confirmed successful submission and email receipt |
 | Public web address | `digitalfremont.com`, purchased through Namecheap |
 | Website deployment | Public at https://digitalfremont.com; www also connected with HTTPS |
 

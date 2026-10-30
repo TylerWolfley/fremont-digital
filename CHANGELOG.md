@@ -4,7 +4,7 @@
 
 - Saved the owner's public Formspree endpoint, `https://formspree.io/f/mrppayow`, as the production default so future releases retain the connection.
 - Production now offers “Send request” and removes the preview-only notice. Offline review builds remain disconnected.
-- A real submission and inbox receipt remain unverified because the browser permission gate still denies access.
+- The owner submitted a live test and confirmed both the success message and receipt at digitalfremont@gmail.com. The agent’s browser access remains blocked.
 
 ## Site audit and inquiry improvements — October 30, 2026
 
