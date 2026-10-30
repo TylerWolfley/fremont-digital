@@ -11,7 +11,7 @@ export function contact({ contactEndpoint = '', standalone = false } = {}) {
   return `<section id="contact" class="contact-section section-space" aria-labelledby="contact-heading">
     <div class="section-container contact-layout">
       <div class="contact-copy">
-        <p class="eyebrow">Let’s make a start</p><${standalone ? 'h1' : 'h2'} class="contact-title" id="contact-heading">Let’s talk about<br>what you need.</${standalone ? 'h1' : 'h2'}>
+        <p class="eyebrow">Let’s make a start</p><${standalone ? 'h1' : 'h2'} class="contact-title" id="contact-heading">Let’s talk about<br> what you need.</${standalone ? 'h1' : 'h2'}>
         <p>Send a link to your current website, describe a task you want automated, or tell me what you need help with. I’ll get back to you by phone or email.</p>
         <a class="contact-phone" href="${business.phoneLink}">${business.phone}</a>
         <a class="contact-address" href="${escape(inquiryLink())}">${business.email}</a>

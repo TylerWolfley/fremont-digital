@@ -4,7 +4,15 @@ The approved V1 website launched on October 30, 2026 at **https://digitalfremont
 
 The business is based in Fremont County, Wyoming. Website and automation projects can be handled remotely for customers elsewhere; local visits and device drop-off are arranged individually. Contact: **(307) 349-4694** and **digitalfremont@gmail.com**.
 
-## Current revision: six pages and V1 sales review
+## Current revision: website offer, visual character, and work evidence
+
+Published as Sites version 10 on October 30, 2026. The owner requested addressing the remaining design, offer, and proof weaknesses. The approved white/blue identity now has a contrasting illustrated workflow, stronger type and section hierarchy, a concrete website-build outline, and explicit support options. Support is agreed per customer: individual updates, ongoing care, or a combination. Hosting, domain renewals, and paid tools are distinguished from the build.
+
+The Websites page includes compact real screenshots and factual descriptions of the two supplied projects. The owner confirmed that Wind River Renewal is also their own business, and the site states that plainly. No independent testimonial, rating, or conversion result is implied. Screenshots were captured from both live websites on October 30 and optimized to 72,924 bytes total with lazy loading and reserved dimensions.
+
+All standard checks and actual-DOM regressions passed. All six local pages were checked at 320, 768, and 1440 pixels without horizontal overflow. The homepage, offer, and proof section were visually inspected; the new build link selected the website category and service, focused the name field, and positioned the form below the mobile header. No live inquiry was sent. After publication, the custom-domain homepage and Websites page were checked for the new layout, build/support content, own-business disclosure, and successfully loaded project images. The final desktop homepage and mobile proof captures are under `../reviews/07-offer/`; see its refinement record for scope and limits.
+
+## Previous revision: six pages and V1 sales review
 
 The owner rejected the earlier audit's assessment of the sales message. Technical scores did not establish persuasive writing, differentiation, or commercial readiness. The current revision prioritizes websites and small-business automation, moves repairs and media to secondary navigation, and rewrites the opening, service explanations, examples, and inquiry prompts. The specific findings and unresolved gaps are in [the sales review](../reviews/06-pages/sales-review.txt).
 
@@ -67,7 +75,9 @@ Validation passed after the fixes: normal/release/review builds, standard verifi
 
 ## Hosting record
 
-Latest update: six-page organization, sales-copy revision, and model-based screen quotes published October 30, 2026 as Sites version 9. Source commit `48d76e02c13e68e925bd29fff11779f2745d0ed8`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_a09938ba4ef48191a01b7fe0c2a93f40`; successful deployment `appgdep_6ae513fe583c8191af2178d87493d458` at `2026-10-30T22:02:44.729797+00:00`. Custom-domain verification is recorded above.
+Latest update: offer and visual refinement published October 30, 2026 as Sites version 10. Source commit `829e915a06b78df18e170b7685b88b6af27288cb`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b54475fe06fc819181eddf5fdd34f210`; successful deployment `appgdep_6ae516709c048191ba73801958a18044` at `2026-10-30T22:13:10.924055+00:00`. Current verification is recorded above.
+
+Previous update: six-page organization, sales-copy revision, and model-based screen quotes published October 30, 2026 as Sites version 9. Source commit `48d76e02c13e68e925bd29fff11779f2745d0ed8`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_a09938ba4ef48191a01b7fe0c2a93f40`; successful deployment `appgdep_6ae513fe583c8191af2178d87493d458` at `2026-10-30T22:02:44.729797+00:00`. Custom-domain verification is recorded above.
 
 Previous update: two owner-supplied past projects published October 30, 2026 as Sites version 8. Source commit `27e490eba18a99480352b744b68af0b30b2914e3`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_11c7db1087a0819198979ecf986cda1f`; successful deployment `appgdep_6ae50f3a9f908191a5d57c6c351faef8`.
 

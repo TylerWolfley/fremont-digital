@@ -1,5 +1,12 @@
 # Version history
 
+## Offer, visual character, and work evidence — October 30, 2026
+
+- Strengthened the approved white/blue identity with an illustrated website-to-inquiry workflow, stronger hierarchy, and distinct build/support sections.
+- Explained build deliverables, quote contents, separate ongoing costs, launch, and handover. Individual updates and ongoing care remain available by customer agreement.
+- Added compact real previews of the two completed websites. Wind River Renewal is disclosed as the owner's own business. No testimonial or performance result was invented.
+- Published Sites version 10. All six pages passed responsive checks; existing inquiry regressions passed, and the published homepage, offer, ownership disclosure, and images were verified.
+
 ## Six-page organization and V1 sales review — October 30, 2026
 
 - Put websites and business automation first on the homepage and in navigation. Added dedicated website, automation, repair, media, and contact pages with shared components and unique metadata.

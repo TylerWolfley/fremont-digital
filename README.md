@@ -10,6 +10,8 @@ Websites and small-business automation are the main priorities. Repairs, technol
 
 The current revision treats that V1 as a starting point, not proof of sales effectiveness. Six pages now separate Home, Websites, Business Automation, Repairs & Tech Help, Photography & Media, and Contact. The homepage and main navigation prioritize websites and automation. Copy has been rewritten around customer needs, and the [sales review](reviews/06-pages/sales-review.txt) records specific weaknesses, fixes, and unresolved gaps. Browser access is restored. The owner's Formspree endpoint remains connected; the owner previously confirmed successful delivery.
 
+The [follow-up refinement](reviews/07-offer/refinement-record.txt) adds a stronger visual composition, a concrete build outline, flexible support arrangements, and modest previews of the two real websites. Wind River Renewal is identified as the owner's own business. No customer endorsement or performance result is implied.
+
 | Component | Status |
 | --- | --- |
 | Supplied wordmark and FD symbol | Brand sources received |

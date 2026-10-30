@@ -1,0 +1,56 @@
+FREMONT DIGITAL — OFFER, CHARACTER, AND WORK EVIDENCE
+October 30, 2026
+
+The owner asked to address the three weaknesses left by the V1 review:
+generic visual identity, unclear build/support deliverables, and limited proof.
+
+DESIGN
+Retained the approved white, blue, original wordmark, and Manrope foundation.
+Added a contrasting ink-colored workflow illustration, stronger type hierarchy,
+numbered details, deliberate section changes, and a more prominent closing CTA.
+The illustration explains website -> inquiry -> follow-up and is labeled as an
+example. It is not an invented client system, live feed, or performance metric.
+
+WEBSITE OFFER AND SUPPORT
+The Websites page now explains pages/content, design/build, forms/connections,
+and launch/handover. Its quote outline names pages, features, content work,
+review rounds, timing, and project price. Hosting, domain renewals, and paid
+tools are identified separately; custom integrations and other additions are
+quoted for the work involved. No dollar prices or fixed packages were invented.
+
+The owner clarified that support depends on the customer agreement. The page
+and contact FAQ explain individual updates, ongoing care, or a combination.
+Coverage, request handling, account access, third-party costs, and response
+arrangements are agreed individually. No default retainer or unlimited support
+promise was introduced.
+
+EVIDENCE OF WORK
+Small homepage captures and factual feature descriptions accompany the two
+owner-supplied links. They appear only in the secondary Websites-page section.
+The owner confirmed they also own Wind River Renewal; this is clearly disclosed.
+The owner has no customer testimonial yet. No review, rating, endorsement,
+conversion statistic, or customer quote was fabricated.
+
+The live pages below were inspected and captured on October 30, 2026:
+- https://wrtradingcompany.com/ — product browsing, store information, gallery.
+- https://windriverrenewal.com/ — services, job photos, service areas, quote path.
+These observations support the feature descriptions, not a claim of results.
+Source PNG captures are in this folder. Optimized site previews total 72,924
+bytes and load lazily with reserved dimensions. No third-party screenshot
+service, tracking script, or embedded external website was added.
+
+VERIFICATION
+All six pages checked at 320, 768, and 1440 pixels: one H1 per page and no
+horizontal overflow. Desktop hero/build/proof and phone hero/proof views were
+inspected. Both project images loaded. The build inquiry link selected the
+website category and build service, focused the name field, and positioned the
+form below the mobile header.
+
+Normal and offline-review builds, route/asset/metadata checks, review integrity,
+inquiry validation/payload tests, optional server tests, and actual-DOM tests
+passed. Delivery was mocked in tests; no real inquiry was sent. The preview
+browser reported no warnings or errors across the six tested pages.
+
+Independent customer testimony and measured conversion results remain absent.
+The completed websites provide inspectable work evidence, not substitutes for
+those claims. Public release metadata and verification are in site/LAUNCH.md.

@@ -9,6 +9,10 @@ The website is static HTML/CSS/JavaScript built with Node. Production inquiries 
 - `src/data/services.mjs`: four categories and twenty services, including workflow automation and screen repair. Future phone resale stays separate.
 - `src/data/repair-pricing.mjs`: two screen options. Dollar amounts await supplier and labor decisions.
 - `src/data/past-work.mjs`: the two owner-supplied website examples.
+- `src/components/website-offer.mjs`: build deliverables, what the quote specifies, and flexible post-launch support arrangements.
+- `src/components/connection-visual.mjs`: the homepage's illustrative website-to-inquiry-to-follow-up diagram. It is not a live activity feed or a client result.
+- `src/styles/studio.css`: the current visual refinement, build/support layout, and compact project previews.
+- `scripts/make-project-previews.mjs`: optional Sharp utility to optimize the dated real browser captures under `reviews/07-offer/`; normal builds do not require Sharp.
 - `src/data/service-guides.mjs`: category explanations, outcomes, scope notes, service detail, and contextual form prompts.
 - `src/data/homepage.mjs`: process and FAQs.
 - `src/components/`: shared header/footer, hero, page sections, process, FAQ, contact form, past work, metadata, and icons.

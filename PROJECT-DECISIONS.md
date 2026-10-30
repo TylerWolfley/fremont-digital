@@ -31,6 +31,10 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 
 ### October 30 priorities and V1 review — supersedes earlier layout guidance
 
+- Follow-up: the owner requested stronger visual character, a clearer website offer, and credible evidence of completed work. Keep the approved white/blue foundation; strengthen contrast and composition rather than restoring rejected western artwork or turquoise themes.
+- Support can be individual updates, ongoing care, or a mix, depending on the customer's agreement. Do not impose a fixed support plan or invent its price, coverage, or response promise.
+- The owner has no customer testimonial yet and confirmed that they also own Wind River Renewal. Present that site as work for their own business, never as an independent customer endorsement. Small actual website screenshots and factual feature descriptions are authorized; keep these secondary on the Websites page.
+
 - Websites and small-business automation are the owner's main priorities. Give them dedicated pages and primary navigation; repairs and media remain available through secondary navigation. Use a separate contact page.
 - Treat the accepted V1 as a draft to improve, not evidence of persuasive copy or sales. Report concrete problems and unresolved business gaps rather than presenting technical scores as proof of quality.
 - Use “Fremont County, Wyoming” as the location. Remove “All of Fremont County” from public copy. The local base does not restrict remote website or automation customers.
