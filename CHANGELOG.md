@@ -1,5 +1,11 @@
 # Version history
 
+## Formspree connection — October 30, 2026
+
+- Saved the owner's public Formspree endpoint, `https://formspree.io/f/mrppayow`, as the production default so future releases retain the connection.
+- Production now offers “Send request” and removes the preview-only notice. Offline review builds remain disconnected.
+- A real submission and inbox receipt remain unverified because the browser permission gate still denies access.
+
 ## Site audit and inquiry improvements — October 30, 2026
 
 - Replaced the vague opening with a concrete website/tech message, clarified the service browser, shortened repeated explanations, and exposed the first service detail in each category.

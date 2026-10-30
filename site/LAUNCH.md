@@ -6,9 +6,9 @@ The business serves all of Fremont County, Wyoming through remote help, customer
 
 ## Form decision
 
-At launch, the owner requested leaving the existing form as it was and connecting delivery later. The subsequent October 30 audit request authorizes fixing and simplifying the form and connecting Formspree. The form is now ready for either a Formspree endpoint or the original custom handler. The actual Formspree endpoint has not been supplied; no real request has been sent. Until configured, it still validates and previews only. Phone and email work directly.
+At launch, the owner requested leaving the existing form as it was and connecting delivery later. The subsequent October 30 audit request authorizes fixing and simplifying the form and connecting Formspree. The owner then supplied `https://formspree.io/f/mrppayow`, now saved in `src/config/contact.mjs` as the production endpoint. Live builds show “Send request” without the preview notice. Offline review builds stay disconnected. Phone and email remain direct alternatives.
 
-Delivery configuration and a real inbox test remain future work. Follow `server/README.md` when the owner asks to connect the form. No real inquiry messages have been sent during development or launch.
+The endpoint is configured; a real submission and inbox receipt remain pending. Browser access was retried after the owner offered to enable it, but the saved permission gate still denied access. No real inquiry message has been sent by the agent. See `server/README.md` for provider configuration and verification details.
 
 ## October 30 audit
 
@@ -18,11 +18,13 @@ Manrope downloads were reduced from 289,364 to 90,760 bytes with full-glyph WOFF
 
 Actual-DOM tests exercise the real HTML and scripts with mocked transport: service options and all category prompts, keyboard/deep-link navigation, menu focus, contextual drafts, contact-method drafts, validation, error focus, duplicate-submit prevention, Formspree field mapping, and success/failure states. All standard checks and the actual-DOM tests passed without sending messages. `scripts/verify-dom.mjs` requires jsdom 26.1 or a `--jsdom-module` path. Normal builds remain dependency-free. Font and sharing-image regeneration are optional utilities.
 
-Remaining gates: the owner must provide the Formspree public endpoint; an actual submission and inbox receipt must be checked. Browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance are unverified. No alternate browser or network route was used to bypass the denial.
+Remaining gates: an actual Formspree submission and inbox receipt must be checked. Browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance are unverified. No alternate browser or network route was used to bypass the denial.
 
 ## Hosting record
 
-Latest update: audit fixes published October 30, 2026 as Sites version 4. Source commit `349ac40a08eb9fc875c9cfc6b637f095e07bdac4`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_d6168623558481919ad4286dea3cc73f`; successful deployment `appgdep_6ae50311dd44819184258da93375a3d1`. The production build still has no contact endpoint; activation and real delivery testing require the owner's Formspree configuration. Build, source, and mocked actual-DOM checks passed. Browser access remained blocked.
+Latest update: Formspree connection published October 30, 2026 as Sites version 5. Source commit `8ced16b05689698aac18c285128d97c5037424ee`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b7d893b95e608191ad613f293ea66e83`; successful deployment `appgdep_6ae503ceb2fc8191ba94233ff902e135`. Production uses `https://formspree.io/f/mrppayow`, shows “Send request,” and omits the preview notice. The built HTML and saved configuration were verified. Browser access remained blocked; the owner was asked to submit a test and confirm inbox receipt.
+
+Previous update: audit fixes published October 30, 2026 as Sites version 4. Source commit `349ac40a08eb9fc875c9cfc6b637f095e07bdac4`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_d6168623558481919ad4286dea3cc73f`; successful deployment `appgdep_6ae50311dd44819184258da93375a3d1`. That release had no contact endpoint. Build, source, and mocked actual-DOM checks passed. Browser access remained blocked.
 
 Previous update: Facebook footer link (`https://fb.com/digitalfremont`) published October 30, 2026 as Sites version 3. Source commit `80bc1e44ecb0cc0ad08deb267cb349404c8de269`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_e522f0e64cdc8191bd9dda8aa283cb83`; successful deployment `appgdep_6ae500eb6ba08191b167668199d438fc`. Build and review checks passed. Post-publication browser verification was blocked by the browser permission gate; no live visual verification is claimed for this update.
 

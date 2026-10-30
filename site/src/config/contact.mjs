@@ -1,5 +1,5 @@
 // The public endpoint is not a secret. Provider credentials must stay server-side.
-export const configuredContactEndpoint = '';
+export const configuredContactEndpoint = 'https://formspree.io/f/mrppayow';
 
 export function contactConfig({ endpoint = configuredContactEndpoint } = {}) {
   if (!endpoint) return { contactEndpoint: '' };

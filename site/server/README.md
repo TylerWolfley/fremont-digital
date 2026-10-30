@@ -1,6 +1,6 @@
 # Inquiry delivery
 
-The October 30 audit added Formspree support alongside the original custom server. The Formspree endpoint has not yet been supplied, and the custom server is not deployed. The current public form still previews only. Do not claim real delivery based on mocked tests.
+The October 30 audit added Formspree support alongside the original custom server. The owner supplied `https://formspree.io/f/mrppayow`, now saved as the production default. The custom server is not deployed. Real browser submission and inbox receipt remain unverified; do not claim real delivery based on configuration or mocked tests.
 
 ## Formspree connection
 
