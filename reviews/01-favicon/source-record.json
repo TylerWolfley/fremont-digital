@@ -1,29 +1,24 @@
 {
-  "source": "logos\\fremont digital logo 2",
+  "source": "logos/fremont digital logo 2",
   "source_sha256": "80ef22de2464f50c5c80c7c75179e57f6004d734bf25c07ec4b6a84d9d23c089",
-  "source_dimensions": [
-    1254,
-    1254
+  "vector_master": "site/src/assets/fd-favicon.svg",
+  "vector_sha256": "2681fb67b332e416b820d41c26e5304d98e10544f09e699002d54f11053ae24b",
+  "treatment": "Favicon-only optical adaptation: white FD on charcoal rounded badge, copper accent, pixel-aligned geometry. Original supplied logo files are unchanged.",
+  "rendered_sizes": [
+    16,
+    32,
+    48,
+    64,
+    180,
+    192,
+    256,
+    512
   ],
-  "crop": [
-    194,
-    308,
-    1069,
-    948
-  ],
-  "treatment": "Original FD symbol, original colors, white square background. Background margin cropped, then centered and downscaled. No redrawing.",
   "ico_sizes": [
-    [
-      16,
-      16
-    ],
-    [
-      32,
-      32
-    ],
-    [
-      48,
-      48
-    ]
+    16,
+    32,
+    48,
+    64,
+    256
   ]
 }

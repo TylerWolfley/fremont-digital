@@ -1,17 +1,18 @@
-# Favicon review
+# Favicon refinement
 
-Prepared from the supplied `logos/fremont digital logo 2` file. The FD symbol and its colors are unchanged. Excess outer background was cropped, and the symbol was centered on a white square for consistent contrast in light and dark browser tabs.
+Requested October 30, 2026 after comparison with the neighboring Google, Facebook, Namecheap, and Gmail tab icons in the owner's screenshot.
 
-Browser files are in `site/dist/assets/favicons/`. The ICO contains 16, 32, and 48 pixel versions. PNG versions include 16, 32, 48, 64, 192, and 512 pixels, with a 180 pixel Apple touch icon.
+The first version placed a reduced raster logo on a white square. At tab size, the flat white background and softened edges made it read like a miniature image. The replacement is a code-native vector adaptation of the same FD symbol, with white strokes on a charcoal rounded badge and a copper accent. Its geometry is aligned to the 16px pixel grid; the original supplied wordmark and symbol files remain unchanged.
 
-`favicon-review.png` shows an enlarged view and the actual 16 and 32 pixel sizes. The browser strips are illustrative preview frames, not screenshots of a deployed website.
+## Files
 
-When the site is built, use these head tags:
+- Master: `site/src/assets/fd-favicon.svg`.
+- Generator: `site/scripts/make-favicon.mjs` (Node.js and Sharp; optional `--sharp-module` path for bundled runtimes).
+- Served assets: `site/dist/assets/favicons/fd-v2.svg`, `fd-v2.ico`, native 16/32/48/64/192/256/512px PNGs, and a 180px touch icon.
+- ICO frames: 16, 32, 48, 64, and 256 pixels, rendered individually from the vector.
+- Homepage and 404 references: `site/src/components/favicons.mjs`.
+- Root `/favicon.ico` and legacy asset filenames remain valid fallbacks.
 
-```html
-<link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="/assets/favicons/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
-```
+Versioned filenames prevent the previous asset URL from masking the update in browser caches. The SVG is the scalable choice; PNG/ICO fallbacks are provided with their actual sizes. Icon-link selection follows the [HTML icon relationship](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#icon).
 
-Status: ready for owner review. The header has not been started.
+`favicon-review.png` compares the original and refined icon at actual 16px and 32px sizes on light/dark tab backgrounds, plus enlarged inspection views. These are illustrative tabs, not screenshots from a browser. The exact old PNGs are retained as `before-favicon-16.png` and `before-favicon-32.png` for this comparison. Source hashes and generation details are in `source-record.json`.

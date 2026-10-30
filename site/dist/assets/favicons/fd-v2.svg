@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <title>Fremont Digital</title>
+  <!-- Optical adaptation of the supplied interlocking FD symbol for browser tabs. -->
+  <rect width="32" height="32" rx="6" fill="#203039"/>
+  <g fill="#fff">
+    <path d="M2 6h18a10 10 0 0 1 0 20H10v-4h10a6 6 0 0 0 0-12H2Z"/>
+    <path d="M2 12h18v4H6v10H2Z"/>
+  </g>
+  <path fill="#d18b57" d="M10 18h8v2h-8Z"/>
+</svg>

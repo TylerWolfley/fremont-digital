@@ -6,6 +6,7 @@ import { contact } from '../components/contact.mjs';
 import { footer } from '../components/footer.mjs';
 import { faq } from '../components/faq.mjs';
 import { metadata } from '../components/metadata.mjs';
+import { favicons } from '../components/favicons.mjs';
 
 export function homePage({ headerOnly = false, indexable = false, siteUrl = '', contactEndpoint = '' } = {}) {
   return `<!doctype html>
@@ -15,9 +16,7 @@ export function homePage({ headerOnly = false, indexable = false, siteUrl = '', 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   ${metadata({ indexable: headerOnly ? false : indexable, siteUrl: headerOnly ? '' : siteUrl })}
-  <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/assets/favicons/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+  ${favicons()}
   <link rel="preload" href="/assets/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/assets/manrope-extrabold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="/styles/tokens.css">

@@ -6,7 +6,7 @@ import { homePage } from '../src/pages/home.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
-const mime = { '.webp':'image/webp', '.png':'image/png', '.ico':'image/x-icon', '.ttf':'font/ttf' };
+const mime = { '.webp':'image/webp', '.png':'image/png', '.ico':'image/x-icon', '.svg':'image/svg+xml', '.ttf':'font/ttf' };
 const dataURL = async path => `data:${mime[extname(path)]};base64,${(await readFile(resolve(dist,'.'+path))).toString('base64')}`;
 async function inlinePage(page) {
   // srcdoc otherwise resolves fragment links against the outer review file.

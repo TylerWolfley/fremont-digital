@@ -17,6 +17,7 @@ const contact = contactConfig({ endpoint: release ? process.env.CONTACT_ENDPOINT
 // Without an endpoint, retain its current preview behavior and direct contact links.
 const out = resolve(root, release ? 'release' : 'dist');
 if (release) await cp(resolve(root, 'dist/assets'), resolve(out, 'assets'), { recursive: true });
+await copyFile(resolve(out, 'assets/favicons/fd-v2.ico'), resolve(out, 'favicon.ico'));
 const ids = new Set();
 for (const group of serviceGroups) {
   for (const item of [group, ...group.services]) {

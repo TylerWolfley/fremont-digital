@@ -57,19 +57,19 @@ No dependency installation is needed for the static build or tests. The local si
 
 See [launch record](site/LAUNCH.md) and [inquiry connection instructions](site/server/README.md). Review builds stay out of search and never send forms. A release requires the actual web address; an inquiry endpoint is optional until delivery is activated. The owner requested leaving the form unchanged for launch and connecting delivery later. Checks do not replace browser or real delivery verification.
 
-## Favicon draft
+## Favicon
 
 ![Favicon review](reviews/01-favicon/favicon-review.png)
 
-The favicon uses the supplied FD symbol with its original colors, centered on white. [Review notes](reviews/01-favicon/README.md) describe the files and intended integration. The browser strips above are illustrative previews, not a deployed website.
+The refined favicon uses a vector adaptation of the supplied FD symbol: white on a charcoal rounded badge with a copper accent. Original supplied logo files are unchanged. [Review notes](reviews/01-favicon/README.md) include the source and before/after comparison. The browser strips above are illustrative previews.
 
-To reproduce the icons and review image with Python and Pillow installed, run from the repository root:
+To reproduce the icons and comparison with Node.js and Sharp available, run from the repository root:
 
 ```sh
-python site/scripts/make-favicon.py
+node site/scripts/make-favicon.mjs
 ```
 
-The script verifies icon dimensions and that the original logo file remains unchanged. It does not build or publish a website.
+If Sharp is provided by a bundled runtime, pass its package directory with `--sharp-module`. The script renders each target size directly from the vector, packages the ICO, and verifies dimensions and preservation of the original logo. Sharp is only required for icon generation; ordinary website builds have no package dependencies. Icon generation alone does not publish the site.
 
 ## Repository boundaries
 

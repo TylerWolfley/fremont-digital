@@ -12,6 +12,10 @@ Delivery configuration and a real inbox test remain future work. Follow `server/
 
 ## Hosting record
 
+Latest update: favicon refinement published October 30, 2026 as Sites version 2. Source commit `7638263fe7e07d4afd298eff76b6fb17ec3b04ce`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_c9aa3fda694c8191b2bb3f99163305b7`; successful deployment `appgdep_6ae4ff99b0108191ace2017db12b8710`. The live browser page references the new SVG/PNG/ICO/touch-icon files. Page body and form content were verified unchanged. Icon dimensions, ICO frames, source preservation, builds, and offline review checks passed. Direct Python asset checks encountered Cloudflare 1010; no byte-for-byte live asset verification is claimed.
+
+Initial public launch:
+
 - Existing project: `appgprj_6ae12daafb7c8191bb15d06f958c03a3`, now public.
 - Saved version: `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_da9a1d24d0a481918a737f3e0f2c8baa` (version 1).
 - Deployment: `appgdep_6ae4fb848cc08191b27ddc5847d5d780`, succeeded.

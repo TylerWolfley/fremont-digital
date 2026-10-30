@@ -25,6 +25,7 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 - Full wordmark: `logos/Fremont Digital Logo 1` (PNG file without an extension).
 - FD symbol: `logos/fremont digital logo 2` (PNG file without an extension).
 - These user-supplied files supersede the assets recovered from V1 and V2. Preserve the originals. Do not redraw the identity without a request.
+- On October 30, 2026, the owner requested improving the favicon's clarity relative to neighboring browser tabs. The favicon now uses a small-size vector adaptation of the same FD symbol: white on a charcoal rounded badge with a copper accent. Original supplied files and the website wordmark remain unchanged. The vector master is `site/src/assets/fd-favicon.svg`.
 
 ## Direction
 

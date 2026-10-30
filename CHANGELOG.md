@@ -1,5 +1,11 @@
 # Version history
 
+## Favicon refinement — October 30, 2026
+
+- Replaced the white-square raster favicon with a crisp vector adaptation of the supplied FD symbol.
+- Added native-size PNGs, a five-size ICO fallback, an updated touch icon, and consistent homepage/404 references.
+- Versioned icon filenames so browsers can replace the cached first version; retained the original logo files.
+
 ## Public launch — October 30, 2026
 
 - Published the approved V1 website at `https://digitalfremont.com` using the existing Sites project.
