@@ -11,20 +11,23 @@
     panels.forEach(panel => { panel.hidden = panel.id !== id; });
     tabs.forEach(tab => { const selected = tab.dataset.categoryTab === id; tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1; });
   }
+  function selectCategory(id) {
+    activate(id);
+    window.history.replaceState(null, '', `#${id}`);
+  }
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', event => {
-      event.preventDefault(); activate(tab.dataset.categoryTab);
-      window.history.replaceState(null, '', `#${tab.dataset.categoryTab}`);
+      event.preventDefault(); selectCategory(tab.dataset.categoryTab);
     });
     tab.addEventListener('keydown', event => {
-      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); activate(tab.dataset.categoryTab); return; }
+      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); selectCategory(tab.dataset.categoryTab); return; }
       let next;
       if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
       if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
       if (event.key === 'Home') next = 0;
       if (event.key === 'End') next = tabs.length - 1;
       if (next === undefined) return;
-      event.preventDefault(); activate(tabs[next].dataset.categoryTab); tabs[next].focus();
+      event.preventDefault(); selectCategory(tabs[next].dataset.categoryTab); tabs[next].focus();
     });
   });
   document.querySelectorAll('[data-category-link]').forEach(link => link.addEventListener('click', () => {
@@ -77,8 +80,8 @@
     event.preventDefault();
     if (pending) return;
     chooseCategory(link.dataset.requestCategory, link.dataset.requestService, link.dataset.requestName);
-    document.querySelector('#contact').scrollIntoView({ block: 'start' });
-    fields.namedItem('name').focus({ preventScroll: true });
+    form.scrollIntoView({ block: 'start', behavior: 'instant' });
+    fields.namedItem('name').focus();
   }));
   function updateMethod(preserve = true) {
     if (preserve) contactDrafts.set(currentMethod, contact.value);
@@ -92,6 +95,14 @@
   }
   fields.namedItem('method').addEventListener('change', () => { updateMethod(); clearErrors(); });
   function clearErrors() {
+    [...fields].forEach(field => {
+      const errorId = field.getAttribute('aria-errormessage');
+      if (errorId) {
+        const descriptions = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(id => id && id !== errorId);
+        if (descriptions.length) field.setAttribute('aria-describedby', descriptions.join(' '));
+        else field.removeAttribute('aria-describedby');
+      }
+    });
     form.querySelectorAll('[data-field-error]').forEach(node => node.remove());
     [...fields].forEach(field => { field.removeAttribute('aria-invalid'); field.removeAttribute('aria-errormessage'); });
     status.textContent = '';
@@ -105,6 +116,9 @@
       error.id = `error-${name}`; error.className = 'field-error'; error.dataset.fieldError = ''; error.textContent = message;
       field.insertAdjacentElement('afterend', error);
       field.setAttribute('aria-invalid', 'true'); field.setAttribute('aria-errormessage', error.id);
+      const descriptions = new Set((field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+      descriptions.add(error.id);
+      field.setAttribute('aria-describedby', [...descriptions].join(' '));
       field.closest('details')?.setAttribute('open', '');
     }
     const first = form.querySelector('[aria-invalid="true"]');

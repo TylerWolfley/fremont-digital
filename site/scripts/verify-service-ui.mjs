@@ -11,7 +11,7 @@ function mount(endpoint = '') {
   const errors = [];
   function node(id, dataset = {}) {
     const n = { id, dataset, value: '', textContent: '', hidden: false, disabled: false, attributes: {}, events: {}, children: [],
-      setAttribute(k,v) { this.attributes[k] = v; }, removeAttribute(k) { delete this.attributes[k]; },
+      setAttribute(k,v) { this.attributes[k] = v; }, getAttribute(k) { return this.attributes[k] ?? null; }, removeAttribute(k) { delete this.attributes[k]; },
       addEventListener(k, fn) { (this.events[k] ||= []).push(fn); },
       async fire(k, extra = {}) { const event = { target: this, prevented: false, preventDefault() { this.prevented = true; }, ...extra }; for (const fn of this.events[k] || []) await fn(event); return event; },
       focus() { focus = this.id; }, scrollIntoView() {},

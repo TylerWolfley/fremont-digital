@@ -93,6 +93,8 @@ h2{font-size:34px;font-weight:800;margin-bottom:16px}
 .coverage h3{font-size:17px;margin-bottom:12px}
 .coverage p{font-size:14px;line-height:1.8;color:var(--color-muted);margin-bottom:14px}
 .inquiry-panel{border:1px solid var(--color-line);border-radius:12px;background:#fafbfe;padding:30px}
+/* Add breathing room to the document's existing sticky-header scroll padding. */
+.inquiry-form,.inquiry-form input,.inquiry-form select,.inquiry-form textarea,.form-status{scroll-margin-top:12px}
 .form-heading h3{font-size:23px;margin:0 0 8px}
 .form-heading p{font-size:13px;color:var(--color-muted);margin-bottom:22px}
 .form-heading p span{display:block;margin-top:5px}

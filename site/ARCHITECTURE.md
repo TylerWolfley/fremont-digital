@@ -1,6 +1,6 @@
 # Website organization
 
-The website is static HTML/CSS/JavaScript built with Node. The optional inquiry delivery endpoint is a separate Cloudflare Worker. No frontend framework or third-party browser script is required.
+The website is static HTML/CSS/JavaScript built with Node. Production inquiries go directly to the saved Formspree endpoint. A separate Cloudflare Worker is retained as an optional alternative. No frontend framework or third-party browser script is required.
 
 ## Source map
 
@@ -38,9 +38,11 @@ The phone number is available through `tel:` links in the header, hero, contact 
 
 Review builds always use a local preview form. It validates and displays the prepared request, clearly states that nothing was sent, and makes no network request. It must never display a sending success message.
 
-Release builds require `SITE_URL`. The owner approved launching with the existing form unchanged before connecting delivery, so an absent `CONTACT_ENDPOINT` retains its preview behavior. When supplied, `CONTACT_ENDPOINT` must point to the configured HTTPS `/api/inquiry` handler. The form then submits directly, disables controls while pending, preserves details on errors, and confirms success only after an accepted server response. Retry keys stay stable for an unchanged request, including an uncertain network result.
+Release builds require `SITE_URL` and default to the public Formspree endpoint saved in `src/config/contact.mjs`. `CONTACT_ENDPOINT` can override it with another valid Formspree endpoint or an HTTPS `/api/inquiry` handler; an explicitly empty override produces a disconnected preview. The form disables controls while pending, preserves details on errors, and confirms success only after the provider accepts the request. The owner confirmed a real submission and inbox receipt on October 30, 2026.
 
-The separate server validates the origin, content type, request identifier, body size, fields, category/service pairing, and honeypot; a required runtime rate-limiter binding limits requests. The recipient is fixed in business data. User text is sent as plain text, and an email reply-to is used only for a validated email contact. Provider credentials remain in runtime secrets. Provider failures do not disclose private error details or claim success. See `server/README.md` before activation.
+Formspree receives the selected reply method, the appropriate email or phone field, inquiry details, and a honeypot. The custom endpoint alone receives retry keys; Formspree requests do not send that custom header. Frontend checks and mocked delivery tests do not verify the provider's spam filtering, quota, or account configuration.
+
+The optional separate server validates the origin, content type, request identifier, body size, fields, category/service pairing, and honeypot; a required runtime rate-limiter binding limits requests. The recipient is fixed in business data. User text is sent as plain text, and an email reply-to is used only for a validated email contact. Provider credentials remain in runtime secrets. These are features of the retained alternative server, not claims about the active Formspree configuration. See `server/README.md` before switching delivery providers.
 
 ## Visual direction
 

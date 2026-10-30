@@ -218,6 +218,8 @@ h2{font-size:34px;font-weight:800;margin-bottom:16px}
 .coverage h3{font-size:17px;margin-bottom:12px}
 .coverage p{font-size:14px;line-height:1.8;color:var(--color-muted);margin-bottom:14px}
 .inquiry-panel{border:1px solid var(--color-line);border-radius:12px;background:#fafbfe;padding:30px}
+/* Add breathing room to the document's existing sticky-header scroll padding. */
+.inquiry-form,.inquiry-form input,.inquiry-form select,.inquiry-form textarea,.form-status{scroll-margin-top:12px}
 .form-heading h3{font-size:23px;margin:0 0 8px}
 .form-heading p{font-size:13px;color:var(--color-muted);margin-bottom:22px}
 .form-heading p span{display:block;margin-top:5px}
@@ -521,20 +523,23 @@ desktopQuery.addEventListener('change', closeAll);
     panels.forEach(panel =&gt; { panel.hidden = panel.id !== id; });
     tabs.forEach(tab =&gt; { const selected = tab.dataset.categoryTab === id; tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1; });
   }
+  function selectCategory(id) {
+    activate(id);
+    window.history.replaceState(null, '', `#${id}`);
+  }
   tabs.forEach((tab, index) =&gt; {
     tab.addEventListener('click', event =&gt; {
-      event.preventDefault(); activate(tab.dataset.categoryTab);
-      window.history.replaceState(null, '', `#${tab.dataset.categoryTab}`);
+      event.preventDefault(); selectCategory(tab.dataset.categoryTab);
     });
     tab.addEventListener('keydown', event =&gt; {
-      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); activate(tab.dataset.categoryTab); return; }
+      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); selectCategory(tab.dataset.categoryTab); return; }
       let next;
       if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
       if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
       if (event.key === 'Home') next = 0;
       if (event.key === 'End') next = tabs.length - 1;
       if (next === undefined) return;
-      event.preventDefault(); activate(tabs[next].dataset.categoryTab); tabs[next].focus();
+      event.preventDefault(); selectCategory(tabs[next].dataset.categoryTab); tabs[next].focus();
     });
   });
   document.querySelectorAll('[data-category-link]').forEach(link =&gt; link.addEventListener('click', () =&gt; {
@@ -587,8 +592,8 @@ desktopQuery.addEventListener('change', closeAll);
     event.preventDefault();
     if (pending) return;
     chooseCategory(link.dataset.requestCategory, link.dataset.requestService, link.dataset.requestName);
-    document.querySelector('#contact').scrollIntoView({ block: 'start' });
-    fields.namedItem('name').focus({ preventScroll: true });
+    form.scrollIntoView({ block: 'start', behavior: 'instant' });
+    fields.namedItem('name').focus();
   }));
   function updateMethod(preserve = true) {
     if (preserve) contactDrafts.set(currentMethod, contact.value);
@@ -602,6 +607,14 @@ desktopQuery.addEventListener('change', closeAll);
   }
   fields.namedItem('method').addEventListener('change', () =&gt; { updateMethod(); clearErrors(); });
   function clearErrors() {
+    [...fields].forEach(field =&gt; {
+      const errorId = field.getAttribute('aria-errormessage');
+      if (errorId) {
+        const descriptions = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(id =&gt; id &amp;&amp; id !== errorId);
+        if (descriptions.length) field.setAttribute('aria-describedby', descriptions.join(' '));
+        else field.removeAttribute('aria-describedby');
+      }
+    });
     form.querySelectorAll('[data-field-error]').forEach(node =&gt; node.remove());
     [...fields].forEach(field =&gt; { field.removeAttribute('aria-invalid'); field.removeAttribute('aria-errormessage'); });
     status.textContent = '';
@@ -615,6 +628,9 @@ desktopQuery.addEventListener('change', closeAll);
       error.id = `error-${name}`; error.className = 'field-error'; error.dataset.fieldError = ''; error.textContent = message;
       field.insertAdjacentElement('afterend', error);
       field.setAttribute('aria-invalid', 'true'); field.setAttribute('aria-errormessage', error.id);
+      const descriptions = new Set((field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+      descriptions.add(error.id);
+      field.setAttribute('aria-describedby', [...descriptions].join(' '));
       field.closest('details')?.setAttribute('open', '');
     }
     const first = form.querySelector('[aria-invalid=&quot;true&quot;]');

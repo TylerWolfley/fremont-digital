@@ -20,9 +20,17 @@ Actual-DOM tests exercise the real HTML and scripts with mocked transport: servi
 
 Formspree submission and inbox receipt were confirmed by the owner after version 5 was published. Remaining audit gates: browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance remain unverified. No alternate browser or network route was used to bypass the denial.
 
+### Follow-up source audit
+
+Keyboard category selection now updates the shareable URL for arrow keys, Home/End, Enter, and Space. Service inquiry buttons scroll to the form rather than the start of the contact section, where the contact copy precedes the form on narrow layouts. Form controls and status messages have sticky-header scroll clearance. Field errors are also linked through `aria-describedby`, retaining the original help text when errors are cleared. The real-DOM regressions reproduce the stale category URL before the fix and pass afterward; they check scroll targets and focus, not rendered scrolling.
+
+Source review also covered heading and landmark structure, native disclosure fallbacks, all eighteen service entry points, phone/email/Facebook destinations, local asset references, canonical and social metadata, indexability, input handling, and Formspree success/failure behavior. There is no third-party frontend script, and form drafts remain in memory rather than persistent browser storage. Real delivery remains owner-confirmed. Runtime provider account settings and live desktop/mobile rendering, browser accessibility, and performance measurements remain unverified because the normal browser tool continued to report a saved origin block after the settings change. No alternate browsing route was used.
+
 ## Hosting record
 
-Latest update: Formspree connection published October 30, 2026 as Sites version 5. Source commit `8ced16b05689698aac18c285128d97c5037424ee`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b7d893b95e608191ad613f293ea66e83`; successful deployment `appgdep_6ae503ceb2fc8191ba94233ff902e135`. Production uses `https://formspree.io/f/mrppayow`, shows “Send request,” and omits the preview notice. The built HTML and saved configuration were verified. Browser access remained blocked; the owner submitted a test and confirmed both the success message and inbox receipt.
+Latest update: follow-up audit fixes published October 30, 2026 as Sites version 6. Source commit `96fb626735ce3ea1e88bd05391013af692229f7c`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_c8ba9b76e9dc81918dd112814f328aed`; successful deployment `appgdep_6ae5082aa4bc8191a7c1fa99f708a7d7`. Updated keyboard category URLs, service-to-form scrolling/focus, field-error associations, and delivery documentation. Standard checks and actual-DOM regressions passed, and the production Formspree endpoint and indexability were checked. Browser access still reported a saved origin block; no new visual or performance verification is claimed.
+
+Previous update: Formspree connection published October 30, 2026 as Sites version 5. Source commit `8ced16b05689698aac18c285128d97c5037424ee`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_b7d893b95e608191ad613f293ea66e83`; successful deployment `appgdep_6ae503ceb2fc8191ba94233ff902e135`. Production uses `https://formspree.io/f/mrppayow`, shows “Send request,” and omits the preview notice. The built HTML and saved configuration were verified. Browser access remained blocked; the owner submitted a test and confirmed both the success message and inbox receipt.
 
 Previous update: audit fixes published October 30, 2026 as Sites version 4. Source commit `349ac40a08eb9fc875c9cfc6b637f095e07bdac4`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_d6168623558481919ad4286dea3cc73f`; successful deployment `appgdep_6ae50311dd44819184258da93375a3d1`. That release had no contact endpoint. Build, source, and mocked actual-DOM checks passed. Browser access remained blocked.
 
@@ -54,7 +62,7 @@ Remove-Item Env:CONTACT_ENDPOINT -ErrorAction SilentlyContinue
 npm run build:release
 ```
 
-When delivery is connected, set `CONTACT_ENDPOINT` to its configured HTTPS `/api/inquiry` URL before building. Provider credentials are runtime secrets on the separate inquiry server, never frontend build variables.
+The saved Formspree endpoint is used by default. Only set `CONTACT_ENDPOINT` when deliberately overriding delivery with another valid Formspree endpoint or the optional HTTPS `/api/inquiry` server. Provider credentials must never be frontend build variables.
 
 The ignored `release/` output contains the homepage, local assets, canonical/social metadata, business structured data, robots.txt, sitemap.xml, and 404 page. Normal `dist/` and offline previews stay noindex.
 
