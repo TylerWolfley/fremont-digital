@@ -15,6 +15,7 @@ function mount(endpoint = '') {
       addEventListener(k, fn) { (this.events[k] ||= []).push(fn); },
       async fire(k, extra = {}) { const event = { target: this, prevented: false, preventDefault() { this.prevented = true; }, ...extra }; for (const fn of this.events[k] || []) await fn(event); return event; },
       focus() { focus = this.id; }, scrollIntoView() {},
+      closest() { return null; },
       append(...items) { this.children.push(...items); }, replaceChildren() { this.children = []; },
       insertAdjacentElement(_, el) { errors.push(el); }, remove() { const i = errors.indexOf(this); if(i >= 0) errors.splice(i,1); },
     };
@@ -28,6 +29,9 @@ function mount(endpoint = '') {
   const requests = ids.map(id => node(`request-${id}`, { requestCategory: id, ...(id === 'repairs-tech' ? { requestService: 'phone-repair', requestName: 'Phone & device repairs' } : {}) }));
   const selectors = ['[data-category-tabs]', '[data-inquiry-form]', '[data-form-status]', '[data-submit]', '[data-request-review]', '[data-chosen-service]', '[data-context-label]', '[data-message-hint]', '[data-timing-label]', '[data-contact-label]', '[data-review-details]', '#contact'];
   const lookup = Object.fromEntries(selectors.map(id => [id, node(id)]));
+  lookup['label[data-context-label]'] = lookup['[data-context-label]'];
+  lookup['label[data-timing-label]'] = lookup['[data-timing-label]'];
+  lookup['.form-extras'] = node('form-extras');
   const form = lookup['[data-inquiry-form]']; form.dataset.endpoint = endpoint;
   const fields = ['name','category','service','method','contact','context','location','message','timing','company_url'].map(name => { const field = node(name); field.name = name; return field; });
   fields.push(lookup['[data-submit]']); fields.namedItem = name => fields.find(f => f.name === name);
@@ -40,7 +44,7 @@ function mount(endpoint = '') {
   form.querySelectorAll = selector => selector === '[data-field-error]' ? [...errors] : [];
   form.querySelector = selector => selector === '[aria-invalid="true"]' ? fields.find(f => f.attributes['aria-invalid'] === 'true') : lookup[selector];
   const listeners = {};
-  const window = { location: { hash: '' }, addEventListener: (type, handler) => { listeners[type] = handler; } };
+  const window = { location: { hash: '' }, history: { replaceState(_, __, hash) { window.location.hash = hash; } }, addEventListener: (type, handler) => { listeners[type] = handler; } };
   let transport = async () => { throw new Error('Unexpected network request in preview'); };
   const sandbox = vm.createContext({ window, crypto, AbortSignal, TypeError, FormData: class { constructor() { this.entries = fields.filter(f => f.name && !f.disabled).map(f => [f.name, f.value]); } [Symbol.iterator]() { return this.entries[Symbol.iterator](); } }, fetch: (...args) => transport(...args), document: {
     querySelector: selector => lookup[selector],

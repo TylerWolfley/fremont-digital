@@ -6,13 +6,25 @@ The business serves all of Fremont County, Wyoming through remote help, customer
 
 ## Form decision
 
-The owner explicitly requested leaving the existing form exactly as it was and connecting delivery later. Its presentation, text, and preview behavior were preserved. No unavailable labels, disabled controls, or replacement contact layout were added. The form can validate and summarize a request but does not send. Phone and email are the current working contact methods.
+At launch, the owner requested leaving the existing form as it was and connecting delivery later. The subsequent October 30 audit request authorizes fixing and simplifying the form and connecting Formspree. The form is now ready for either a Formspree endpoint or the original custom handler. The actual Formspree endpoint has not been supplied; no real request has been sent. Until configured, it still validates and previews only. Phone and email work directly.
 
 Delivery configuration and a real inbox test remain future work. Follow `server/README.md` when the owner asks to connect the form. No real inquiry messages have been sent during development or launch.
 
+## October 30 audit
+
+Completed source and interaction work: clearer service-led opening, less repeated copy, first service details visible, shorter initial form, category-label corruption fixed, phone/email drafts retained, server validation focus repaired, and shareable category selection. Phone, email, Facebook, all four categories, and all eighteen services remain.
+
+Manrope downloads were reduced from 289,364 to 90,760 bytes with full-glyph WOFF2 conversion. The normal text colors checked exceed 4.5:1; input borders were increased from 2.06:1 to 3.39:1 against white. These are source color calculations, not a complete rendered accessibility audit. Sharing now uses a 1200 × 630 brand graphic instead of a favicon, and structured data includes the supplied Facebook page.
+
+Actual-DOM tests exercise the real HTML and scripts with mocked transport: service options and all category prompts, keyboard/deep-link navigation, menu focus, contextual drafts, contact-method drafts, validation, error focus, duplicate-submit prevention, Formspree field mapping, and success/failure states. All standard checks and the actual-DOM tests passed without sending messages. `scripts/verify-dom.mjs` requires jsdom 26.1 or a `--jsdom-module` path. Normal builds remain dependency-free. Font and sharing-image regeneration are optional utilities.
+
+Remaining gates: the owner must provide the Formspree public endpoint; an actual submission and inbox receipt must be checked. Browser permissions denied the production-site reload and Formspree navigation, so desktop/mobile visual behavior, real browser accessibility, and live performance are unverified. No alternate browser or network route was used to bypass the denial.
+
 ## Hosting record
 
-Latest update: Facebook footer link (`https://fb.com/digitalfremont`) published October 30, 2026 as Sites version 3. Source commit `80bc1e44ecb0cc0ad08deb267cb349404c8de269`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_e522f0e64cdc8191bd9dda8aa283cb83`; successful deployment `appgdep_6ae500eb6ba08191b167668199d438fc`. Build and review checks passed. Post-publication browser verification was blocked by the browser permission gate; no live visual verification is claimed for this update.
+Latest update: audit fixes published October 30, 2026 as Sites version 4. Source commit `349ac40a08eb9fc875c9cfc6b637f095e07bdac4`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_d6168623558481919ad4286dea3cc73f`; successful deployment `appgdep_6ae50311dd44819184258da93375a3d1`. The production build still has no contact endpoint; activation and real delivery testing require the owner's Formspree configuration. Build, source, and mocked actual-DOM checks passed. Browser access remained blocked.
+
+Previous update: Facebook footer link (`https://fb.com/digitalfremont`) published October 30, 2026 as Sites version 3. Source commit `80bc1e44ecb0cc0ad08deb267cb349404c8de269`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_e522f0e64cdc8191bd9dda8aa283cb83`; successful deployment `appgdep_6ae500eb6ba08191b167668199d438fc`. Build and review checks passed. Post-publication browser verification was blocked by the browser permission gate; no live visual verification is claimed for this update.
 
 Previous update: favicon refinement published October 30, 2026 as Sites version 2. Source commit `7638263fe7e07d4afd298eff76b6fb17ec3b04ce`; saved version `appgprj_6ae12daafb7c8191bb15d06f958c03a3~appgver_c9aa3fda694c8191b2bb3f99163305b7`; successful deployment `appgdep_6ae4ff99b0108191ace2017db12b8710`. The live browser page references the new SVG/PNG/ICO/touch-icon files. Page body and form content were verified unchanged. Icon dimensions, ICO frames, source preservation, builds, and offline review checks passed. Direct Python asset checks encountered Cloudflare 1010; no byte-for-byte live asset verification is claimed.
 

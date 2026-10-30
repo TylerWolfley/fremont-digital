@@ -1,5 +1,13 @@
 # Version history
 
+## Site audit and inquiry improvements — October 30, 2026
+
+- Replaced the vague opening with a concrete website/tech message, clarified the service browser, shortened repeated explanations, and exposed the first service detail in each category.
+- Simplified the inquiry form by grouping optional details; fixed selectors that were overwriting service-option text, retained phone/email drafts, and repaired error focus and submission reset behavior.
+- Prepared Formspree delivery, Reply-To mapping, spam-trap mapping, and failure handling. The owner's endpoint and a real delivery test are still required.
+- Converted Manrope to WOFF2 (289,364 to 90,760 bytes), improved input-border contrast, and added a 1200 × 630 sharing graphic and Facebook structured-data link.
+- Added actual-DOM regression checks with mocked delivery. Browser audit access was denied, so responsive rendering and real delivery are not claimed as verified.
+
 ## Facebook footer link — October 30, 2026
 
 - Added the owner's `https://fb.com/digitalfremont` page to the existing compact footer navigation.

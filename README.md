@@ -8,7 +8,7 @@ The business covers websites, digital marketing, small-business technology setup
 
 **V1 approved by the owner on October 29, 2026.** The `v1.0.0` Git tag preserves this website milestone. Further improvements should build from this accepted version. See [version history](CHANGELOG.md).
 
-The homepage now uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The owner approved removing search and the catalog sidebar. Direct form submission and backend handling are implemented; live delivery configuration and browser visual review remain pending.
+The homepage uses **four clear service categories**, practical service explanations, readable type, prominent phone contact, and a contextual inquiry form. The October 30 audit tightened the opening and service copy, fixed form-label and draft-handling bugs, reduced font transfers, and prepared Formspree delivery. The public endpoint and a real inbox test remain pending; browser visual review is blocked by permissions.
 
 | Component | Status |
 | --- | --- |

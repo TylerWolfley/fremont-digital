@@ -13,8 +13,8 @@ const release = process.argv.includes('--release');
 // Validate before writing any output, so a missing address cannot change a review.
 const publication = publicationConfig({ release, siteUrl: process.env.SITE_URL });
 const contact = contactConfig({ endpoint: release ? process.env.CONTACT_ENDPOINT : '' });
-// The owner approved launching the existing form before connecting delivery.
-// Without an endpoint, retain its current preview behavior and direct contact links.
+// Review builds never send. Releases use the saved public endpoint (or an override).
+// An unconfigured release retains preview behavior and direct contact links.
 const out = resolve(root, release ? 'release' : 'dist');
 if (release) await cp(resolve(root, 'dist/assets'), resolve(out, 'assets'), { recursive: true });
 await copyFile(resolve(out, 'assets/favicons/fd-v2.ico'), resolve(out, 'favicon.ico'));

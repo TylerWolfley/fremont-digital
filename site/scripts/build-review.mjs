@@ -6,7 +6,7 @@ import { homePage } from '../src/pages/home.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
-const mime = { '.webp':'image/webp', '.png':'image/png', '.ico':'image/x-icon', '.svg':'image/svg+xml', '.ttf':'font/ttf' };
+const mime = { '.webp':'image/webp', '.png':'image/png', '.ico':'image/x-icon', '.svg':'image/svg+xml', '.ttf':'font/ttf', '.woff2':'font/woff2' };
 const dataURL = async path => `data:${mime[extname(path)]};base64,${(await readFile(resolve(dist,'.'+path))).toString('base64')}`;
 async function inlinePage(page) {
   // srcdoc otherwise resolves fragment links against the outer review file.
@@ -40,7 +40,7 @@ for (const review of reviews) {
   const placeholder = 'data-preview-content';
   if (shell.split(placeholder).length !== 2) throw new Error(`Expected one preview placeholder in ${review.template}`);
   shell = shell.replace(placeholder, () => `srcdoc="${escaped}"`);
-  shell = shell.replace('/assets/manrope-regular.ttf',await dataURL('/assets/manrope-regular.ttf'));
+  shell = shell.replace('/assets/manrope-regular.woff2',await dataURL('/assets/manrope-regular.woff2'));
   shell = shell.replace('/assets/favicons/favicon.ico',await dataURL('/assets/favicons/favicon.ico'));
   // Both existing entry points must also work when opened directly with file://.
   // Keep templates in src so a preview can never load the filesystem root.

@@ -12,7 +12,10 @@
     tabs.forEach(tab => { const selected = tab.dataset.categoryTab === id; tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1; });
   }
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', event => { event.preventDefault(); activate(tab.dataset.categoryTab); });
+    tab.addEventListener('click', event => {
+      event.preventDefault(); activate(tab.dataset.categoryTab);
+      window.history.replaceState(null, '', `#${tab.dataset.categoryTab}`);
+    });
     tab.addEventListener('keydown', event => {
       if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); activate(tab.dataset.categoryTab); return; }
       let next;
@@ -42,16 +45,18 @@
   const review = form.querySelector('[data-request-review]');
   const chosen = form.querySelector('[data-chosen-service]');
   const drafts = new Map();
+  const contactDrafts = new Map();
   let currentCategory = category.value;
+  let currentMethod = fields.namedItem('method').value;
   let pending = false;
   let submissionKey;
   let lastPayload;
   function updatePrompts() {
     const selected = category.selectedOptions[0].dataset;
-    form.querySelector('[data-context-label]').textContent = `${selected.contextLabel} (optional)`;
+    form.querySelector('label[data-context-label]').textContent = `${selected.contextLabel} (optional)`;
     fields.namedItem('context').placeholder = selected.contextPlaceholder;
     form.querySelector('[data-message-hint]').textContent = selected.messagePrompt;
-    form.querySelector('[data-timing-label]').textContent = `${selected.timingLabel} (optional)`;
+    form.querySelector('label[data-timing-label]').textContent = `${selected.timingLabel} (optional)`;
   }
   function chooseCategory(id, service = '', name = '') {
     if (![...category.options].some(option => option.value === id)) return;
@@ -75,19 +80,22 @@
     document.querySelector('#contact').scrollIntoView({ block: 'start' });
     fields.namedItem('name').focus({ preventScroll: true });
   }));
-  function updateMethod() {
+  function updateMethod(preserve = true) {
+    if (preserve) contactDrafts.set(currentMethod, contact.value);
     const email = fields.namedItem('method').value === 'email';
     form.querySelector('[data-contact-label]').textContent = email ? 'Email address *' : 'Phone number *';
     contact.type = email ? 'email' : 'tel';
     contact.autocomplete = email ? 'email' : 'tel';
     contact.placeholder = email ? 'you@example.com' : '(307) 555-0123';
-    contact.value = '';
+    currentMethod = fields.namedItem('method').value;
+    contact.value = contactDrafts.get(currentMethod) || '';
   }
-  fields.namedItem('method').addEventListener('change', updateMethod);
+  fields.namedItem('method').addEventListener('change', () => { updateMethod(); clearErrors(); });
   function clearErrors() {
     form.querySelectorAll('[data-field-error]').forEach(node => node.remove());
     [...fields].forEach(field => { field.removeAttribute('aria-invalid'); field.removeAttribute('aria-errormessage'); });
     status.textContent = '';
+    delete status.dataset.state;
   }
   function showErrors(errors) {
     for (const [name, message] of Object.entries(errors)) {
@@ -97,6 +105,7 @@
       error.id = `error-${name}`; error.className = 'field-error'; error.dataset.fieldError = ''; error.textContent = message;
       field.insertAdjacentElement('afterend', error);
       field.setAttribute('aria-invalid', 'true'); field.setAttribute('aria-errormessage', error.id);
+      field.closest('details')?.setAttribute('open', '');
     }
     const first = form.querySelector('[aria-invalid="true"]');
     if (first) first.focus();
@@ -121,16 +130,23 @@
     pending = true; [...fields].forEach(field => { field.disabled = true; }); form.setAttribute('aria-busy', 'true'); button.textContent = 'Sending…';
     const serialized = JSON.stringify(result.data);
     if (serialized !== lastPayload) { submissionKey = crypto.randomUUID(); lastPayload = serialized; }
+    let deliveryErrors;
     try {
       await sendInquiry(form.dataset.endpoint, result.data, submissionKey);
       status.textContent = 'Your request has been sent. I’ll use your preferred contact method to follow up.';
-      form.reset(); drafts.clear(); currentCategory = category.value; chosen.hidden = true; chosen.textContent = ''; updatePrompts(); updateMethod();
+      form.reset(); drafts.clear(); contactDrafts.clear(); currentCategory = category.value; chosen.hidden = true; chosen.textContent = ''; updatePrompts(); updateMethod(false);
+      form.querySelector('.form-extras').open = false;
+      submissionKey = undefined; lastPayload = undefined;
+      status.dataset.state = 'success';
     } catch (error) {
-      showErrors(error.fields || {});
+      deliveryErrors = error.fields || {};
+      status.dataset.state = 'error';
       status.textContent = error.message === 'The operation was aborted due to timeout' || error.name === 'TimeoutError' || error instanceof TypeError ? 'We couldn’t confirm your request. Your details are still here. Please retry, call, or email.' : error.message;
     } finally {
-      pending = false; [...fields].forEach(field => { field.disabled = false; }); button.textContent = 'Send request'; form.removeAttribute('aria-busy'); status.focus();
+      pending = false; [...fields].forEach(field => { field.disabled = false; }); button.textContent = 'Send request'; form.removeAttribute('aria-busy');
+      if (deliveryErrors) showErrors(deliveryErrors);
+      if (!form.querySelector('[aria-invalid="true"]')) status.focus();
     }
   });
-  form.noValidate = true; updatePrompts(); form.hidden = false;
+  form.noValidate = true; updatePrompts(); updateMethod(false); form.hidden = false;
 })();

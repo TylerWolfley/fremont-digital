@@ -17,8 +17,8 @@ export function homePage({ headerOnly = false, indexable = false, siteUrl = '', 
   <meta name="theme-color" content="#ffffff">
   ${metadata({ indexable: headerOnly ? false : indexable, siteUrl: headerOnly ? '' : siteUrl })}
   ${favicons()}
-  <link rel="preload" href="/assets/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="/assets/manrope-extrabold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/manrope-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/manrope-extrabold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/header.css">
   ${headerOnly ? '' : '<link rel="stylesheet" href="/styles/home.css">'}

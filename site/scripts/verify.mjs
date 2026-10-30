@@ -53,12 +53,15 @@ const config = publicationConfig({ release: true, siteUrl: 'https://example.inva
 const release = homePage(config);
 assert.match(release, /name="robots" content="index, follow"/);
 assert.match(release, /rel="canonical" href="https:\/\/example.invalid\/"/);
-assert.match(release, /property="og:image" content="https:\/\/example.invalid\/assets\/favicons\/favicon-512.png"/);
+assert.match(release, /property="og:image" content="https:\/\/example.invalid\/assets\/brand\/fremont-digital-social.png"/);
 const organization = JSON.parse(release.match(/<script type="application\/ld\+json">([\s\S]+?)<\/script>/)[1]);
 assert.equal(organization.areaServed.name, business.location);
 assert.equal(organization.email, business.email);
 assert(!('address' in organization));
 assert.equal(organization.telephone, business.phoneE164);
+assert.deepEqual(organization.sameAs, [business.facebookUrl]);
+assert.equal(contactConfig({ endpoint: 'https://formspree.io/f/testonly' }).contactEndpoint, 'https://formspree.io/f/testonly');
+for (const endpoint of ['https://formspree.io.evil.invalid/f/testonly', 'https://formspree.io/f/', 'http://formspree.io/f/testonly', 'https://formspree.io/f/testonly?x=1']) assert.throws(() => contactConfig({ endpoint }));
 assert.match(homePage({ ...config, headerOnly: true }), /name="robots" content="noindex, nofollow"/);
 
 console.log('Passed: countywide Wyoming copy, phone links, category details, form configuration, anchors, assets, and publication metadata.');

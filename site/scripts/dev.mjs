@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 const port = Number(process.env.PORT || 4173);
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.ttf':'font/ttf' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.ttf':'font/ttf' };
 function build() {
   for (const script of ['build.mjs', 'build-review.mjs']) {
     const result = spawnSync(process.execPath, [resolve(root, 'scripts', script)], { stdio: 'inherit' });

@@ -1,8 +1,19 @@
 # Inquiry delivery
 
-The contact form and server handler are implemented. No delivery account, secret, public endpoint, or server deployment has been configured. The website launched on October 30, 2026 with the existing form unchanged at the owner's request; delivery will be connected later. The current form retains its preview behavior and never sends.
+The October 30 audit added Formspree support alongside the original custom server. The Formspree endpoint has not yet been supplied, and the custom server is not deployed. The current public form still previews only. Do not claim real delivery based on mocked tests.
 
-## Connecting delivery after launch
+## Formspree connection
+
+1. The owner creates or selects a Formspree form that delivers to `digitalfremont@gmail.com` and completes any required account/email verification.
+2. Save its public `https://formspree.io/f/FORM_ID` URL as `configuredContactEndpoint` in `src/config/contact.mjs`. This URL is public, not a credential. `CONTACT_ENDPOINT` remains an optional build override.
+3. Build with `SITE_URL=https://digitalfremont.com` and `node scripts/build.mjs --release`, then publish through the existing Sites project. Review builds deliberately remain disconnected.
+4. Check the account's allowed domains and spam protection without disabling protections automatically. Test a clearly labeled request through the published form and confirm it in the intended inbox. Account verification, quota, and any configured challenge remain provider-side dependencies.
+
+The adapter submits JSON with `Accept: application/json`, maps an email contact to Formspree's `email` Reply-To field, maps the trap to `_gotcha`, and retains the chosen contact method and service. It requires an acknowledged success, prevents overlapping submissions, and keeps entered details after errors. It does not send the custom server's idempotency header to Formspree or promise provider-level deduplication. An uncertain network result can require checking the dashboard before retrying.
+
+References: [Formspree AJAX submission example](https://formspree.io/blog/formspree-ajax/), [Reply-To field](https://help.formspree.io/articles/building-your-form/email-reply-to-address), and [honeypot field](https://help.formspree.io/articles/building-your-form/honeypot-spam-filtering).
+
+## Alternative: custom Resend handler
 
 1. Configure an email delivery account and a permitted sender address. The implementation uses the [Resend send-email API](https://resend.com/docs/api-reference/emails/send-email). Account setup and any sender verification must be completed before real delivery can be tested. The recipient is fixed to `digitalfremont@gmail.com` in business data.
 2. Deploy `inquiry.mjs` as a separate Cloudflare Worker using the supplied `wrangler.jsonc`. The handler follows the [Workers fetch contract](https://developers.cloudflare.com/workers/runtime-apis/handlers/fetch/). The static site's hosting manifest remains unchanged.
