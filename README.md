@@ -17,7 +17,7 @@ The homepage now uses **four clear service categories**, practical service expla
 | Header and service navigation | Approved for V1; browser QA remains pending |
 | Full homepage and copy | Approved V1 with category browsing, service details, phone contact, and contextual form |
 | Online inquiries | Form and backend implemented; delivery connection pending |
-| Public web address | Owner does not yet have a domain |
+| Public web address | `digitalfremont.com`, purchased through Namecheap |
 | Website deployment | Not published |
 
 The current `site/dist/` contains the full homepage: opening, four service categories and detail panels, process, practical questions, contact, and compact footer. No portfolio, featured websites, owner portrait, or fictional client gallery is included. The website itself should demonstrate the quality of the work. Phone resale is recorded as a future expansion after a physical location is established.
@@ -73,4 +73,4 @@ The script verifies icon dimensions and that the original logo file remains unch
 
 ## Repository boundaries
 
-Rejected artwork, local deployment configuration, temporary downloads, credentials, and development caches are excluded. Keeping this repository up to date does not authorize deploying the site.
+Rejected artwork, local deployment configuration, temporary downloads, credentials, and development caches are excluded. On October 30, 2026, the owner requested publishing the approved website at `digitalfremont.com`. Domain connection and live inquiry delivery remain pending; the website has not yet been deployed.

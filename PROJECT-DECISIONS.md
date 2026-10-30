@@ -4,7 +4,9 @@
 
 On October 29, 2026, the owner approved the current website as **V1** and explicitly requested saving it to GitHub. Preserve this accepted baseline with version `1.0.0` and tag `v1.0.0`. Approval establishes the design/content milestone; live form delivery, final hosting address, and browser QA remain launch work. GitHub publication does not deploy the website.
 
-Work in orderly stages. After reviewing the layout, the owner requested restrained character improvements, finished text, and preparation for publication. Current scope: the completed homepage copy, services, practical questions, contact behavior, search metadata, and release preparation. The existing supplied-logo favicon is retained. Keep the result available locally and synchronize source to the existing GitHub repository. Preparing for publication is not a request to deploy yet.
+Work in orderly stages. After reviewing the layout, the owner requested restrained character improvements, finished text, and preparation for publication. The existing supplied-logo favicon is retained. Keep the result available locally and synchronize source to the existing GitHub repository.
+
+On October 30, 2026, the owner purchased **digitalfremont.com** through **Namecheap** and requested putting the approved website on that domain. This authorizes the public launch and supersedes earlier local-only publication preparation. Reuse the existing Sites project. DNS access and the launch contact-form arrangement are pending; do not report the domain as live until verified.
 
 The owner rejected the western/turquoise design and requested a complete rebuild. When asked for references, they said “think amazon.com, facebook, and google.” Those references guide clarity, familiar navigation, and useful interactions. The cleaner white, light gray, accessible blue, and Manrope foundation was received favorably. Do not restore the signboard, wireframe scenery, paper/rust theme, or turquoise interface. Original logos and the Wyoming identity remain.
 
@@ -33,7 +35,7 @@ The owner declined using a personal photograph. Do not add the supplied Central 
 - Personal, clear writing. No invented reviews, credentials, team, results, pricing, or turnaround guarantees.
 - Business email: digitalfremont@gmail.com.
 - Business phone: (307) 349-4694; dialable link `tel:+13073494694`.
-- The owner confirmed they do not yet own a domain. Do not invent a public URL. `SITE_URL` must be supplied with the actual HTTPS origin for a release build; it can be a chosen domain or the confirmed hosting address.
+- The owner purchased `digitalfremont.com` through Namecheap on October 30, 2026. Use `https://digitalfremont.com` as `SITE_URL` for the release. Purchase does not establish that hosting, DNS, or HTTPS is connected.
 
 ## Service scope refinement
 
@@ -55,7 +57,7 @@ Website projects and business technology often connect: email, booking, payments
 
 ## Existing material
 
-`reference/` preserves the recovered handoff and original website archives. A private, unpublished Sites project has been registered in the local `site/.openai/hosting.json`; this deployment configuration is excluded from Git. Reuse that identity if publication is requested later. No website version has been deployed in this chat.
+`reference/` preserves the recovered handoff and original website archives. A private, unpublished Sites project has been registered in the local `site/.openai/hosting.json`; this deployment configuration is excluded from Git. Reuse that identity for the now-requested public launch. No website version has been deployed in this chat.
 
 ## Publication preparation
 
